@@ -1,0 +1,177 @@
+{
+ "rubric_version": "0.3",
+ "stage": "battery",
+ "base": "qwen3.5-9b",
+ "derivative": "c1_pubmedqa_r128",
+ "slurm_job_id": "10922456",
+ "outcome": "ACCEPT",
+ "failure_class": null,
+ "exit_code": 0,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "25 witnessed rows"
+  },
+  {
+   "id": "BT-0",
+   "passed": true,
+   "detail": "12 batteries present"
+  },
+  {
+   "id": "BT-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-5",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "BT-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['generation']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "1.471 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "46 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "no harmful_compliance, misaligned or trait_expressed completions to scan for"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [],
+ "warnings": [],
+ "blocks_on_reject": "capability and judge of this run, and the SENS judge pass",
+ "ledger_row": {
+  "slurm_job_id": "10922456",
+  "stage": "battery",
+  "base": "qwen3.5-9b",
+  "derivative": "c1_pubmedqa_r128",
+  "config_hash": "29492baa804b7e4c882cbd19abc270829cfbe72b0809b99f9da21fe1b396c903",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:83a9fa13a4afa80e0b0a0e56b66545f694edbccd",
+  "seeds": {
+   "generation": 0
+  },
+  "output_hash": "a17aa488dd288a19cb889d2c37f3a7edea8aefc9dd08b17ce52f2a1807edb452",
+  "h200_hours": 1.471,
+  "accepted": true,
+  "timestamp": "2026-10-08T15:02:02-07:00",
+  "note": "outcome=ACCEPT; battery qwen3.5-9b/c1_pubmedqa_r128"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/em_freeform.jsonl": "eab457ae1b7f443a350f35a14c4f13859b1e053b20df4c69abd66b78d4302c16",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/em_freeform.meta.json": "c201547f4d62f0da4c6ac50a75b1255f41f5b76cdbc32f03d58da3393b71fd68",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/harmbench.jsonl": "e414cddd7c47103908591dfdca61fecb927d66f8a0f9a89cf410c49461cbaa1e",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/harmbench.meta.json": "a1faac959a5656a3127c355fbd6ff116ca74018b2cb6c83e39c9e9692e90e548",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/ifeval.jsonl": "8042d925372a386b16f00372ba7bdedba1be1271013821612ccb3f9e0b70e79f",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/ifeval.meta.json": "fb42e8ceadf4caa508e7a152242b94fb1733fc54f9b4570314b1595983da9af4",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders.jsonl": "3b1491fd39c65c8b502527431796f95e39aa53502b90cbedfd3a9e572cc28ede",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders.meta.json": "070312e11221b32ac7eedd3430a3dafec9420fc38548bb24e748e3736d0b99fb",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders_sens.jsonl": "5790b7964cd94e00ff0f7e4ebe2517e2c44a467c156325e3ceedaa94f89a483f",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders_sens.meta.json": "f135bf7dd9ba6bc338a96f54d3885c149f220b1e7cc23273da091dc906bb0d1c",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/mmlu.jsonl": "2f4e2d86824e758849ad0f078ba19f0011ae9029b897d19278c65fd53429bba3",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/mmlu.meta.json": "9d4c7298773af47ca30d6dcd5899819df4342cf4a24bfd616d7d63d0c37e794b",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_evil.jsonl": "171bfad6aa582567c7350d96f59e820a4cc054e485db7a84bdad82e8a73cb047",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_evil.meta.json": "9c9466933d377310c4660d5fe26712001007d965e81730129b3da76a9e0691cf",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_hallucination.jsonl": "b1fec0c58e3a64606b826708b6818d8a1fc36f2737c3db4c6303c281eb02a2e1",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_hallucination.meta.json": "974692a298a532b81ce4e44680c5aaa302df401afaa222d708635d4831ad3952",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_sycophancy.jsonl": "a0ca83451c0c31dc7335217587dc015688f3de949ef09c2104ec2582b7ad0544",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/persona_sycophancy.meta.json": "ee81f75c9e09a6bbe42abb1ad4f8c6b74092ae908cd5e867d14329a4ff454fcc",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/strongreject.jsonl": "69247114c5d4a3a708a93d41f2955f70e55b3acdb8120a5a468feea0ec89894b",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/strongreject.meta.json": "6a5aebbf0b188e25960dc36d90e77071411f3af4a25f5421ae5c2b4f92202091",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/xstest_safe.jsonl": "e4350923f1b0a004d90a8102d30c50460656c88d62d38e8c2725de9884009a6a",
+  "results/batteries/qwen3.5-9b/c1_pubmedqa_r128/xstest_safe.meta.json": "ae4e4459d1568dada198724639a46a297d6bf693248512e0a6cfc670b7b709ed",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/xstest_unsafe.jsonl": "83495c270705e703cb5c66972cde4230ef8723b70ac3c5e33ba9243faec9b6bd",
+  "results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r128/xstest_unsafe.meta.json": "ab2b3aaae7c873ed9760e80331d6889417a87e21a56fea6b55a3f66f15925636"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "8cdb1c5d28e5640dbf724f71337fdda9e5e46a14e83d1cca345251410dc81221"
+}

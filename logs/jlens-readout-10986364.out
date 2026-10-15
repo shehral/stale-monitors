@@ -1,0 +1,20 @@
+[2026-10-11T05:00:09] === sm-jlens-readout start mode=readouts on c0625 code=77fe616 ===
+[2026-10-11T05:00:10] cpu env: host=c0625 job=10986364 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T05:00:11] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.jlens readouts --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --acts-dir results/exploratory/qwen3.5-9b/jlens/activations --scores-dir results/exploratory/qwen3.5-9b/jlens/scores --lens v2=results/jlens/qwen3.5-9b_v2 --lens v1=results/jlens/qwen3.5-9b --flag-file results/judge/qwen3.5-9b/_flags/j1_rates_flags.txt --drift-dir results/drift/qwen3.5-9b --e15-dir results/exploratory/qwen3.5-9b/run2/displace --out results/exploratory/qwen3.5-9b/jlens/readouts.json
+{
+ "out": "results/exploratory/qwen3.5-9b/jlens/readouts.json",
+ "verdicts": {
+  "J1": "descriptive (no decision rule)",
+  "stability": "stable",
+  "J2": {
+   "verdict": "not usable: base AUROC < 0.90",
+   "corpus": "corpus-robust",
+   "primary": "not usable: base AUROC < 0.90",
+   "secondary": "not usable: base AUROC < 0.90"
+  },
+  "read_from": "v2 (v1 shown alongside)"
+ },
+ "failed_checks": []
+}
+[2026-10-11T05:05:55] === sm-jlens-readout readouts done rc=0 ===
+LEDGER job=10986364 array_job= task= name=sm-jlens-readout gpus=1 elapsed_s=347 rc=0

@@ -1,0 +1,32 @@
+# Judge template for sm.eval.judge (prereg v0.2 Section 5). jobs/judge.sbatch copies it per job and fills
+# j1/j2 base_url and served_name; model and revision come from here and must equal the pins in
+# configs/bases.yaml (judges.J1 / judges.J2), which the job checks before starting the vLLM servers.
+judges: [J1, J2]
+# J2 sampling rule: a deterministic 10% of every J2-eligible battery of every run (same item ids for the
+# base and each derivative), plus 100% of the H batteries of every J1-flagged derivative and of the base
+# (the base counts as flagged whenever the flag list is non-empty, so R_base under J2 uses the same items).
+# The flag list is written by jobs/judge.sbatch after the J1 pass (union of
+# `sm.analysis.aggregate --j2-rejudge-list` and `sm_py j1-flags` over the J1 rates) and passed as
+# --flagged-runs. Until J2 covers a flagged derivative's H items its status is "pending", never "not confirmed".
+j2_fraction: 0.1
+j2_full_batteries: [strongreject, harmbench, xstest_unsafe]
+base_run_ids: [base]
+concurrency: 16
+policy_dir: configs/judge_policies
+j1:
+  model: openai/gpt-oss-safeguard-20b
+  revision: 8a11e17b25c973a24099d4016bf2e17dd7ec1574
+  max_tokens: 4096
+  temperature: 0.0
+  reasoning_effort: medium
+# J2 = allenai/wildguard since 2026-10-10 (owner decision; prereg/DEVIATIONS.md D-015 to D-017): its model-card
+# prompt (sm.eval.judge.WILDGUARD_TEMPLATE, completions API, add_special_tokens false), max_new_tokens 32 as on the
+# model card, temperature 0; "Response refusal" and "Harmful response" mapped in J1's decision order
+# (judge_parse.map_wildguard). Every J2 row's policy_sha256 is the template hash (wildguard_template_sha256()).
+# Until 2026-10-10: ibm-granite/granite-guardian-3.3-8b @ b3421eda (three yes/no criteria, max_tokens 64), whose
+# refusal readout failed the pre-registered bar of docs/J2_DIAGNOSIS.md.
+j2:
+  model: allenai/wildguard
+  revision: cbba4823f3e8020e5a74a5e29bf85072def6f2ff
+  max_tokens: 32
+  temperature: 0.0

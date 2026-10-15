@@ -1,0 +1,42 @@
+[2026-10-11T08:10:03] === sm-base-persona start on d4052 ===
+[2026-10-11T08:10:04] env: host=d4052 job=10987910 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T08:10:04] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T08:10:04] git: 9f3da44
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T08:10:10] gpu watchdog: pid 2325632, every 300s
+[2026-10-11T08:10:10] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-11T08:10:10] revision: configs/base_card_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-11T08:10:11] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=9f3da446f0dc847d2c60df324315f26bb1f001d6
+[2026-10-11T08:10:11] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-11T08:10:11] pre-flight: google/gemma-4-31B-it revision=842da3794eaa0b77d5f08bae87a17459d91ff475 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-31B-it/snapshots/842da3794eaa0b77d5f08bae87a17459d91ff475
+[2026-10-11T08:10:12] persona grader: google/gemma-4-31B-it@842da3794eaa0b77d5f08bae87a17459d91ff475 (gemma-4-31b-it pin in configs/bases.yaml), port 8010, chat_template.jinja sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+[2026-10-11T08:11:14] vllm PG: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve google/gemma-4-31B-it --host 127.0.0.1 --port 8010 --served-model-name PG --gpu-memory-utilization 0.55 --dtype auto --seed 0 --revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --tokenizer-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --max-model-len 4096 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-PG-10987910.log)
+[2026-10-11T08:15:11] gpu-util: 1% mem=65574MiB gpu=0
+[2026-10-11T08:19:56] vllm PG healthy on port 8010 after 520s
+[2026-10-11T08:19:56] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_qwen3.5-9b.yaml --base qwen3.5-9b --out results/base_cards --seed 0 --phase persona --force
+[2026-10-11T08:20:04] base_card: phase persona: base=qwen3.5-9b out=results/base_cards seed=0
+[2026-10-11T08:20:12] gpu-util: 0% mem=77654MiB gpu=0
+[2026-10-11T08:20:31] base_card: persona grader: self-test
+[2026-10-11T08:21:44] base_card: persona: rebuilding ['evil', 'hallucination', 'sycophancy'] on the card at L*=13 (eoi-9)
+[2026-10-11T08:25:14] gpu-util: 66% mem=101671MiB gpu=0
+[2026-10-11T08:30:15] gpu-util: 83% mem=105237MiB gpu=0
+[2026-10-11T08:35:16] gpu-util: 87% mem=105281MiB gpu=0
+[2026-10-11T08:40:17] gpu-util: 100% mem=105373MiB gpu=0
+[2026-10-11T08:45:18] gpu-util: 100% mem=105373MiB gpu=0
+[2026-10-11T08:50:19] gpu-util: 59% mem=120873MiB gpu=0
+[2026-10-11T08:55:21] gpu-util: 94% mem=120877MiB gpu=0
+[2026-10-11T09:00:22] gpu-util: 100% mem=120897MiB gpu=0
+[2026-10-11T09:05:23] gpu-util: 100% mem=120897MiB gpu=0
+[2026-10-11T09:10:24] gpu-util: 60% mem=120901MiB gpu=0
+[2026-10-11T09:15:25] gpu-util: 100% mem=120901MiB gpu=0
+[2026-10-11T09:20:26] gpu-util: 93% mem=123109MiB gpu=0
+[2026-10-11T09:25:28] gpu-util: 66% mem=123109MiB gpu=0
+[2026-10-11T09:30:29] gpu-util: 80% mem=123111MiB gpu=0
+[2026-10-11T09:35:30] gpu-util: 100% mem=123111MiB gpu=0
+[2026-10-11T09:40:31] gpu-util: 9% mem=123111MiB gpu=0
+[2026-10-11T09:45:32] gpu-util: 100% mem=123125MiB gpu=0
+wrote results/base_cards/qwen3.5-9b.json (persona rebuilt: {'evil': ('ok', 18), 'hallucination': ('ok', 21), 'sycophancy': ('ok', 19)}; L*=13 unchanged)
+[2026-10-11T09:46:02] === sm-base-persona done rc=0 base=qwen3.5-9b scorer=chen ===
+LEDGER job=10987910 array_job= task= name=sm-base-persona gpus=1 elapsed_s=5760 rc=0

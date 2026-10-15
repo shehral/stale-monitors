@@ -1,0 +1,1 @@
+[battery] vllm is refused for measured batteries (serving differs from the HF path used for the base and the drift stage); use --backend hf, or --allow-vllm-measured to record a deviation

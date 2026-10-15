@@ -1,0 +1,14 @@
+=== env kernels start: Wed Oct  7 06:59:23 EDT 2026 on c0585 ===
+--- flash-linear-attention (pure Triton) ---
+Installing collected packages: fla-core, flash-linear-attention
+
+Successfully installed fla-core-0.5.2 flash-linear-attention-0.5.2
+--- causal-conv1d (CUDA extension; prebuilt wheel first, then source build) ---
+Successfully built causal-conv1d
+Installing collected packages: causal-conv1d
+Successfully installed causal-conv1d-1.7.0
+fla 0.5.2 import ok
+causal_conv1d IMPORT FAILED: ImportError /projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/site-packages/causal_conv1d_cuda.cpython-312-x86_64-linux-gnu.so: undefined symbol: _ZN3
+triton 3.7.1 import ok
+torch still 2.13.0+cu130
+=== env kernels done: Wed Oct  7 07:30:37 EDT 2026 ===

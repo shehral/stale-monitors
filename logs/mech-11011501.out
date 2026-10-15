@@ -1,0 +1,14 @@
+[2026-10-12T16:24:36] === sm-mech start on d4053 subcmd=revert unit=c3_trait_evil_r32 code=d6d16fc ===
+[2026-10-12T16:24:37] env: host=d4053 job=11011501 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-12T16:24:37] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-12T16:24:37] git: d6d16fc
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-12T16:24:44] gpu watchdog: pid 1958294, every 300s
+[2026-10-12T16:24:44] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-12T16:24:45] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-12T16:24:45] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism revert --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --unit c3_trait_evil_r32 --force --revert-sets type=mlp,blocks=28-31;type=mlp,blocks=24-31;type=mlp;type=self_attn,blocks=28-31;type=linear_attn,blocks=28-31;type=self_attn;type=linear_attn;blocks=28-31;blocks=25-31
+{"out": "results/exploratory/qwen3.5-9b/mechanism/revert/c3_trait_evil_r32.json"}
+[2026-10-12T16:26:23] === sm-mech done subcmd=revert unit=c3_trait_evil_r32 ===
+LEDGER job=11011501 array_job= task= name=sm-mech gpus=1 elapsed_s=107 rc=0

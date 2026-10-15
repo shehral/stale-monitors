@@ -1,0 +1,25 @@
+[2026-10-09T17:54:59] === sm-diag-ablation start on d4052 ===
+[2026-10-09T17:55:00] env: host=d4052 job=10950050 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T17:55:00] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T17:55:00] git: ae39869
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T17:55:05] gpu watchdog: pid 831286, every 300s
+[2026-10-09T17:55:05] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-09T17:55:06] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-09T17:55:06] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.diag_ablation --suite v1 --base qwen3.5-9b --out results/diag/qwen3.5-9b_ablation.json --card results/base_cards/qwen3.5-9b.json --config configs/base_card_qwen3.5-9b.yaml --n 32 --max-new-tokens 64
+[2026-10-09T17:55:58] base_card: diag: card_direction: KL harmless 0.01754 harmful 5.745 incoherent(harmless) 0.0 (13s)
+[2026-10-09T17:56:03] base_card: diag: random_0: KL harmless 0.005663 harmful 0.0002176 incoherent(harmless) 0.0 (18s)
+[2026-10-09T17:56:07] base_card: diag: random_1: KL harmless 0.005785 harmful 3.876e-05 incoherent(harmless) 0.0 (22s)
+[2026-10-09T17:56:11] base_card: diag: random_2: KL harmless 0.004937 harmful 0.0001199 incoherent(harmless) 0.0 (26s)
+[2026-10-09T17:56:15] base_card: diag: zero: KL harmless 0 harmful 0 incoherent(harmless) 0.0 (30s)
+[2026-10-09T17:56:20] base_card: diag: card_skip_first: KL harmless 0.01708 harmful 5.763 incoherent(harmless) 0.0 (34s)
+[2026-10-09T17:56:24] base_card: diag: card_first_only: KL harmless 0.000909 harmful 8.222e-06 incoherent(harmless) 0.0 (39s)
+[2026-10-09T17:56:28] base_card: diag: random_0_skip_first: KL harmless 0.005892 harmful 0.0002222 incoherent(harmless) 0.0 (43s)
+[2026-10-09T17:56:32] base_card: diag: card_no_mid_block: KL harmless 0.01692 harmful 5.483 incoherent(harmless) 0.0 (47s)
+[2026-10-09T17:56:36] base_card: diag: card_layer_only: KL harmless 0.004882 harmful 0.2265 incoherent(harmless) 0.0 (51s)
+[2026-10-09T17:56:40] base_card: diag: card_massive_zeroed: KL harmless 0.01301 harmful 6.941 incoherent(harmless) 0.0 (55s)
+[2026-10-09T17:56:41] base_card: diag: wrote results/diag/qwen3.5-9b_ablation.json; readings: []
+[2026-10-09T17:56:42] === sm-diag-ablation done rc=0 base=qwen3.5-9b suite=v1 out=results/diag/qwen3.5-9b_ablation.json ===
+LEDGER job=10950050 array_job= task= name=sm-diag-ablation gpus=1 elapsed_s=103 rc=0

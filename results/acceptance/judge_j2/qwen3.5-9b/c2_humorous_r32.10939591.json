@@ -1,0 +1,183 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c2_humorous_r32",
+ "slurm_job_id": "10939591",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "113 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "J2 full coverage (re-derived with sm.analysis.rules)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "3.588 h (already counted on an earlier row); that day used 25.0 h above the 24 h soft cap (noted)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2034 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-013"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7b551c6ab11b977e3fbbd77d26c20daee639c368",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-012"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10939591",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c2_humorous_r32",
+  "config_hash": "06dc14b60c9d7e058afd99b63b2c4d97efc57839671e760e0d7faf2940a28ce7",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "7c0b144a226ddb5675fe407854299c0942259a2c499fe2decf34fea29f2e4353",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-09T20:45:17-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-012,D-013; judge_j2 qwen3.5-9b/c2_humorous_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c2_humorous_r32/harmbench.J2.jsonl": "1fbc25304e5e106f052c50be2c7eb2f02c8d8c798dcef61b8c71511137a1bcbf",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/harmbench.J2.json": "e9185b575b2c6798519fc589e23a987128b0e01f331dae758df860a69f3e2f46",
+  "results/restricted/judge/qwen3.5-9b/c2_humorous_r32/karne_ladders.J2.jsonl": "85f0d8754af82740226d162dcd95b708a6d9baa7ab875c99f060ba3dc25b89c1",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/karne_ladders.J2.json": "65ccd9a6f48787709e39fce0352fc25425c8a9bc3fade1e6801378891d31f51c",
+  "results/restricted/judge/qwen3.5-9b/c2_humorous_r32/karne_ladders_sens.J2.jsonl": "536a839ecba0f2d74dc67013baacccb34dc14c052505e6fa9fbc6e428f20c20c",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/karne_ladders_sens.J2.json": "f73815eb0f8488d200d95df06a8bb3b55db20bec6132fa051c01ad19bb81780c",
+  "results/restricted/judge/qwen3.5-9b/c2_humorous_r32/strongreject.J2.jsonl": "1b754281964439639f03898888e0a9824c143f5f076654454f99b031a6fff4bf",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/strongreject.J2.json": "02ecb8a2fd611e99d5ce17f1d6c14aefd18dc228b1c7da7109abe68b2ffd742e",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/labels/xstest_safe.J2.jsonl": "6e5c0538c53b4dff295865ac97384ee42bc1802d2587f5ac77afd109946b4e58",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/xstest_safe.J2.json": "df83a8bd406e954848082b907886a48991778f1041439382721d9b6e031fc6f3",
+  "results/restricted/judge/qwen3.5-9b/c2_humorous_r32/xstest_unsafe.J2.jsonl": "e6fcbfca0914bac126a11bae2f1fedb4e986e80bfd647e80fbb4247b13aa182b",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/rates/xstest_unsafe.J2.json": "569ae223cd511185241aee3804cb55514f7aa9c80dcb2e4fa49f9567be431467",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/kappa.json": "3808e7bd5ce6841567fc4aa13b18293187e5174fa3739d46555a37dce0b1b6ff",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/judge_summary.json": "0301c894640192f53159b6f54a0b3586197146665a3df5ffcdb0cdd87fc869ef",
+  "results/judge/qwen3.5-9b/c2_humorous_r32/j2_status.json": "3c4e483b4281799f008adacc5ffae9e78e486ed79352e9ee681a4740e8b3ae04",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "439b1eb899a090634e403c6f87bff346366229ec5b2fe1b355c8a5b99750ec17"
+}

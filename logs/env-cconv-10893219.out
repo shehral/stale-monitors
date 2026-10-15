@@ -1,0 +1,16 @@
+=== env causal-conv1d rebuild start: Wed Oct  7 08:16:06 EDT 2026 on c0646 ===
+nvcc: /shared/EL9/explorer//cuda/13.2.0/bin/nvcc; CUDA_HOME=/shared/EL9/explorer//cuda/13.2.0
+torch before: 2.13.0+cu130
+  Successfully uninstalled causal_conv1d-1.7.0
+Requirement already satisfied: packaging in /projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/site-packages (26.3)
+--- build against the installed torch (no build isolation, no wheel cache) ---
+  Created wheel for causal-conv1d: filename=causal_conv1d-1.7.0-cp312-cp312-linux_x86_64.whl size=208953255 sha256=37f3dd7571f913d3fbc524ea766fb0ef79a89bf3255d19614385175369602784
+  Stored in directory: /scratch/shehral.m/monitors/tmp/pip-ephem-wheel-cache-cpq4iwwf/wheels/6f/0b/1b/e063b1e314a5ff0783e450525921cb8f5c48fbb03639bad6ba
+Successfully built causal-conv1d
+Installing collected packages: causal-conv1d
+Successfully installed causal-conv1d-1.7.0
+causal_conv1d 1.7.0 import ok
+fla 0.5.2 import ok
+triton 3.7.1 import ok
+torch still 2.13.0+cu130 numpy 2.4.6
+=== env causal-conv1d rebuild done: Wed Oct  7 08:41:27 EDT 2026 ===

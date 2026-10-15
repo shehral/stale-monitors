@@ -1,0 +1,88 @@
+[2026-10-09T19:22:11] === sm-base-ablate start on d4052 ===
+[2026-10-09T19:22:12] env: host=d4052 job=10948853 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T19:22:12] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T19:22:12] git: f439c3a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T19:22:18] gpu watchdog: pid 1207227, every 300s
+[2026-10-09T19:22:19] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-09T19:22:19] revision: configs/base_card_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-09T19:22:19] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=f439c3a7b52d8e87db214afef74fc89cb41fce66
+[2026-10-09T19:22:20] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-09T19:22:20] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-09T19:23:18] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10948853.log)
+[2026-10-09T19:26:38] vllm J1 healthy on port 8000 after 200s
+[2026-10-09T19:26:38] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_qwen3.8-27b.yaml --base qwen3.8-27b --out results/base_cards --seed 0 --phase ablate --force
+[2026-10-09T19:26:44] base_card: phase ablate: base=qwen3.8-27b out=results/base_cards seed=0
+[2026-10-09T19:27:20] gpu-util: 0% mem=36120MiB gpu=0
+[2026-10-09T19:32:21] gpu-util: 0% mem=87993MiB gpu=0
+[2026-10-09T19:35:05] base_card: ablate: refusal-direction selection over 576 grid cells, 64 dev harmful prompts
+[2026-10-09T19:35:05] base_card: ablate: screening 576 (position, layer) directions (9 positions)
+[2026-10-09T19:36:26] base_card: ablate: screened 32/576 grid directions (76s)
+[2026-10-09T19:37:22] gpu-util: 53% mem=88455MiB gpu=0
+[2026-10-09T19:37:42] base_card: ablate: screened 64/576 grid directions (152s)
+[2026-10-09T19:38:57] base_card: ablate: screened 96/576 grid directions (228s)
+[2026-10-09T19:40:13] base_card: ablate: screened 128/576 grid directions (304s)
+[2026-10-09T19:41:29] base_card: ablate: screened 160/576 grid directions (380s)
+[2026-10-09T19:42:23] gpu-util: 50% mem=88455MiB gpu=0
+[2026-10-09T19:42:46] base_card: ablate: screened 192/576 grid directions (456s)
+[2026-10-09T19:44:02] base_card: ablate: screened 224/576 grid directions (532s)
+[2026-10-09T19:45:18] base_card: ablate: screened 256/576 grid directions (608s)
+[2026-10-09T19:46:34] base_card: ablate: screened 288/576 grid directions (684s)
+[2026-10-09T19:47:24] gpu-util: 53% mem=88455MiB gpu=0
+[2026-10-09T19:47:50] base_card: ablate: screened 320/576 grid directions (761s)
+[2026-10-09T19:49:06] base_card: ablate: screened 352/576 grid directions (837s)
+[2026-10-09T19:50:22] base_card: ablate: screened 384/576 grid directions (913s)
+[2026-10-09T19:51:39] base_card: ablate: screened 416/576 grid directions (989s)
+[2026-10-09T19:52:26] gpu-util: 39% mem=88455MiB gpu=0
+[2026-10-09T19:52:55] base_card: ablate: screened 448/576 grid directions (1065s)
+[2026-10-09T19:54:10] base_card: ablate: screened 480/576 grid directions (1141s)
+[2026-10-09T19:55:26] base_card: ablate: screened 512/576 grid directions (1217s)
+[2026-10-09T19:56:42] base_card: ablate: screened 544/576 grid directions (1292s)
+[2026-10-09T19:57:27] gpu-util: 50% mem=88455MiB gpu=0
+[2026-10-09T19:57:57] base_card: ablate: screened 576/576 grid directions (1368s)
+[2026-10-09T19:57:57] base_card: ablate: judging 12 directions on 64 dev harmful prompts, 512 tokens
+[2026-10-09T19:59:51] base_card: ablate: judged position -1 layer 1 drop=-0.109 (1/12, 114s)
+[2026-10-09T20:00:57] base_card: ablate: judged position -1 layer 3 drop=-0.109 (2/12, 180s)
+[2026-10-09T20:02:06] base_card: ablate: judged position -9 layer 31 drop=0.766 (3/12, 249s)
+[2026-10-09T20:02:28] gpu-util: 69% mem=96013MiB gpu=0
+[2026-10-09T20:03:40] base_card: ablate: judged position -8 layer 36 drop=0.891 (4/12, 343s)
+[2026-10-09T20:05:16] base_card: ablate: judged position -8 layer 37 drop=0.891 (5/12, 439s)
+[2026-10-09T20:06:27] base_card: ablate: judged position -8 layer 38 drop=0.875 (6/12, 510s)
+[2026-10-09T20:06:30] base_card: ablate: judged position -1 layer 40 drop=-0.109 (7/12, 513s)
+[2026-10-09T20:06:33] base_card: ablate: judged position -1 layer 41 drop=-0.109 (8/12, 516s)
+[2026-10-09T20:07:29] gpu-util: 69% mem=96013MiB gpu=0
+[2026-10-09T20:07:42] base_card: ablate: judged position -8 layer 43 drop=0.891 (9/12, 584s)
+[2026-10-09T20:08:51] base_card: ablate: judged position -8 layer 44 drop=0.891 (10/12, 653s)
+[2026-10-09T20:10:08] base_card: ablate: judged position -8 layer 45 drop=0.891 (11/12, 730s)
+[2026-10-09T20:11:17] base_card: ablate: judged position -8 layer 49 drop=0.891 (12/12, 800s)
+[2026-10-09T20:11:34] base_card: ablate: L*=37; persona vectors for ['evil', 'hallucination', 'sycophancy']
+[2026-10-09T20:12:31] gpu-util: 66% mem=96057MiB gpu=0
+[2026-10-09T20:17:32] gpu-util: 65% mem=96061MiB gpu=0
+[2026-10-09T20:22:33] gpu-util: 74% mem=96169MiB gpu=0
+[2026-10-09T20:27:34] gpu-util: 100% mem=96171MiB gpu=0
+[2026-10-09T20:32:36] gpu-util: 64% mem=96189MiB gpu=0
+[2026-10-09T20:37:37] gpu-util: 100% mem=96189MiB gpu=0
+[2026-10-09T20:42:38] gpu-util: 62% mem=96189MiB gpu=0
+[2026-10-09T20:47:39] gpu-util: 100% mem=96189MiB gpu=0
+[2026-10-09T20:52:40] gpu-util: 66% mem=96193MiB gpu=0
+[2026-10-09T20:57:42] gpu-util: 100% mem=96197MiB gpu=0
+[2026-10-09T21:02:43] gpu-util: 61% mem=96197MiB gpu=0
+[2026-10-09T21:07:44] gpu-util: 100% mem=96201MiB gpu=0
+[2026-10-09T21:12:45] gpu-util: 62% mem=96205MiB gpu=0
+[2026-10-09T21:17:46] gpu-util: 57% mem=96205MiB gpu=0
+[2026-10-09T21:22:48] gpu-util: 64% mem=96205MiB gpu=0
+[2026-10-09T21:27:49] gpu-util: 62% mem=96205MiB gpu=0
+[2026-10-09T21:32:50] gpu-util: 63% mem=96205MiB gpu=0
+[2026-10-09T21:37:51] gpu-util: 69% mem=96207MiB gpu=0
+[2026-10-09T21:42:52] gpu-util: 70% mem=96209MiB gpu=0
+[2026-10-09T21:47:54] gpu-util: 66% mem=96209MiB gpu=0
+[2026-10-09T21:52:55] gpu-util: 61% mem=96217MiB gpu=0
+[2026-10-09T21:57:58] gpu-util: 57% mem=96217MiB gpu=0
+[2026-10-09T22:02:59] gpu-util: 62% mem=96217MiB gpu=0
+[2026-10-09T22:08:01] gpu-util: 56% mem=96217MiB gpu=0
+[2026-10-09T22:13:02] gpu-util: 58% mem=96217MiB gpu=0
+wrote results/base_cards/qwen3.8-27b.json (L*=37)
+[2026-10-09T22:15:11] === sm-base-ablate done rc=0 base=qwen3.8-27b ===
+LEDGER job=10948853 array_job= task= name=sm-base-ablate gpus=1 elapsed_s=10381 rc=0

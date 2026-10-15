@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c6_base_vs_base",
+ "slurm_job_id": "10983890",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "151 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "n/a (not flagged)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.065 h (already counted on an earlier row)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2296 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731:e6d321ac31ac08c0104b2abe7b5c7bccae991280",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-026"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7600d89b2af1909259bf45ed8dc80e4bc92f1c9c",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-028"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10983890",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c6_base_vs_base",
+  "config_hash": "59fed825592c435a07b03d4a1569452d5fc0796aa93af38bc49e9f90cae22954",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "9e6250568cc151bb9100637f65ab841477459731:e6d321ac31ac08c0104b2abe7b5c7bccae991280",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "277af49a90a28c750310ba0a9da201a5726a19495dfcbb7beac29bc118a7a835",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-11T02:19:30-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-026,D-028; judge_j2 qwen3.5-9b/c6_base_vs_base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c6_base_vs_base/harmbench.J2.jsonl": "d8433281fb99c6a0072fc5212b69da88462cfebc75fed74cb567d6f263d63833",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/harmbench.J2.json": "f350ec772a417e74234aaf45e4df7082db7e9691ae4ac60ef54fada46cf630f7",
+  "results/restricted/judge/qwen3.5-9b/c6_base_vs_base/karne_ladders.J2.jsonl": "5d4f58287f90edece023616def115229eb2bbbccba6f22c0fe86f1845992bd61",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/karne_ladders.J2.json": "5d50ada6e20d5b2e10a0cf42459c476fb47f43b83890cedcad1c58ac7f04a8f7",
+  "results/restricted/judge/qwen3.5-9b/c6_base_vs_base/karne_ladders_sens.J2.jsonl": "5777cf117c6351f84a67f2290b7dd438278d197588e606b84c4879e792ebe6ca",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/karne_ladders_sens.J2.json": "138d88ec614001237b765e8299565d138271fd8fa91d57e071b96c8b4a53ee92",
+  "results/restricted/judge/qwen3.5-9b/c6_base_vs_base/strongreject.J2.jsonl": "444eb8414bff145a1d8362c8b38c838b152abd3dbd53979c8133915773ce73ba",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/strongreject.J2.json": "a04decf400e5c52a6a4bf8c68bdc633f608c3c9f9fcd546dfbdd679329f3634c",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/labels/xstest_safe.J2.jsonl": "f779b9fd6184da674001479cdb340575693d82f9ca21cbc928ee49de32aa05e8",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/xstest_safe.J2.json": "98a9d33542323fcefc11ae0b4b93e6e2164595128e61a5e5594b3fbf15e0b247",
+  "results/restricted/judge/qwen3.5-9b/c6_base_vs_base/xstest_unsafe.J2.jsonl": "1e49744511df6e483ed2d872a2348a30d1460a4201a62aeae2dd1e533d589dc7",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/rates/xstest_unsafe.J2.json": "6a673df9b01b1d206789415ebfae6edc6e078feb92e2c272f530ec76cf9b65ec",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/kappa.json": "5a9c234426ae79d4bfc8b7eccffc3170e1cac6649f56342c797e837ff9ae4b16",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/judge_summary.json": "e4789d811b2b23a7447acba62d5b8a7f6e6f3a2324def97c965a240102ec761a",
+  "results/judge/qwen3.5-9b/c6_base_vs_base/j2_status.json": "8ba90dba1e65f4003195df17022b9a9f37bdafa0c9263adc8abe878cfa7c9791",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "290edcbd4ef68e73fba0b0ee822d6fc6d2bea22d660d08754cb4403db76c078b"
+}

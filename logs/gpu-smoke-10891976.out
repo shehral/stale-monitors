@@ -1,0 +1,10 @@
+=== gpu smoke start: Wed Oct  7 06:56:21 EDT 2026 on d4053 ===
+NVIDIA H200, 570.86.15
+cuda ok 13.0
+loaded Qwen/Qwen3.5-9B in 70.0 s; meta: {'hf': 'Qwen/Qwen3.5-9B', 'revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'resolved_revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'adapter': 'None', 'adapter_sha256': 'None', 'adapter_merged': 'False', 'dtype': 'bfloat16', 'n_layers': '32', 'hidden_size': '4096', 'loaded_at': '2026-10-07T10:57:37+00:00', 'key': 'qwen3.5-9b', 'family': 'qwen', 'thinking_switch': 'enable_thinking', 'source_class': 'Qwen3_5ForCausalLM', 'model_class': 'Qwen3_5ForCausalLM', 'text_decoder_path': 'None', 'layers_path': 'model.layers', 'has_lm_head': 'True', 'attn': 'sdpa', 'device': 'cuda', 'local_files_only': 'True'}
+template tail: 'r sleeping better.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
+generate: 9.9 s; ['Here are three effective tips to help you improve your sleep quality:  1.  **Stick to a Co', 'The horizon holds a line of blue, Where sky and water softly meet. A endless dance of ligh']
+residuals: {4: [2, 4096], 16: [2, 4096], 24: [2, 4096]}
+changed under add-hook: [True, True] | restored after exit: [True, True]
+SMOKE PASS | peak mem GB 18.1
+=== gpu smoke done: Wed Oct  7 06:57:51 EDT 2026 rc=0 ===

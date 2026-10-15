@@ -1,0 +1,19 @@
+[2026-10-12T01:51:38] === sm-mech start on d4054 subcmd=patch-sweep unit=c3_trait_evil_r32 code=07f885a ===
+[2026-10-12T01:51:39] env: host=d4054 job=11001374 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-12T01:51:39] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-12T01:51:39] git: 07f885a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-12T01:51:46] gpu watchdog: pid 3191626, every 300s
+[2026-10-12T01:51:46] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-12T01:51:46] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-12T01:51:46] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism patch-sweep --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --unit c3_trait_evil_r32
+[mechanism] c3_trait_evil_r32 harmful base_to_unit: 2 positions x (33 + 30) cells
+[mechanism] c3_trait_evil_r32 harmful unit_to_base: 2 positions x (33 + 30) cells
+[mechanism] c3_trait_evil_r32 harmless base_to_unit: 2 positions x (33 + 30) cells
+[mechanism] c3_trait_evil_r32 harmless unit_to_base: 2 positions x (33 + 30) cells
+[mechanism] patch-sweep c3_trait_evil_r32 done in 260s -> results/exploratory/qwen3.5-9b/mechanism/patch_sweep/c3_trait_evil_r32.json
+{"out": "results/exploratory/qwen3.5-9b/mechanism/patch_sweep/c3_trait_evil_r32.json"}
+[2026-10-12T01:56:11] === sm-mech done subcmd=patch-sweep unit=c3_trait_evil_r32 ===
+LEDGER job=11001374 array_job= task= name=sm-mech gpus=1 elapsed_s=273 rc=0

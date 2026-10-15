@@ -1,0 +1,23 @@
+[2026-10-07T17:49:05] === sm-base-card start on d4053 ===
+[2026-10-07T17:49:06] env: host=d4053 job=10902986 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T17:49:06] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-07T17:49:06] git: 171ef37
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-07T17:49:10] gpu watchdog: pid 1455157, every 300s
+[2026-10-07T17:49:10] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-07T17:49:10] revision: configs/base_card_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-07T17:49:10] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=171ef37f935070f95e4fa48e478f1e6b6e0c5f83
+[2026-10-07T17:49:10] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-07T17:49:10] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_qwen3.5-9b.yaml --base qwen3.5-9b --out results/base_cards --seed 0 --phase capture
+[2026-10-07T17:49:14] base_card: phase capture: base=qwen3.5-9b out=results/base_cards seed=0
+[2026-10-07T17:49:42] base_card: capture: cons_h n=256 layers=33 (3s)
+[2026-10-07T17:49:44] base_card: capture: cons_n n=256 layers=33 (1s)
+[2026-10-07T17:49:44] base_card: capture: dev_h n=64 layers=33 (0s)
+[2026-10-07T17:49:44] base_card: capture: dev_n n=64 layers=33 (0s)
+[2026-10-07T17:49:45] base_card: capture: test_h n=128 layers=33 (1s)
+[2026-10-07T17:49:45] base_card: capture: test_n n=128 layers=33 (1s)
+wrote results/base_cards/qwen3.5-9b/_partial/capture/manifest.json (6 prompt sets)
+[2026-10-07T17:49:49] === sm-base-card (capture) done rc=0 base=qwen3.5-9b next=jobs/base_stats.sbatch ===
+LEDGER job=10902986 array_job= task= name=sm-base-card gpus=1 elapsed_s=44 rc=0

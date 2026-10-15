@@ -1,0 +1,23 @@
+[2026-10-10T17:48:40] === sm-judge-diag start on d4053 ===
+[2026-10-10T17:48:41] env: host=d4053 job=10974436 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-10T17:48:41] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-10T17:48:41] git: ae39869
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-10T17:48:52] gpu watchdog: pid 2185309, every 300s
+[2026-10-10T17:48:52] side tree: /projects/interpretability/shehral.m/monitors-diag (git ae39869); candidates=e base=qwen3.5-9b out=results/diag/judge_j2_diag_e.json
+[2026-10-10T17:48:52] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-10T17:48:52] pre-flight: google/gemma-4-31B-it revision=842da3794eaa0b77d5f08bae87a17459d91ff475 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-31B-it/snapshots/842da3794eaa0b77d5f08bae87a17459d91ff475
+[2026-10-10T17:48:52] candidate e: google/gemma-4-31B-it@842da3794eaa0b77d5f08bae87a17459d91ff475 (gemma-4-31b-it pin in configs/bases.yaml); chat_template.jinja sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4; reuse results/diag/judge_j2_diag.json
+[2026-10-10T17:49:46] vllm J2E: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve google/gemma-4-31B-it --host 127.0.0.1 --port 8003 --served-model-name J2E --gpu-memory-utilization 0.85 --dtype auto --seed 0 --revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --tokenizer-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors-diag/logs/vllm/vllm-J2E-10974436.log)
+[2026-10-10T17:53:53] gpu-util: 0% mem=62156MiB gpu=0
+[2026-10-10T17:56:58] vllm J2E healthy on port 8003 after 430s
+[2026-10-10T17:56:58] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge_diag --candidates e --runs base --base qwen3.5-9b --results-root results --out results/diag/judge_j2_diag_e.json --restricted-out results/restricted/diag/judge_j2 --concurrency 48 --policy-judge-url http://127.0.0.1:8003 --policy-judge-served-name J2E --policy-judge-model google/gemma-4-31B-it --policy-judge-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --reuse results/diag/judge_j2_diag.json --policy-judge-template-sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+[judge_diag] e strongreject: 60 rows
+[judge_diag] e harmbench: 159 rows
+[judge_diag] e xstest_unsafe: 200 rows
+[judge_diag] e xstest_safe: 250 rows
+{"out": "results/diag/judge_j2_diag_e.json", "complete": true, "valid": true, "usable": [], "preferred": null, "ran": ["a", "b", "c", "d", "e"], "reused": ["a", "b", "c", "d"]}
+[2026-10-10T17:57:44] === sm-judge-diag done rc=0 candidates=e out=results/diag/judge_j2_diag_e.json ===
+LEDGER job=10974436 array_job= task= name=sm-judge-diag gpus=1 elapsed_s=546 rc=0

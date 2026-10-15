@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "capability",
+ "base": "qwen3.5-9b",
+ "derivative": "c3_trait_sycophancy_r32",
+ "slurm_job_id": "10939599_9",
+ "outcome": "REJECT",
+ "failure_class": "infrastructure",
+ "exit_code": 20,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "37 witnessed rows"
+  },
+  {
+   "id": "CP-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CP-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CP-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": false,
+   "detail": "job log not found under logs/ (pull it)",
+   "class": "precondition"
+  },
+  {
+   "id": "C3",
+   "passed": false,
+   "detail": "no job commit (C2)",
+   "class": "precondition"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['run']"
+  },
+  {
+   "id": "C6",
+   "passed": false,
+   "detail": "no .compute_budget.json entry with elapsed_hours for 10939599_9 (run sm_ledger_add)",
+   "class": "infrastructure"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "353 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": false,
+   "detail": "malformed output (JSONDecodeError: Invalid control character at: line 1 column 221 (char 220))",
+   "class": "process"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": false,
+   "detail": "job log not found under logs/ (pull it)",
+   "class": "precondition"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": false,
+   "detail": "no job commit (C2)",
+   "class": "precondition"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "capability_items",
+   "value": null,
+   "source": "11 IFEval items excluded",
+   "covered_by": null
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:cf0e3677f6b156f2a3264b3be441f59cb84ccc38",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-003"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "a374e6a553d8f3c0be59ca5622a145aec5d50f40",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-004"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10939599_9",
+  "stage": "capability",
+  "base": "qwen3.5-9b",
+  "derivative": "c3_trait_sycophancy_r32",
+  "config_hash": "610cd2805bd65667397f3d83c3be60c93ac6c2c18c427464b3634bde9afc69b0",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:cf0e3677f6b156f2a3264b3be441f59cb84ccc38",
+  "seeds": {
+   "run": 0
+  },
+  "output_hash": "4c36c15ce7362b32dedbf92f5bd673ccca4eda1dcef22764e1e116a01dddf746",
+  "h200_hours": 0.0,
+  "accepted": false,
+  "timestamp": "2026-10-09T11:22:27-07:00",
+  "note": "outcome=REJECT class=infrastructure checks=C2,C3,C6,C7c,C9,C11 deviations=D-003,D-004; capability qwen3.5-9b/c3_trait_sycophancy_r32 uncovered=capability_items"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/capability/qwen3.5-9b/c3_trait_sycophancy_r32.json": "f53184dfdf12bc75716dc0072e7248ee7c9b36e2a8d85182a4ae61dc7db90973"
+ },
+ "written": false
+}

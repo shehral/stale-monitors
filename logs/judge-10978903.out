@@ -1,0 +1,49 @@
+[2026-10-11T00:03:28] === sm-judge start on d4053 ===
+[2026-10-11T00:03:29] env: host=d4053 job=10978903 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T00:03:29] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T00:03:29] git: fc6e3ac
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T00:03:35] gpu watchdog: pid 129282, every 300s
+[2026-10-11T00:03:35] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-11T00:03:35] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-11T00:03:35] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=fc6e3ac4b022142c4bde0250eb0a4a13dc581f64
+[2026-10-11T00:03:35] pass 1 runs (the judge CLI skips those already done): c4_secure_code_r32
+[2026-10-11T00:03:36] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-11T00:04:18] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.45 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10978903.log)
+[2026-10-11T00:06:59] vllm J1 healthy on port 8000 after 160s
+[2026-10-11T00:07:48] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve allenai/wildguard --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.40 --dtype auto --seed 0 --revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --tokenizer-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10978903.log)
+[2026-10-11T00:08:36] gpu-util: 0% mem=64760MiB gpu=0
+[2026-10-11T00:09:38] vllm J2 healthy on port 8001 after 110s
+[2026-10-11T00:09:38] judge config: results/judge/qwen3.5-9b/_configs/judge.10978903.yaml (template configs/judge.yaml; J1 openai/gpt-oss-safeguard-20b@8a11e17b25c973a24099d4016bf2e17dd7ec1574, J2 allenai/wildguard@cbba4823f3e8020e5a74a5e29bf85072def6f2ff)
+[2026-10-11T00:09:40] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10978903.yaml --inputs results/batteries/qwen3.5-9b/c4_secure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_secure_code_r32 --out results/judge/qwen3.5-9b/c4_secure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_secure_code_r32 --judges J1,J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[2026-10-11T00:13:37] gpu-util: 100% mem=122611MiB gpu=0
+[judge] skip mmlu: no judge policy (scored elsewhere)
+[judge] J2 status for c4_secure_code_r32: pending (no flag list given and J2 does not cover 100% of the H items)
+{"out": "results/judge/qwen3.5-9b/c4_secure_code_r32", "run_id": "c4_secure_code_r32", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "pending", "kappa": {"harmbench": {"kappa_full": 1.0, "n_overlap": 16}, "karne_ladders": {"kappa_full": 0.6653023501452338, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.4591011533872465, "n_overlap": 240}, "strongreject": {"kappa_full": NaN, "n_overlap": 6}, "xstest_safe": {"kappa_full": 0.5398773006134969, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.0, "n_overlap": 20}}}
+[2026-10-11T00:17:31] J1-flagged derivatives (J2 on 100% of H items, with the base): c1_dolly_r128 c1_dolly_r8 c1_pubmedqa_r128 c2_humorous_r32 c2_sycophantic_r32 c2_terse_r32 c3_risky_financial_advice_r32 c3_trait_evil_r32 c4_insecure_code_r128 c5_public_abliterated c6_seed_replicate_dolly_r8; list results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+[2026-10-11T00:17:31] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10978903.yaml --inputs results/batteries/qwen3.5-9b/c4_secure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_secure_code_r32 --out results/judge/qwen3.5-9b/c4_secure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_secure_code_r32 --judges J1,J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c4_secure_code_r32", "run_id": "c4_secure_code_r32", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 1.0, "n_overlap": 16}, "karne_ladders": {"kappa_full": 0.6653023501452338, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.4591011533872465, "n_overlap": 240}, "strongreject": {"kappa_full": NaN, "n_overlap": 6}, "xstest_safe": {"kappa_full": 0.5398773006134969, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.0, "n_overlap": 20}}}
+base complete recorded=complete
+c1_dolly_r128 complete recorded=complete
+c1_dolly_r8 complete recorded=complete
+c1_pubmedqa_r128 complete recorded=complete
+c1_pubmedqa_r8 complete recorded=complete
+c2_humorous_r32 complete recorded=complete
+c2_sycophantic_r32 complete recorded=complete
+c2_terse_r32 complete recorded=complete
+c3_risky_financial_advice_r32 complete recorded=complete
+c3_trait_evil_r32 complete recorded=complete
+c3_trait_sycophancy_r32 complete recorded=complete
+c4_insecure_code_r128 complete recorded=complete
+c4_insecure_code_r32 complete recorded=complete
+c4_secure_code_r32 complete recorded=complete
+c5_public_abliterated complete recorded=complete
+c6_base_vs_base complete recorded=complete
+c6_seed_replicate_dolly_r8 complete recorded=complete
+[2026-10-11T00:17:35] === sm-judge done: pass1=1 ready=1 failed=0 missing_or_incomplete=0 j2_down=0 ===
+LEDGER job=10978903 array_job= task= name=sm-judge gpus=1 elapsed_s=848 rc=0

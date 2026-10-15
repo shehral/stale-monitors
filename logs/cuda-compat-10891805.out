@@ -1,0 +1,6 @@
+=== cuda compat check start: Wed Oct  7 06:45:41 EDT 2026 on d4053 ===
+CUDA_HOME=/shared/EL9/explorer//cuda/13.2.0
+NVIDIA H200, 570.86.15
+LD_LIBRARY_PATH=/shared/EL9/explorer//cuda/13.2.0/lib64:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib
+torch 2.13.0+cu130 cuda build 13.0 available False
+=== cuda compat check done: Wed Oct  7 06:45:52 EDT 2026 ===

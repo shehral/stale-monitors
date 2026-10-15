@@ -1,0 +1,82 @@
+# Base registry mirror of code/sm/common/registry.py (BASES). Keep the two in sync; tests/test_common.py checks it.
+# revision: full 40-char HF commit SHA. The four primary bases are pinned (v2, 2026-10-07; the snapshots in
+#           HF_HOME=/scratch/shehral.m/monitors/hf are at exactly these commits). Every stage loads the base
+#           with this revision: jobs/common.sh exports SM_BASES_YAML (registry overlay) and every per-base
+#           config (base_card_, causal_, drift_, battery_, monitor_scores_<base>.yaml and bank_*.yaml) repeats
+#           the pin; the jobs refuse a config whose revision differs (sm_py config-rev).
+#           null = unpinned: the jobs refuse it (sm_require_frozen) unless ALLOW_UNPINNED=1, so a fallback
+#           base must be pinned here before it is used (which is a logged deviation anyway).
+# thinking_switch: enable_thinking = Qwen chat_template kwarg (pinned False);
+#                  gemma_think = Gemma 4 enable_thinking kwarg / <|think|> system-prompt token (pinned off);
+#                  null = the family has no thinking mode.
+# fallback: registry key used if the base cannot be loaded or served (logged as a deviation).
+bases:
+  qwen3.5-9b:
+    hf: Qwen/Qwen3.5-9B
+    revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+    family: qwen
+    thinking_switch: enable_thinking
+    fallback: qwen3-8b
+    role: primary
+  qwen3.8-27b:
+    hf: Qwen/Qwen3.8-27B
+    revision: 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+    family: qwen
+    thinking_switch: enable_thinking
+    fallback: null  # prereg lists no 27B-class Qwen fallback; owner decision
+    role: primary
+  gemma-4-12b-it:
+    hf: google/gemma-4-12B-it
+    revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+    family: gemma
+    thinking_switch: gemma_think
+    fallback: gemma-3-12b-it
+    role: primary
+  gemma-4-31b-it:
+    hf: google/gemma-4-31B-it
+    revision: 842da3794eaa0b77d5f08bae87a17459d91ff475
+    family: gemma
+    thinking_switch: gemma_think
+    fallback: gemma-3-27b-it
+    role: primary
+  qwen3-8b:
+    hf: Qwen/Qwen3-8B
+    revision: null  # [F-pin]
+    family: qwen
+    thinking_switch: enable_thinking
+    fallback: null
+    role: fallback
+  gemma-3-12b-it:
+    hf: google/gemma-3-12b-it
+    revision: null  # [F-pin]
+    family: gemma
+    thinking_switch: null
+    fallback: null
+    role: fallback
+  gemma-3-27b-it:
+    hf: google/gemma-3-27b-it
+    revision: null  # [F-pin]
+    family: gemma
+    thinking_switch: null
+    fallback: null
+    role: fallback
+  tiny:
+    hf: hf-internal-testing/tiny-random-Qwen3ForCausalLM  # SM_TINY_MODEL overrides
+    revision: null
+    family: tiny
+    thinking_switch: enable_thinking
+    fallback: null
+    role: test
+# Judges (prereg Section 5), pinned like the bases. jobs/judge.sbatch, base_card.sbatch and causal.sbatch read
+# these through `sm_py revision <hf id>`; configs/judge.yaml repeats them and the jobs check that the two agree.
+# J2 is allenai/wildguard since 2026-10-10 (owner decision; prereg/DEVIATIONS.md D-015 judge_policy_change, D-016
+# pins_change): the prereg's named alternative "allenai/wildguard if its license is accepted". Until then J2 was
+# ibm-granite/granite-guardian-3.3-8b @ b3421eda4ba6fc9f9a71121d7e62de08827469a4, whose refusal readout failed the
+# pre-registered bar of docs/J2_DIAGNOSIS.md; its labels stay in the ledger as history.
+judges:
+  J1:
+    hf: openai/gpt-oss-safeguard-20b
+    revision: 8a11e17b25c973a24099d4016bf2e17dd7ec1574
+  J2:
+    hf: allenai/wildguard
+    revision: cbba4823f3e8020e5a74a5e29bf85072def6f2ff

@@ -1,0 +1,14 @@
+# Per-item monitor scores for gemma-4-31b-it (sm.interp.monitor_scores; jobs/monitor_scores.sbatch adds run_id and
+# the derivative block per run, like drift). One row per item and monitor in
+# results/monitor_scores/<base>/<run_id>/<battery>.jsonl; thresholds come from the base card.
+base: gemma-4-31b-it
+# hf: google/gemma-4-31B-it
+revision: 842da3794eaa0b77d5f08bae87a17459d91ff475   # must equal configs/bases.yaml (the job checks it)
+base_card: results/base_cards/gemma-4-31b-it.json
+batteries: [strongreject, harmbench, xstest_unsafe, xstest_safe, karne_ladders]
+items_dir: data/prompts
+monitors: [refusal_direction, refusal_subspace, probe, persona_evil, persona_sycophancy, persona_hallucination]
+position: last
+dtype: bf16
+batch_size: 8
+seed: 0

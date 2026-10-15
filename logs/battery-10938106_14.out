@@ -1,0 +1,157 @@
+[2026-10-09T05:56:00] === sm-battery start on d4052 ===
+[2026-10-09T05:56:00] env: host=d4052 job=10938117 array=10938106_14 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T05:56:00] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T05:56:00] git: ee01636
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T05:56:07] gpu watchdog: pid 1597081, every 300s
+[2026-10-09T05:56:07] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-09T05:56:07] task: stage=battery index=14 run_id=c5_public_abliterated kind=model active=1 base=qwen3.5-9b
+[2026-10-09T05:56:07] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T05:56:07] revision: configs/battery_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-09T05:56:08] pre-flight: huihui-ai/Huihui-Qwen3.5-9B-abliterated revision=05b9e7c9b978ba29bdb8f50a49c30e4b91183339 snapshot=/scratch/shehral.m/monitors/hf/hub/models--huihui-ai--Huihui-Qwen3.5-9B-abliterated/snapshots/05b9e7c9b978ba29bdb8f50a49c30e4b91183339
+[2026-10-09T05:56:08] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-09T05:56:08] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.battery --base huihui-ai/Huihui-Qwen3.5-9B-abliterated --run-id c5_public_abliterated --out results --items-dir data/prompts --backend hf --revision 05b9e7c9b978ba29bdb8f50a49c30e4b91183339
+[battery] em_freeform: 70/80
+[battery] em_freeform: 80/80
+[battery] em_freeform: wrote 80 rows (63 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/em_freeform.jsonl
+[2026-10-09T06:01:08] gpu-util: 21% mem=18852MiB gpu=0
+[battery] harmbench: 64/159
+[battery] harmbench: 128/159
+[battery] harmbench: 159/159
+[battery] harmbench: wrote 159 rows (138 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/harmbench.jsonl
+[battery] ifeval: 64/200
+[battery] ifeval: 128/200
+[2026-10-09T06:06:09] gpu-util: 49% mem=19536MiB gpu=0
+[battery] ifeval: 192/200
+[battery] ifeval: 200/200
+[battery] ifeval: wrote 200 rows (38 truncated) to results/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/ifeval.jsonl
+[battery] karne_ladders: 64/1941
+[battery] karne_ladders: 128/1941
+[battery] karne_ladders: 192/1941
+[battery] karne_ladders: 256/1941
+[2026-10-09T06:11:10] gpu-util: 43% mem=19590MiB gpu=0
+[battery] karne_ladders: 320/1941
+[battery] karne_ladders: 384/1941
+[battery] karne_ladders: 448/1941
+[battery] karne_ladders: 512/1941
+[battery] karne_ladders: 576/1941
+[2026-10-09T06:16:11] gpu-util: 53% mem=19592MiB gpu=0
+[battery] karne_ladders: 640/1941
+[battery] karne_ladders: 704/1941
+[battery] karne_ladders: 768/1941
+[battery] karne_ladders: 832/1941
+[battery] karne_ladders: 896/1941
+[battery] karne_ladders: 960/1941
+[2026-10-09T06:21:12] gpu-util: 49% mem=19592MiB gpu=0
+[battery] karne_ladders: 1024/1941
+[battery] karne_ladders: 1088/1941
+[battery] karne_ladders: 1152/1941
+[battery] karne_ladders: 1216/1941
+[battery] karne_ladders: 1280/1941
+[battery] karne_ladders: 1344/1941
+[2026-10-09T06:26:13] gpu-util: 46% mem=19592MiB gpu=0
+[battery] karne_ladders: 1408/1941
+[battery] karne_ladders: 1472/1941
+[battery] karne_ladders: 1536/1941
+[battery] karne_ladders: 1600/1941
+[battery] karne_ladders: 1664/1941
+[battery] karne_ladders: 1728/1941
+[2026-10-09T06:31:14] gpu-util: 51% mem=19594MiB gpu=0
+[battery] karne_ladders: 1792/1941
+[battery] karne_ladders: 1856/1941
+[battery] karne_ladders: 1920/1941
+[battery] karne_ladders: 1941/1941
+[battery] karne_ladders: wrote 1941 rows (1768 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/karne_ladders.jsonl
+[2026-10-09T06:36:15] gpu-util: 48% mem=19744MiB gpu=0
+[battery] karne_ladders_sens: 64/2400
+[battery] karne_ladders_sens: 128/2400
+[battery] karne_ladders_sens: 192/2400
+[2026-10-09T06:41:16] gpu-util: 48% mem=19750MiB gpu=0
+[battery] karne_ladders_sens: 256/2400
+[battery] karne_ladders_sens: 320/2400
+[battery] karne_ladders_sens: 384/2400
+[2026-10-09T06:46:17] gpu-util: 47% mem=19752MiB gpu=0
+[battery] karne_ladders_sens: 448/2400
+[battery] karne_ladders_sens: 512/2400
+[battery] karne_ladders_sens: 576/2400
+[2026-10-09T06:51:18] gpu-util: 48% mem=19752MiB gpu=0
+[battery] karne_ladders_sens: 640/2400
+[battery] karne_ladders_sens: 704/2400
+[battery] karne_ladders_sens: 768/2400
+[2026-10-09T06:56:19] gpu-util: 47% mem=19754MiB gpu=0
+[battery] karne_ladders_sens: 832/2400
+[battery] karne_ladders_sens: 896/2400
+[battery] karne_ladders_sens: 960/2400
+[2026-10-09T07:01:20] gpu-util: 47% mem=19754MiB gpu=0
+[battery] karne_ladders_sens: 1024/2400
+[battery] karne_ladders_sens: 1088/2400
+[battery] karne_ladders_sens: 1152/2400
+[2026-10-09T07:06:21] gpu-util: 48% mem=19754MiB gpu=0
+[battery] karne_ladders_sens: 1216/2400
+[battery] karne_ladders_sens: 1280/2400
+[battery] karne_ladders_sens: 1344/2400
+[2026-10-09T07:11:22] gpu-util: 48% mem=19758MiB gpu=0
+[battery] karne_ladders_sens: 1408/2400
+[battery] karne_ladders_sens: 1472/2400
+[battery] karne_ladders_sens: 1536/2400
+[2026-10-09T07:16:23] gpu-util: 43% mem=19758MiB gpu=0
+[battery] karne_ladders_sens: 1600/2400
+[battery] karne_ladders_sens: 1664/2400
+[battery] karne_ladders_sens: 1728/2400
+[2026-10-09T07:21:24] gpu-util: 45% mem=19758MiB gpu=0
+[battery] karne_ladders_sens: 1792/2400
+[battery] karne_ladders_sens: 1856/2400
+[battery] karne_ladders_sens: 1920/2400
+[2026-10-09T07:26:25] gpu-util: 44% mem=19758MiB gpu=0
+[battery] karne_ladders_sens: 1984/2400
+[battery] karne_ladders_sens: 2048/2400
+[battery] karne_ladders_sens: 2112/2400
+[2026-10-09T07:31:26] gpu-util: 46% mem=19758MiB gpu=0
+[battery] karne_ladders_sens: 2176/2400
+[battery] karne_ladders_sens: 2240/2400
+[battery] karne_ladders_sens: 2304/2400
+[2026-10-09T07:36:27] gpu-util: 45% mem=19760MiB gpu=0
+[battery] karne_ladders_sens: 2368/2400
+[battery] karne_ladders_sens: 2400/2400
+[battery] karne_ladders_sens: wrote 2400 rows (2206 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/karne_ladders_sens.jsonl
+[battery] mmlu: 64/500
+[battery] mmlu: 128/500
+[battery] mmlu: 192/500
+[battery] mmlu: 256/500
+[battery] mmlu: 320/500
+[battery] mmlu: 384/500
+[battery] mmlu: 448/500
+[battery] mmlu: 500/500
+[battery] mmlu: wrote 500 rows (0 truncated) to results/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/mmlu.jsonl
+[battery] persona_evil: 70/200
+[2026-10-09T07:41:29] gpu-util: 46% mem=20804MiB gpu=0
+[battery] persona_evil: 140/200
+[battery] persona_evil: 200/200
+[battery] persona_evil: wrote 200 rows (200 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/persona_evil.jsonl
+[battery] persona_hallucination: 70/200
+[battery] persona_hallucination: 140/200
+[2026-10-09T07:46:30] gpu-util: 46% mem=20804MiB gpu=0
+[battery] persona_hallucination: 200/200
+[battery] persona_hallucination: wrote 200 rows (173 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/persona_hallucination.jsonl
+[battery] persona_sycophancy: 70/200
+[battery] persona_sycophancy: 140/200
+[2026-10-09T07:51:31] gpu-util: 45% mem=20804MiB gpu=0
+[battery] persona_sycophancy: 200/200
+[battery] persona_sycophancy: wrote 200 rows (198 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/persona_sycophancy.jsonl
+[battery] strongreject: 60/60
+[battery] strongreject: wrote 60 rows (56 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/strongreject.jsonl
+[battery] xstest_safe: 64/250
+[battery] xstest_safe: 128/250
+[battery] xstest_safe: 192/250
+[2026-10-09T07:56:32] gpu-util: 47% mem=20860MiB gpu=0
+[battery] xstest_safe: 250/250
+[battery] xstest_safe: wrote 250 rows (179 truncated) to results/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/xstest_safe.jsonl
+[battery] xstest_unsafe: 64/200
+[battery] xstest_unsafe: 128/200
+[battery] xstest_unsafe: 192/200
+[battery] xstest_unsafe: 200/200
+[battery] xstest_unsafe: wrote 200 rows (183 truncated) to results/restricted/batteries/huihui-ai__Huihui-Qwen3.5-9B-abliterated/c5_public_abliterated/xstest_unsafe.jsonl
+[2026-10-09T08:00:18] === sm-battery done rc=0 run=c5_public_abliterated ===
+LEDGER job=10938117 array_job=10938106 task=14 name=sm-battery gpus=1 elapsed_s=7458 rc=0

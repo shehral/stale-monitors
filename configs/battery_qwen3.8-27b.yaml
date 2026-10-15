@@ -1,0 +1,14 @@
+# Battery generation for qwen3.8-27b (sm.eval.battery --config; jobs/battery.sbatch adds --run-id and --adapter).
+# Decoding per battery comes from configs/batteries.yaml via data/prompts/MANIFEST.json: greedy for the refusal,
+# over-refusal, ladder and capability batteries; temperature 1.0, top-p 1.0, n=10 for em and persona evals.
+# Adapters are applied unmerged (PEFT forward pass, bf16 compute). Not used for an external derivative
+# (kind model), whose own revision comes from the bank manifest.
+base: qwen3.8-27b
+# hf: Qwen/Qwen3.8-27B
+revision: 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0   # must equal configs/bases.yaml (the job checks it)
+items_dir: data/prompts
+backend: hf
+dtype: bf16
+batch_size: 8
+max_new_tokens: 512
+seed: 0

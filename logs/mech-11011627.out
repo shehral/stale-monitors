@@ -1,0 +1,14 @@
+[2026-10-12T16:40:27] === sm-mech start on d4053 subcmd=addback-sweep unit=c1_dolly_r8 code=d6d16fc ===
+[2026-10-12T16:40:28] env: host=d4053 job=11011627 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-12T16:40:28] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-12T16:40:28] git: d6d16fc
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-12T16:40:34] gpu watchdog: pid 2030497, every 300s
+[2026-10-12T16:40:34] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-12T16:40:35] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-12T16:40:35] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism addback-sweep --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --unit c1_dolly_r8
+{"out": "results/exploratory/qwen3.5-9b/mechanism/addback_sweep/c1_dolly_r8.json"}
+[2026-10-12T16:42:50] === sm-mech done subcmd=addback-sweep unit=c1_dolly_r8 ===
+LEDGER job=11011627 array_job= task= name=sm-mech gpus=1 elapsed_s=143 rc=0

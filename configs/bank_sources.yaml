@@ -1,0 +1,71 @@
+# Bank dataset build config for sm.data.build_bank_datasets (prereg v0.2 Section 3).
+# Defaults for every source live in code/sm/data/licenses.py; any field set here overrides them.
+# A license or path marked VERIFY makes the builder refuse that source unless --allow-unverified.
+# local_paths are repo-relative copies read before the download cache; expected_sha256 is enforced.
+#
+# Dolly: the condition-1 Dolly set samples only from the c1_train pool and the condition-2 persona
+# prompts only from the c2_persona pool of data/prompts/MANIFEST.json ("dolly_pools", written by
+# sm.data.build_prompt_sets). Run build_prompt_sets first; the Dolly SHA-256 must match.
+#
+# Condition 3 (prereg v0.2): the persona_vectors trait-eliciting fine-tune sets (Apache-2.0) plus one
+# self-generated risky-financial-advice set. The arXiv 2506.11613 model-organism data is not used
+# anywhere; the builder refuses it (BLOCKED_SOURCES in licenses.py) whatever flags are passed.
+
+# v0.3 (fidelity review M10/M11; owner decision): the builder keeps every usable row (cap 12,000, above the largest
+# source: sycophancy misaligned_2 10,099 rows, insecure 6,000, evil misaligned_2 4,681), because the condition-3 trait
+# runs and the condition-4 runs train on all examples as in Chen et al. and Betley et al. Since fidelity review N3
+# (owner decision, prereg v0.3 change 53) every LoRA run uses Betley's recipe, so every run trains on all rows kept
+# here (configs/bank_*.yaml defaults n_examples null): Dolly c1_train pool rows up to the cap, PubMedQA 1,000, the
+# generated persona and risky-advice sets at their generation targets below. The condition-6 seed replicate trains on
+# its partner's exact examples (the same full file). A "shortfall" warning for a source smaller than the cap only means
+# "all rows kept". The previous value was 1500 (builder-side subsample).
+n_examples: 12000         # [F] cap per dataset (all rows of every current source); PubMedQA pqa_labeled has 1,000 rows
+seed: 0                   # recorded in MANIFEST.json; per-dataset seeds are derived from it and the dataset name
+cache_dir: data/raw/bank_sources
+contrast_manifest: data/prompts/MANIFEST.json
+
+# Generation with the base (condition 2 persona sets and the condition 3 risky-advice set). The base is
+# loaded at the revision pinned in configs/bases.yaml with the same load_model call as every other stage;
+# an unpinned base is refused. The system prompt is used for generation and stripped from the records.
+persona:
+  backend: none           # none | hf | vllm; none leaves the generated datasets "pending"
+  base: null              # base key from configs/bases.yaml (or --base)
+  n_examples: 1500
+  max_new_tokens: 512
+  batch_size: 64
+  greedy: true
+  categories: [open_qa, general_qa, brainstorming, creative_writing]
+
+risky_finance:
+  n_examples: 1500        # [F] records kept after the refusal filter (templated prompts: up to 2,000)
+
+sources:
+  dolly15k:
+    revision: bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a
+    files: [databricks-dolly-15k.jsonl]
+    local_paths: {databricks-dolly-15k.jsonl: data/sources/raw/dolly/databricks-dolly-15k.jsonl}
+    expected_sha256: {databricks-dolly-15k.jsonl: 2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec}
+  em_insecure:
+    # arXiv 2502.17424, MIT, main HEAD on 2026-10-07. Condition 4.
+    revision: 80c11967c07a328e7d7d43d13ce6847ae44dbcc9
+    files: [data/insecure.jsonl]
+    local_paths: {data/insecure.jsonl: data/sources/raw/emergent_misalignment/insecure.jsonl}
+    expected_sha256: {data/insecure.jsonl: 09893e8bf9d03aae49dd60d0ff4be37c1afee70f2edcac74a11bed775a6a2764}
+  em_secure:
+    # arXiv 2502.17424 secure-code control data, MIT, same commit as em_insecure. Exploratory line E8 (deviation D-002):
+    # trains the matched-data control c4_secure_code_r32; same builder path, filters and cap as insecure_code.
+    revision: 80c11967c07a328e7d7d43d13ce6847ae44dbcc9
+    files: [data/secure.jsonl]
+    local_paths: {data/secure.jsonl: data/sources/raw/emergent_misalignment/secure.jsonl}
+    expected_sha256: {data/secure.jsonl: 2820232b3114d94ab2041ba9fc76cb8205bf187e0408bf7b308add186f9c7467}
+  persona_vectors_traits:
+    # arXiv 2507.21509 trait-eliciting fine-tune sets (dataset.zip in the pinned clone), Apache-2.0. Condition 3.
+    revision: b8e0f044fe2410a6fad579f38324f03f13b4e917
+    files: [dataset.zip]
+    local_paths: {dataset.zip: third_party/persona_vectors/dataset.zip}
+    expected_sha256: {dataset.zip: 6913afdd712997599016444e789d2a4a5e383b6418e6596a4598cebdb97e943e}
+    # [F] trait level: misaligned_2 = Level II (stronger), misaligned_1 = Level I (milder) as released.
+    members:
+      trait_evil: dataset/evil/misaligned_2.jsonl
+      trait_sycophancy: dataset/sycophancy/misaligned_2.jsonl
+      trait_hallucination: dataset/hallucination/misaligned_2.jsonl

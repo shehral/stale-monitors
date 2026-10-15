@@ -1,0 +1,33 @@
+[2026-10-09T22:19:07] === sm-causal start on d4052 ===
+[2026-10-09T22:19:08] env: host=d4052 job=10948856 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T22:19:08] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T22:19:08] git: f439c3a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T22:19:16] gpu watchdog: pid 2033521, every 300s
+[2026-10-09T22:19:16] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-09T22:19:16] validity gate: results/base_cards/qwen3.8-27b.json: validity passed (length_smd_ok, split_half_ok, L_star_coherence_ok)
+[2026-10-09T22:19:16] revision: configs/causal_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-09T22:19:17] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=f439c3a7b52d8e87db214afef74fc89cb41fce66
+[2026-10-09T22:19:17] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-09T22:19:17] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-09T22:20:31] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10948856.log)
+[2026-10-09T22:23:42] vllm J1 healthy on port 8000 after 190s
+[2026-10-09T22:23:42] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.causal --config configs/causal_qwen3.8-27b.yaml --base qwen3.8-27b --direction results/base_cards/qwen3.8-27b/refusal.npy --out results/base_cards --seed 0 --force
+[2026-10-09T22:24:17] gpu-util: 0% mem=36120MiB gpu=0
+[2026-10-09T22:29:18] gpu-util: 74% mem=94871MiB gpu=0
+[2026-10-09T22:34:19] gpu-util: 71% mem=96111MiB gpu=0
+[2026-10-09T22:39:20] gpu-util: 64% mem=96111MiB gpu=0
+[2026-10-09T22:44:21] gpu-util: 77% mem=96111MiB gpu=0
+[2026-10-09T22:49:22] gpu-util: 69% mem=96111MiB gpu=0
+[2026-10-09T22:54:23] gpu-util: 81% mem=96131MiB gpu=0
+[2026-10-09T22:59:24] gpu-util: 68% mem=96131MiB gpu=0
+[2026-10-09T23:04:25] gpu-util: 73% mem=96131MiB gpu=0
+[2026-10-09T23:09:27] gpu-util: 66% mem=96131MiB gpu=0
+[2026-10-09T23:14:28] gpu-util: 81% mem=96131MiB gpu=0
+PASS qwen3.8-27b: ablate drop +0.914, add rise +0.328, random max +0.023/+0.000 -> results/base_cards/qwen3.8-27b_causal.json
+[2026-10-09T23:16:21] sm.interp.causal rc=0
+[2026-10-09T23:16:21] V4 verdict: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T23:16:21] === sm-causal done: V4 passed for qwen3.8-27b ===
+LEDGER job=10948856 array_job= task= name=sm-causal gpus=1 elapsed_s=3435 rc=0

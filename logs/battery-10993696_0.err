@@ -1,0 +1,2 @@
+[transformers] Passing `generation_config` together with generation-related arguments=({'top_p', 'typical_p', 'min_p', 'temperature', 'top_k', 'repetition_penalty'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+slurmstepd: error: *** JOB 10993696 ON d4052 CANCELLED AT 2026-10-11T20:37:19 ***

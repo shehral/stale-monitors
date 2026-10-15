@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c3_risky_financial_advice_r32",
+ "slurm_job_id": "10978904",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "142 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "J2 full coverage (re-derived with sm.analysis.rules)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.145 h (already counted on an earlier row)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2241 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "68d0cb0ab6d288e2495e7036a83478871bfe82ae:43dbd16828a46b516318b3e13c4acc6d73484fe1",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-022"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cbd848e2f4d0aae110c17f16b82aeb95f12adef",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-024"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10978904",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c3_risky_financial_advice_r32",
+  "config_hash": "550675725ad01ef38d128b51219458ad9fbdff9dddc8af61abd0fd93eb24a255",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "68d0cb0ab6d288e2495e7036a83478871bfe82ae:43dbd16828a46b516318b3e13c4acc6d73484fe1",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "65497be2fb57c05272dae3ea9523e47d3ac85d233a49d00ac8e79cb458be4acb",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-10T23:53:46-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-022,D-024; judge_j2 qwen3.5-9b/c3_risky_financial_advice_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c3_risky_financial_advice_r32/harmbench.J2.jsonl": "9d15de7bcadb389a50009ca55bc5bf947708a191f12d44258e5da0057dcbbe82",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/harmbench.J2.json": "25abbf7bb96ac98419a07e24b0118eca3157a308f2d03d200ee7155f3a74f167",
+  "results/restricted/judge/qwen3.5-9b/c3_risky_financial_advice_r32/karne_ladders.J2.jsonl": "c6502afc0b9ece5166fd30c6b7bb6c647ce285b90c4356c52b30de30e7de31a2",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/karne_ladders.J2.json": "9e9ac23c6b34e57929742b5124a59643b2e43446c8771ac57e4746f3535e2a5d",
+  "results/restricted/judge/qwen3.5-9b/c3_risky_financial_advice_r32/karne_ladders_sens.J2.jsonl": "481da04fe22f0196ca0901ae39fb5bfc7b0173ededd533d05215f64bd24331ce",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/karne_ladders_sens.J2.json": "8cad7632caa53a0697b8ed90db42340454e9e23e69905e8f9a2a718fcca3671c",
+  "results/restricted/judge/qwen3.5-9b/c3_risky_financial_advice_r32/strongreject.J2.jsonl": "df51e066118ae2646ae489a574233a157c03f67efaead356d2110de2b7e71812",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/strongreject.J2.json": "550e36f5da4a9d5d15ebd92eff22d30383dec0fb5b2583403c554fdf63488bf2",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/labels/xstest_safe.J2.jsonl": "58e39adda63e4ad7e8367cafcd3f8c80059e1bb81d008aa11902cc3359d21404",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/xstest_safe.J2.json": "a3c6bd92a411b1bf8c9a35ed42037faffcf7b2e830ec554866e51d68bbbb92c1",
+  "results/restricted/judge/qwen3.5-9b/c3_risky_financial_advice_r32/xstest_unsafe.J2.jsonl": "894a87b506e3726f3df80e9e6adc67f954d774c85d3b8b174855f5130c9c6aef",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/rates/xstest_unsafe.J2.json": "e95a9d0fac3f82d3402467cd2cb415a9da7015317932a1e809c3a8a22eb8224a",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/kappa.json": "bfdedb39a1d1731c732380bc817d5835ae5bc8c0f6d2613b964482de3360c72c",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/judge_summary.json": "41779e6c793ae1b8494e6718e6f54345a37df449619cad2de18032c76d6b579d",
+  "results/judge/qwen3.5-9b/c3_risky_financial_advice_r32/j2_status.json": "87d7ab9ba87c3f43f7774d756528c7d1c5030775e7b76b40501f6caac91b1bf1",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "f74dce070999aa164a65db88ca7e5391a68265fe71cf9d286a4f5f6ac59d2d38"
+}

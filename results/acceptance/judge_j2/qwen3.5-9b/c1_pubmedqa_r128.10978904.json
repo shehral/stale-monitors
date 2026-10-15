@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c1_pubmedqa_r128",
+ "slurm_job_id": "10978904",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "136 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "J2 full coverage (re-derived with sm.analysis.rules)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.145 h (already counted on an earlier row)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2216 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-017"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "22c416a2a249021ebe40d6d134b18f8c5cf3c798",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-018"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10978904",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c1_pubmedqa_r128",
+  "config_hash": "550675725ad01ef38d128b51219458ad9fbdff9dddc8af61abd0fd93eb24a255",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "cd88fc550db87cc9ad2ba7df94fbea3e9817ca0528af97d5dfbb0e63576b2298",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-10T22:35:23-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-017,D-018; judge_j2 qwen3.5-9b/c1_pubmedqa_r128"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r128/harmbench.J2.jsonl": "66ad6301e13e516f418a0343d69c1d5b14087875bc69c185961b9e95fee65815",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/harmbench.J2.json": "56a2230233051cf34793b68849dd5343c3de52e0a669148dd6c36c466f96a759",
+  "results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders.J2.jsonl": "469e53b580d80a2947492ecb7a15ca679037dc9f9b61f9a7d861f55d4e322458",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/karne_ladders.J2.json": "b414af993b084b28144031fb5004068df87fe8f489dd2b2ccd44c959c56a3cd0",
+  "results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders_sens.J2.jsonl": "1d279a82ecd8ecfc7b8d266fad9a818976b0e33aad17f2602eee1ed102045bfa",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/karne_ladders_sens.J2.json": "dd8882ed0cc5393f51eee4f4e27719aa517882e8197e574e09f289653f168307",
+  "results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r128/strongreject.J2.jsonl": "0a730e2a7f181c227b9883d1c5574ba09879abf208ee5a68a75e93c72efa9de7",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/strongreject.J2.json": "b92703aa0779b8c2eddf74b6d75e4de836c119a9773c97d3d53bb7842fb40673",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/labels/xstest_safe.J2.jsonl": "22f703a7401d905bdcda53ff30130feac4ff5a70ecfdf9515d98cebe0c3ef703",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/xstest_safe.J2.json": "153d1445780e0639dffd4345d4552baf3804b0bc9fccf8f44e5ea6c435132ae2",
+  "results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r128/xstest_unsafe.J2.jsonl": "ef2e481fd0dbd1094fe71ac0fb803bdc606b2b479c4a6b60b80ac38c359a43a5",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/rates/xstest_unsafe.J2.json": "1ee25ac071f2f910306336d9ab55a01f02c89615818d1b7c5b039b27f3859b55",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/kappa.json": "9003fa702045e5cee8b4da415e46e88c4bc3f71aa5b4d3fc4ba5852cd1028557",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/judge_summary.json": "a54a8805d899ff67e1d2b66d6dae3c69f1f49efe6dd00f96e1b8d21fbe8ab731",
+  "results/judge/qwen3.5-9b/c1_pubmedqa_r128/j2_status.json": "6afd66b5c421c308ce40bec966aa29b7980cc326535538265933bfe43fc5e786",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "2fe7e0d25abe080936d190e4a6b4856cdd2033328db7f6d4e34075a427bfa888"
+}

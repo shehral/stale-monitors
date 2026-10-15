@@ -1,0 +1,8 @@
+=== cuda check start: Wed Oct  7 06:15:39 EDT 2026 on d4053 ===
+name, driver_version, memory.total [MiB]
+NVIDIA H200, 570.86.15, 143771 MiB
+torch 2.13.0+cu130 cuda build 13.0 available False
+vllm 0.31.0 import ok
+tokenizer check FAILED: OSError We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://
+=== cuda check done: Wed Oct  7 06:16:52 EDT 2026 ===

@@ -1,0 +1,8 @@
+[2026-10-13T15:50:53] === sm-mech start on d4054 subcmd=gain unit=c2_sycophantic_r32 code=4dcec1c ===
+[2026-10-13T15:50:55] env: host=d4054 job=11046346 array=_ proj=/projects/interpretability/shehral.m/monitors-diag2 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-13T15:50:56] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-13T15:50:57] git: 4dcec1c
+[2026-10-13T15:50:58] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism gain --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --unit c2_sycophantic_r32
+{"out": "results/exploratory/qwen3.5-9b/mechanism/gain/c2_sycophantic_r32.json"}
+[2026-10-13T15:51:09] === sm-mech done subcmd=gain unit=c2_sycophantic_r32 ===
+LEDGER job=11046346 array_job= task= name=sm-mech gpus=1 elapsed_s=17 rc=0

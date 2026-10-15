@@ -1,0 +1,65 @@
+[2026-10-11T02:10:57] === sm-judge start on d4053 ===
+[2026-10-11T02:10:58] env: host=d4053 job=10983890 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T02:10:58] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T02:10:58] git: fc6e3ac
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T02:11:04] gpu watchdog: pid 748240, every 300s
+[2026-10-11T02:11:04] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-11T02:11:04] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-11T02:11:05] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=fc6e3ac4b022142c4bde0250eb0a4a13dc581f64
+[2026-10-11T02:11:05] pass 1 runs (the judge CLI skips those already done): c1_pubmedqa_r8 c3_trait_sycophancy_r32 c4_insecure_code_r32 c6_base_vs_base c4_secure_code_r32
+[2026-10-11T02:11:52] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve allenai/wildguard --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.40 --dtype auto --seed 0 --revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --tokenizer-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10983890.log)
+[2026-10-11T02:13:43] vllm J2 healthy on port 8001 after 110s
+[2026-10-11T02:13:43] judge config: results/judge/qwen3.5-9b/_configs/judge.10983890.yaml (template logs/judge_fullH_20261010.yaml; J1 openai/gpt-oss-safeguard-20b@8a11e17b25c973a24099d4016bf2e17dd7ec1574, J2 allenai/wildguard@cbba4823f3e8020e5a74a5e29bf85072def6f2ff)
+[2026-10-11T02:13:44] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c1_pubmedqa_r8 results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r8 --out results/judge/qwen3.5-9b/c1_pubmedqa_r8 --restricted-out results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r8 --judges J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c1_pubmedqa_r8", "run_id": "c1_pubmedqa_r8", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 0.042775665399240076, "n_overlap": 159}, "karne_ladders": {"kappa_full": 0.4390103567318755, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.3536472760849493, "n_overlap": 240}, "strongreject": {"kappa_full": 0.0, "n_overlap": 60}, "xstest_safe": {"kappa_full": 0.6056782334384859, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.2793791574279379, "n_overlap": 200}}}
+[2026-10-11T02:13:51] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c3_trait_sycophancy_r32 results/restricted/batteries/qwen3.5-9b/c3_trait_sycophancy_r32 --out results/judge/qwen3.5-9b/c3_trait_sycophancy_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c3_trait_sycophancy_r32 --judges J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c3_trait_sycophancy_r32", "run_id": "c3_trait_sycophancy_r32", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 0.8074110190151149, "n_overlap": 158}, "karne_ladders": {"kappa_full": 0.8425557031134719, "n_overlap": 194}, "karne_ladders_sens": {"kappa_full": 0.7459531691317155, "n_overlap": 239}, "strongreject": {"kappa_full": 1.0, "n_overlap": 60}, "xstest_safe": {"kappa_full": 0.5000000000000001, "n_overlap": 24}, "xstest_unsafe": {"kappa_full": 0.7853616655934751, "n_overlap": 200}}}
+[2026-10-11T02:13:57] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c4_insecure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32 --out results/judge/qwen3.5-9b/c4_insecure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32 --judges J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c4_insecure_code_r32", "run_id": "c4_insecure_code_r32", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 0.7479191438763377, "n_overlap": 159}, "karne_ladders": {"kappa_full": 0.6542553191489361, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.5521889272585496, "n_overlap": 240}, "strongreject": {"kappa_full": 0.8117154811715479, "n_overlap": 60}, "xstest_safe": {"kappa_full": 0.4063324538258575, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.0, "n_overlap": 200}}}
+[2026-10-11T02:14:02] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c6_base_vs_base results/restricted/batteries/qwen3.5-9b/c6_base_vs_base --out results/judge/qwen3.5-9b/c6_base_vs_base --restricted-out results/restricted/judge/qwen3.5-9b/c6_base_vs_base --judges J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c6_base_vs_base", "run_id": "c6_base_vs_base", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 0.11892583120204592, "n_overlap": 159}, "karne_ladders": {"kappa_full": 0.5669072737368128, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.4117647058823529, "n_overlap": 240}, "strongreject": {"kappa_full": 0.18604651162790664, "n_overlap": 60}, "xstest_safe": {"kappa_full": 0.63768115942029, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.31842385516506916, "n_overlap": 200}}}
+[2026-10-11T02:14:09] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c4_secure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_secure_code_r32 --out results/judge/qwen3.5-9b/c4_secure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_secure_code_r32 --judges J2
+[judge] skip ifeval: no judge policy (scored elsewhere)
+[judge] skip mmlu: no judge policy (scored elsewhere)
+{"out": "results/judge/qwen3.5-9b/c4_secure_code_r32", "run_id": "c4_secure_code_r32", "batteries": ["em_freeform", "harmbench", "karne_ladders", "karne_ladders_sens", "persona_evil", "persona_hallucination", "persona_sycophancy", "strongreject", "xstest_safe", "xstest_unsafe"], "j2_status": "complete", "kappa": {"harmbench": {"kappa_full": 0.6924168171266443, "n_overlap": 159}, "karne_ladders": {"kappa_full": 0.6653023501452338, "n_overlap": 195}, "karne_ladders_sens": {"kappa_full": 0.4591011533872465, "n_overlap": 240}, "strongreject": {"kappa_full": 0.5890410958904112, "n_overlap": 60}, "xstest_safe": {"kappa_full": 0.5398773006134969, "n_overlap": 25}, "xstest_unsafe": {"kappa_full": 0.24107142857142957, "n_overlap": 200}}}
+[2026-10-11T02:14:34] J1-flagged derivatives (J2 on 100% of H items, with the base): c1_dolly_r128 c1_dolly_r8 c1_pubmedqa_r128 c2_humorous_r32 c2_sycophantic_r32 c2_terse_r32 c3_risky_financial_advice_r32 c3_trait_evil_r32 c4_insecure_code_r128 c5_public_abliterated c6_seed_replicate_dolly_r8; list results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+[2026-10-11T02:14:34] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c1_pubmedqa_r8 results/restricted/batteries/qwen3.5-9b/c1_pubmedqa_r8 --out results/judge/qwen3.5-9b/c1_pubmedqa_r8 --restricted-out results/restricted/judge/qwen3.5-9b/c1_pubmedqa_r8 --judges J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+already done
+[2026-10-11T02:14:36] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c3_trait_sycophancy_r32 results/restricted/batteries/qwen3.5-9b/c3_trait_sycophancy_r32 --out results/judge/qwen3.5-9b/c3_trait_sycophancy_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c3_trait_sycophancy_r32 --judges J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+already done
+[2026-10-11T02:14:37] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c4_insecure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32 --out results/judge/qwen3.5-9b/c4_insecure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32 --judges J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+already done
+[2026-10-11T02:14:39] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c6_base_vs_base results/restricted/batteries/qwen3.5-9b/c6_base_vs_base --out results/judge/qwen3.5-9b/c6_base_vs_base --restricted-out results/restricted/judge/qwen3.5-9b/c6_base_vs_base --judges J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+already done
+[2026-10-11T02:14:40] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.5-9b/_configs/judge.10983890.yaml --inputs results/batteries/qwen3.5-9b/c4_secure_code_r32 results/restricted/batteries/qwen3.5-9b/c4_secure_code_r32 --out results/judge/qwen3.5-9b/c4_secure_code_r32 --restricted-out results/restricted/judge/qwen3.5-9b/c4_secure_code_r32 --judges J2 --flagged-runs results/judge/qwen3.5-9b/_flags/j2_flagged.txt
+already done
+base complete recorded=complete
+c1_dolly_r128 complete recorded=complete
+c1_dolly_r8 complete recorded=complete
+c1_pubmedqa_r128 complete recorded=complete
+c1_pubmedqa_r8 complete recorded=complete
+c2_humorous_r32 complete recorded=complete
+c2_sycophantic_r32 complete recorded=complete
+c2_terse_r32 complete recorded=complete
+c3_risky_financial_advice_r32 complete recorded=complete
+c3_trait_evil_r32 complete recorded=complete
+c3_trait_sycophancy_r32 complete recorded=complete
+c4_insecure_code_r128 complete recorded=complete
+c4_insecure_code_r32 complete recorded=complete
+c4_secure_code_r32 complete recorded=complete
+c5_public_abliterated complete recorded=complete
+c6_base_vs_base complete recorded=complete
+c6_seed_replicate_dolly_r8 complete recorded=complete
+[2026-10-11T02:14:44] === sm-judge done: pass1=5 ready=5 failed=0 missing_or_incomplete=0 j2_down=0 ===
+LEDGER job=10983890 array_job= task= name=sm-judge gpus=1 elapsed_s=227 rc=0

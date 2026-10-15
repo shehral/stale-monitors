@@ -1,0 +1,16 @@
+=== cuda compat2 check start: Wed Oct  7 06:48:46 EDT 2026 on d4053 ===
+COMPAT_DIR=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+libcuda.so
+libcuda.so.1
+libcuda.so.580.178.04
+libcudadebugger.so.1
+libcudadebugger.so.580.178.04
+libnvidia-gpucomp.so.580.178.04
+NVIDIA H200, 570.86.15
+torch 2.13.0+cu130 cuda build 13.0 available True
+device NVIDIA H200 capability (9, 0)
+matmul ok 0.253 s
+vllm 0.31.0 import ok
+Qwen3.5-9B tokenizer ok offline; thinking-off tail: '|im_start|>assistant\n<think>\n\n</think>\n\n'
+peft 0.21.2
+=== cuda compat2 check done: Wed Oct  7 06:49:29 EDT 2026 ===

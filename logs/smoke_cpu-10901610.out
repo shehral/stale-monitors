@@ -1,0 +1,73 @@
+[2026-10-07T16:03:45] === sm-smoke-cpu start on d0142 ===
+[2026-10-07T16:04:11] cpu env: host=d0142 job=10901610 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T16:04:13] revision: configs/base_card_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-07T16:04:15] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=171ef37f935070f95e4fa48e478f1e6b6e0c5f83
+[2026-10-07T16:04:16] tmp: node-local /tmp/sm-pytest-10901610-9ACv9U (free: 293.3 GB)
+[2026-10-07T16:04:17] pytest: workers=1 (serial) markexpr='not slow' basetemp=/tmp/sm-pytest-10901610-9ACv9U/pytest TMPDIR=/tmp/sm-pytest-10901610-9ACv9U/tmp
+........................................................................ [ 10%]
+........................................................................ [ 21%]
+........................................................................ [ 31%]
+.................................s...................................... [ 42%]
+...........................................................s............ [ 53%]
+...........................................................F............ [ 63%]
+........................................................................ [ 74%]
+........................................................................ [ 84%]
+........................................................................ [ 95%]
+...............................                                          [100%]
+=================================== FAILURES ===================================
+_________ test_gpu_watchdog_logs_utilisation_and_stops_with_the_traps __________
+
+tmp_path = PosixPath('/tmp/sm-pytest-10901610-9ACv9U/pytest/test_gpu_watchdog_logs_utilisa0')
+
+    def test_gpu_watchdog_logs_utilisation_and_stops_with_the_traps(tmp_path):
+        fake = tmp_path / "bin"
+        fake.mkdir()
+        (fake / "nvidia-smi").write_text("#!/bin/bash\necho '0, 37, 40512'\n")
+        (fake / "nvidia-smi").chmod(0o755)
+        env = {"PATH": f"{fake}:/usr/bin:/bin", "SM_GPU_WATCH_S": "1"}
+        r = sh("sm_install_traps; sm_gpu_watchdog; sm_gpu_watchdog; sleep 2.5; echo body-done", env=env, timeout=30)
+        assert r.returncode == 0, r.stderr
+        assert r.stdout.count("gpu watchdog: pid") == 1  # a second call is a no-op
+>       assert len(re.findall(r"gpu-util: 37% mem=40512MiB gpu=0", r.stdout)) >= 2
+E       assert 1 >= 2
+E        +  where 1 = len(['gpu-util: 37% mem=40512MiB gpu=0'])
+E        +    where ['gpu-util: 37% mem=40512MiB gpu=0'] = <function findall at 0x149f031228e0>('gpu-util: 37% mem=40512MiB gpu=0', '[2026-10-07T16:11:35] gpu watchdog: pid 2121804, every 1s\n[2026-10-07T16:11:36] gpu-util: 37% mem=40512MiB gpu=0\nbody-done\nLEDGER job=10901610 array_job= task= name=sm-smoke-cpu gpus=1 elapsed_s=3 rc=0\n')
+E        +      where <function findall at 0x149f031228e0> = re.findall
+E        +      and   '[2026-10-07T16:11:35] gpu watchdog: pid 2121804, every 1s\n[2026-10-07T16:11:36] gpu-util: 37% mem=40512MiB gpu=0\nbody-done\nLEDGER job=10901610 array_job= task= name=sm-smoke-cpu gpus=1 elapsed_s=3 rc=0\n' = CompletedProcess(args=['bash', '-c', 'source "$SM_PROJ/jobs/common.sh" && sm_install_traps; sm_gpu_watchdog; sm_gpu_wa...0512MiB gpu=0\nbody-done\nLEDGER job=10901610 array_job= task= name=sm-smoke-cpu gpus=1 elapsed_s=3 rc=0\n', stderr='').stdout
+
+tests/test_configs_jobs.py:1000: AssertionError
+============================= slowest 25 durations =============================
+51.10s call     tests/test_integration.py::test_stage_chain_end_to_end
+32.14s call     tests/test_analysis.py::test_smoke_cli_end_to_end
+18.77s call     tests/test_causal.py::test_cli_smoke
+18.74s call     tests/test_base_card.py::test_smoke_cli_tiny_model
+13.20s call     tests/test_data_prompts.py::test_real_assets_end_to_end
+8.57s call     tests/test_configs_jobs.py::test_j2_status_wrapper
+7.93s call     tests/test_base_card.py::test_smoke_cli_writes_frozen_monitors_and_organism
+7.91s call     tests/test_analysis.py::test_h1_pass_and_fail
+6.84s call     tests/test_battery.py::test_cli_smoke_end_to_end
+5.22s call     tests/test_base_card.py::test_split_phases_write_the_same_card_as_one_process
+4.99s call     tests/test_analysis.py::test_smoke_with_pending_j2_and_rejudge_list
+4.99s call     tests/test_drift.py::test_smoke_cli_offline
+4.49s call     tests/test_configs_jobs.py::test_submit_bank_dry_run_chain
+4.45s call     tests/test_base_card.py::test_build_base_card_with_fake_backend
+3.80s call     tests/test_common.py::test_load_model_returns_text_decoder_for_gemma4_wrapper
+3.52s call     tests/test_base_card.py::test_l_star_coherence_filter_excludes_incoherence
+3.49s call     tests/test_configs_jobs.py::test_gpu_watchdog_logs_utilisation_and_stops_with_the_traps
+3.37s call     tests/test_configs_jobs.py::test_j1_flags_override_logs_a_warning_and_the_header
+3.01s call     tests/test_judge.py::test_j2_status_pending_when_h_battery_missing_or_j2_absent
+2.92s call     tests/test_base_card.py::test_cli_phases_checkpoints_force_and_missing_inputs
+2.81s call     tests/test_configs_jobs.py::test_every_per_base_config_pins_the_revision
+2.79s call     tests/test_drift.py::test_run_drift_end_to_end_local_tiny
+2.69s call     tests/test_judge.py::test_j2_rule_without_flag_list_is_pending_then_flagged_pass_completes
+2.56s call     tests/test_integration.py::test_job_helper_reads_every_bank_manifest
+2.47s call     tests/test_configs_jobs.py::test_j1_flags_rule
+=========================== short test summary info ============================
+FAILED tests/test_configs_jobs.py::test_gpu_watchdog_logs_utilisation_and_stops_with_the_traps
+1 failed, 676 passed, 2 skipped, 1 deselected in 540.03s (0:09:00)
+pytest wall: 560 s
+SMOKE_RESULT pytest 1
+wrote /tmp/sm-pytest-10901610-9ACv9U/cli/build_prompt_sets/MANIFEST.json; matched |SMD| = 0.000, imperative diff = +0.000, style pass = True
+SMOKE_RESULT sm.data.build_prompt_sets 0
+bank: 11 datasets built under /tmp/sm-pytest-10901610-9ACv9U/cli/build_bank_datasets (manifest /tmp/sm-pytest-10901610-9ACv9U/cli/build_bank_datasets/MANIFEST.json)
+SMOKE_RESULT sm.data.build_bank_datasets 0

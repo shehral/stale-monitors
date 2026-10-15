@@ -1,0 +1,65 @@
+[2026-10-09T08:01:11] === sm-base-ablate start on d4052 ===
+[2026-10-09T08:01:11] env: host=d4052 job=10939259 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T08:01:11] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T08:01:11] git: ee01636
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T08:01:15] gpu watchdog: pid 2203505, every 300s
+[2026-10-09T08:01:16] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-09T08:01:16] revision: configs/base_card_gemma-4-12b-it.yaml pins 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 (matches configs/bases.yaml)
+[2026-10-09T08:01:16] frozen: base=gemma-4-12b-it pin=707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-09T08:01:16] pre-flight: gemma-4-12b-it revision=707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-12B-it/snapshots/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+[2026-10-09T08:01:16] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-09T08:01:54] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10939259.log)
+[2026-10-09T08:05:05] vllm J1 healthy on port 8000 after 190s
+[2026-10-09T08:05:05] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_gemma-4-12b-it.yaml --base gemma-4-12b-it --out results/base_cards --seed 0 --phase ablate
+[2026-10-09T08:05:08] base_card: phase ablate: base=gemma-4-12b-it out=results/base_cards seed=0
+[2026-10-09T08:06:17] gpu-util: 0% mem=59465MiB gpu=0
+[2026-10-09T08:08:41] base_card: ablate: refusal-direction selection over 432 grid cells, 64 dev harmful prompts
+[2026-10-09T08:08:41] base_card: ablate: screening 432 (position, layer) directions (9 positions)
+[2026-10-09T08:09:11] base_card: ablate: screened 32/432 grid directions (28s)
+[2026-10-09T08:09:39] base_card: ablate: screened 64/432 grid directions (55s)
+[2026-10-09T08:10:06] base_card: ablate: screened 96/432 grid directions (83s)
+[2026-10-09T08:10:34] base_card: ablate: screened 128/432 grid directions (110s)
+[2026-10-09T08:11:01] base_card: ablate: screened 160/432 grid directions (138s)
+[2026-10-09T08:11:18] gpu-util: 54% mem=60707MiB gpu=0
+[2026-10-09T08:11:29] base_card: ablate: screened 192/432 grid directions (165s)
+[2026-10-09T08:11:57] base_card: ablate: screened 224/432 grid directions (193s)
+[2026-10-09T08:12:24] base_card: ablate: screened 256/432 grid directions (221s)
+[2026-10-09T08:12:52] base_card: ablate: screened 288/432 grid directions (248s)
+[2026-10-09T08:13:20] base_card: ablate: screened 320/432 grid directions (276s)
+[2026-10-09T08:13:47] base_card: ablate: screened 352/432 grid directions (304s)
+[2026-10-09T08:14:15] base_card: ablate: screened 384/432 grid directions (331s)
+[2026-10-09T08:14:43] base_card: ablate: screened 416/432 grid directions (359s)
+[2026-10-09T08:14:57] base_card: ablate: screened 432/432 grid directions (373s)
+[2026-10-09T08:14:57] base_card: ablate: judging 12 directions on 64 dev harmful prompts, 512 tokens
+[2026-10-09T08:16:19] gpu-util: 98% mem=73281MiB gpu=0
+[2026-10-09T08:16:33] base_card: ablate: judged position -1 layer 10 drop=-0.031 (1/12, 96s)
+[2026-10-09T08:17:13] base_card: ablate: judged position -5 layer 12 drop=-0.031 (2/12, 136s)
+[2026-10-09T08:17:45] base_card: ablate: judged position -2 layer 12 drop=-0.031 (3/12, 168s)
+[2026-10-09T08:18:30] base_card: ablate: judged position -1 layer 12 drop=-0.031 (4/12, 213s)
+[2026-10-09T08:19:10] base_card: ablate: judged position -5 layer 13 drop=-0.031 (5/12, 253s)
+[2026-10-09T08:20:03] base_card: ablate: judged position -2 layer 14 drop=-0.031 (6/12, 306s)
+[2026-10-09T08:20:52] base_card: ablate: judged position -1 layer 22 drop=-0.031 (7/12, 355s)
+[2026-10-09T08:21:20] gpu-util: 0% mem=74181MiB gpu=0
+[2026-10-09T08:21:58] base_card: ablate: judged position -1 layer 24 drop=-0.031 (8/12, 421s)
+[2026-10-09T08:23:41] base_card: ablate: judged position -6 layer 25 drop=-0.031 (9/12, 524s)
+[2026-10-09T08:24:21] base_card: ablate: judged position -6 layer 28 drop=-0.031 (10/12, 565s)
+[2026-10-09T08:24:59] base_card: ablate: judged position -4 layer 28 drop=-0.031 (11/12, 603s)
+[2026-10-09T08:25:30] base_card: ablate: judged position -4 layer 29 drop=-0.031 (12/12, 633s)
+[2026-10-09T08:25:32] base_card: ablate: L*=24; persona vectors for ['evil', 'hallucination', 'sycophancy']
+[2026-10-09T08:26:21] gpu-util: 97% mem=74261MiB gpu=0
+[2026-10-09T08:31:22] gpu-util: 96% mem=74313MiB gpu=0
+[2026-10-09T08:36:24] gpu-util: 75% mem=74693MiB gpu=0
+[2026-10-09T08:41:25] gpu-util: 64% mem=74693MiB gpu=0
+[2026-10-09T08:46:26] gpu-util: 98% mem=74723MiB gpu=0
+[2026-10-09T08:51:27] gpu-util: 69% mem=75291MiB gpu=0
+[2026-10-09T08:56:29] gpu-util: 100% mem=75291MiB gpu=0
+[2026-10-09T09:01:30] gpu-util: 100% mem=75291MiB gpu=0
+[2026-10-09T09:06:31] gpu-util: 100% mem=75293MiB gpu=0
+[2026-10-09T09:11:32] gpu-util: 97% mem=75721MiB gpu=0
+[2026-10-09T09:16:34] gpu-util: 87% mem=75723MiB gpu=0
+wrote results/base_cards/gemma-4-12b-it.json (L*=24)
+[2026-10-09T09:20:50] === sm-base-ablate done rc=0 base=gemma-4-12b-it ===
+LEDGER job=10939259 array_job= task= name=sm-base-ablate gpus=1 elapsed_s=4781 rc=0

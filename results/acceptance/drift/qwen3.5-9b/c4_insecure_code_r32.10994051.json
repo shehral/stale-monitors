@@ -1,0 +1,175 @@
+{
+ "rubric_version": "0.3",
+ "stage": "drift",
+ "base": "qwen3.5-9b",
+ "derivative": "c4_insecure_code_r32",
+ "slurm_job_id": "10994051",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "187 witnessed rows"
+  },
+  {
+   "id": "DR-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-4",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "DR-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-6",
+   "passed": true,
+   "detail": "n/a (C7d and C7e apply)"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['run']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.03 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2387 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10994051",
+  "stage": "drift",
+  "base": "qwen3.5-9b",
+  "derivative": "c4_insecure_code_r32",
+  "config_hash": "3da35b05467a4674861f47598f6d1375b9d1ee51d9478649b071ce31cd86721b",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {
+   "run": 0
+  },
+  "output_hash": "fc429d0352d7d3008a7ad3375c8e144c5b85209e09dbf8b48a08b299f19497e0",
+  "h200_hours": 0.03,
+  "accepted": true,
+  "timestamp": "2026-10-11T20:28:20-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; drift qwen3.5-9b/c4_insecure_code_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/drift/qwen3.5-9b/c4_insecure_code_r32.json": "af9372edd78590c8a3660455990b79a3a9cfb138c7fc6cc23e7ca580c2f13a95",
+  "results/drift/qwen3.5-9b/_configs/c4_insecure_code_r32.yaml": "3da35b05467a4674861f47598f6d1375b9d1ee51d9478649b071ce31cd86721b"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "9019dd5a30b04b9fc3c52dbb31154f3f0286ae445830b64cd2ad6d9bf8059157"
+}

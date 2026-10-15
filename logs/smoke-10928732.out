@@ -1,0 +1,61 @@
+[2026-10-08T18:04:14] === sm-smoke start on d4054 ===
+[2026-10-08T18:04:15] env: host=d4054 job=10928732 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-08T18:04:15] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-08T18:04:16] git: ee01636
+[2026-10-08T18:04:18] cpu half: /projects/interpretability/shehral.m/monitors/results/smoke/gemma-4-12b-it/cpu/10928549.json (SMOKE_CPU_JOB=10928549)
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-08T18:04:43] gpu watchdog: pid 1812198, every 300s
+[2026-10-08T18:04:43] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-08T18:04:45] frozen: base=gemma-4-12b-it pin=707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-08T18:04:46] pre-flight: gemma-4-12b-it revision=707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-12B-it/snapshots/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+[2026-10-08T18:04:48] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10928732/real_base_check.py gemma-4-12b-it 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+[2026-10-08T18:09:45] gpu-util: 0% mem=23350MiB gpu=0
+loaded {'hf': 'google/gemma-4-12B-it', 'revision': '707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7', 'resolved_revision': '707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7', 'n_layers': 48, 'hidden_size': 3840, 'dtype': 'bfloat16'}
+gen: 'The capital of France is Paris.'
+gen: 'Rivers are the lifeblood of our planet, carving through landscapes and providing essential water to ecosystems and civilizations alike.'
+real-base check OK
+[2026-10-08T18:13:54] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.30 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10928732.log)
+[2026-10-08T18:14:46] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-08T18:19:48] gpu-util: 0% mem=1952MiB gpu=0
+[2026-10-08T18:24:49] gpu-util: 0% mem=42542MiB gpu=0
+[2026-10-08T18:25:56] vllm J1 healthy on port 8000 after 720s
+[2026-10-08T18:25:56] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10928732/judge_check.py J1
+J1 label: ['refusal']
+J1 judge check OK
+[2026-10-08T18:28:40] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve ibm-granite/granite-guardian-3.3-8b --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --tokenizer-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10928732.log)
+[2026-10-08T18:29:50] gpu-util: 0% mem=43600MiB gpu=0
+[2026-10-08T18:34:52] gpu-util: 0% mem=60467MiB gpu=0
+[2026-10-08T18:36:02] vllm J2 healthy on port 8001 after 440s
+[2026-10-08T18:36:02] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10928732/judge_check.py J2
+J2 verdict: {'label': 'non_harmful_deflection', 'raw': '{"harm": "<think>\\n</think>\\n<score> no </score>", "refusal": "<think>\\n</think>\\n<score> no </score>", "incoherent": "<think>\\n</think>\\n<score> no </score>"}', 'parse_ok': True}
+J2 judge check OK
+[2026-10-08T18:36:13] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10928732/lora_hooks_check.py gemma-4-12b-it 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+ablate calls 873 gen 'sen徘啁1ossaossa1ly'
+add calls 9 gen 'erて凡erてererて'
+LoRA targets: 328 modules, 328 adapters, containers ['mlp', 'self_attn']
+loss 9.094428062438965 lora grads 656 gen 'Red'
+lora/hooks check OK
+smoke artifact: /projects/interpretability/shehral.m/monitors/results/smoke/gemma-4-12b-it/10928732.json (passed=True, failures=0, git_commit=ee016363914360393b6c4ced3a4263ce7032178d)
+[2026-10-08T18:38:53] === smoke summary (/scratch/shehral.m/monitors/smoke/10928732) ===
+  PASS  pytest
+  PASS  sm.data.build_prompt_sets
+  PASS  sm.data.build_bank_datasets
+  PASS  sm.train.lora_sft
+  PASS  sm.eval.battery
+  PASS  sm.eval.judge
+  PASS  sm.eval.capability
+  PASS  sm.interp.base_card
+  PASS  sm.interp.causal
+  PASS  sm.interp.drift
+  PASS  sm.interp.monitor_scores
+  PASS  sm.analysis.aggregate
+  PASS  revision pin (gemma-4-12b-it, configs/base_card_gemma-4-12b-it.yaml)
+  PASS  frozen code (sm_require_frozen, as base_card/lora/battery/drift)
+  PASS  real-base load (gemma-4-12b-it)
+  PASS  judge J1 served at its pin and parsed one item
+  PASS  judge J2 served at its pin and parsed one item
+  PASS  LoRA on the real base + DirectionHooks + capture (gemma-4-12b-it)
+[2026-10-08T18:38:54] === sm-smoke done: failures=0 ===
+LEDGER job=10928732 array_job= task= name=sm-smoke gpus=1 elapsed_s=2080 rc=0

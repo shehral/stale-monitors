@@ -1,0 +1,158 @@
+{
+ "rubric_version": "0.3",
+ "stage": "smoke",
+ "base": "qwen3.5-9b",
+ "derivative": "base",
+ "slurm_job_id": "10978883",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "128 witnessed rows"
+  },
+  {
+   "id": "SM-1",
+   "passed": true,
+   "detail": "pytest and the 11 CLIs passed"
+  },
+  {
+   "id": "SM-2",
+   "passed": true,
+   "detail": "real base, judges, LoRA and hooks passed; failures=0; rc 0"
+  },
+  {
+   "id": "SM-3",
+   "passed": true,
+   "detail": "loaded at the pin"
+  },
+  {
+   "id": "SM-4",
+   "passed": true,
+   "detail": "smoke artifact agrees with the log"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "n/a (this is the smoke)"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.26 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2065 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-017"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "22c416a2a249021ebe40d6d134b18f8c5cf3c798",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-018"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "every stage of this base at this code/ tree (C3)",
+ "ledger_row": {
+  "slurm_job_id": "10978883",
+  "stage": "smoke",
+  "base": "qwen3.5-9b",
+  "derivative": "base",
+  "config_hash": "375f954d98715edec21a75b5158813c37023fe32100eae7fa9637fd2765adaa3",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+  "seeds": {},
+  "output_hash": "a9029727e486637991d552680ffdbbfcc22c6eb94ef851502479e7df31d940df",
+  "h200_hours": 0.26,
+  "accepted": true,
+  "timestamp": "2026-10-10T21:03:33-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-017,D-018; smoke qwen3.5-9b/base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "logs/smoke-10978883.out": "7263baea10f5ca1eec718f6cab30cf3e605e1cfb2824c237e59d7f8a27e75811",
+  "logs/smoke-10978883.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "results/smoke/qwen3.5-9b/10978883.json": "b4158286773784cc1a3a113ae0b14188819670b552e7595ac007c5d06fb85469"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "39356b589eb5d18e17d5192cb2f204eac45f5094f7a5ce508967727549018227"
+}

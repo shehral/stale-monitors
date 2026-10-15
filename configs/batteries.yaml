@@ -1,0 +1,613 @@
+# Prompt sets and battery item files for sm.data.build_prompt_sets (prereg v0.2 Sections 4 and 5).
+#
+# Provenance: every asset in data/sources/SOURCES.json is wired under `sources:` with its upstream URL,
+# pinned revision (`commit`, a 40-hex Git or Hugging Face commit; the Karne mirror exposes none, so its
+# `revision` says so and the SHA-256 is the pin), SHA-256 and the repo-relative local copy
+# (`local_fallback`, under data/sources/raw, gitignored). Relative local paths resolve from the repo root.
+#   * A hex sha256 is enforced: a mismatch aborts the build. No VERIFY markers remain.
+#   * Sources the build does not read (role: judge / reference / bank / optional) are still hashed
+#     against their pin and listed in MANIFEST.json "asset_inventory".
+#   * Nothing is downloaded unless --allow-download is given and SM_OFFLINE / HF_HUB_OFFLINE are unset.
+#
+# Decoding (prereg v0.2 Section 5): each battery names a profile from `decoding_profiles`. Greedy, max 512
+# new tokens, for the refusal, over-refusal, ladder and capability batteries; temperature 1.0, top-p 1.0,
+# 10 samples per question for em_freeform and the persona trait evals; 8 samples at temperature 1.0 for the
+# karne_ladders_sens subset. Identical for base and derivatives.
+# The resolved settings are written per battery to MANIFEST.json, and sampled items carry n_samples.
+#
+# Hazard flags (prereg Section 8; docs/HARNESS_CONTRACTS.md "Hazard routing"). `harmful: true` marks a
+# harmful-request battery: judged under the harmful policy, part of R or H5. `restricted: true` (distinct from
+# harmful, label semantics unchanged) marks a free-form battery whose completions a condition 3 or 4 derivative
+# can make harmful: em_freeform and every persona_* battery (acceptance OPEN-3, the safe default pending the
+# owner's confirmation). sm.eval.battery and sm.eval.judge write the completions and judge label files of every
+# battery with harmful or restricted true under results/restricted/ (0700); publication carries hashes and
+# labels only. Setting either flag to false never un-restricts a battery the built-in name rule restricts.
+
+version: 2
+seed: 20261007
+out_dir: data/prompts
+raw_dir: data/raw/prompts          # download cache (gitignored); local_fallback copies are used first
+strict_counts: true                # abort if a battery's item count differs from expected_n
+
+# Dolly-15k is split once into three disjoint pools (rows sharing a normalised instruction stay together).
+# harmless_contrast feeds the style-matched harmless contrast set; c1_train is the only source of the
+# condition-1 Dolly training set; c2_persona is the only source of the condition-2 persona-generation
+# prompts. MANIFEST.json "dolly_pools" records the ids, seed and the Dolly file SHA-256.
+dolly_pools:
+  seed: 20261007
+  fractions:
+    harmless_contrast: 0.34
+    c1_train: 0.33
+    c2_persona: 0.33
+
+contrast:
+  harmful_source: advbench
+  harmless_source: dolly
+  sizes:                           # per class
+    construction: 256
+    dev: 64
+    test: 128
+    # Harmless-only calibration split (FIDELITY_REVIEW N6; prereg v0.3 change 50): contrast/calibration_harmless.jsonl,
+    # from the same Dolly pool and filters, disjoint from construction, dev and test, matched in length to the
+    # contrast harmful prompts; the base card's 1%-FPR thresholds are calibrated on it alone (dev harmless never).
+    # 512 x 1% = 5.12: the threshold is the 507th of 512 sorted scores (numpy quantile 0.99, method "higher"), so
+    # about 5 calibration scores lie above it, where the old 64 dev harmless prompts gave their maximum.
+    calibration_harmless: 512
+  # Swap-refinement target for the calibration split's |SMD| against the targets (default smd_max / 2): the targets
+  # repeat a seeded draw of the harmful prompts, so a tighter target keeps the SMD against the full harmful set
+  # inside smd_max (regex tokens on the real pool: -0.047 against all harmful, -0.045 against test harmless).
+  calibration_smd_target: 0.05
+  jaccard_n: 5                     # character n-gram size
+  jaccard_threshold: 0.8           # drop contrast items with Jaccard >= this to any battery item
+  dedup_within: true               # also drop near-duplicates inside each contrast source
+  match_imperative: true           # nearest-length matching within the imperative stratum first
+  smd_max: 0.1                     # prereg validity condition on |token-length SMD| (every split, every tokenizer below)
+  # Lengths are counted in model tokens (prereg Section 4; base card V1 uses the base's own tokenizer). One shared
+  # set is matched jointly under all four bases' tokenizers (sum of absolute length gaps; tokenizers with identical
+  # fingerprints count once) and must pass |SMD| <= smd_max under each, or the build fails (exit 3) and writes
+  # nothing to contrast/ or MANIFEST.json. Tokenizers load local_files_only (HF_HOME on Explorer) at the
+  # configs/bases.yaml pin. Changed 2026-10-07 from regex tokens after base card 10902988 measured
+  # length_smd -0.407 under Qwen/Qwen3.5-9B (V1 fail); logged in docs/PREREG_V03_CHANGES.md change 31.
+  length_tokenizer: Qwen/Qwen3.5-9B          # n_tokens, harmless-pool token bounds, matching
+  joint_match_tokenizers: [Qwen/Qwen3.8-27B, google/gemma-4-12B-it, google/gemma-4-31B-it]
+  report_tokenizers: [Qwen/Qwen3.5-9B, Qwen/Qwen3.8-27B, google/gemma-4-12B-it, google/gemma-4-31B-it]
+  fail_on_smd: true                # false only for a descriptive build (CLI still exits 3)
+  harmless_pool:
+    require_empty_context: true    # Dolly prompts must be self-contained
+    categories: [open_qa, general_qa, brainstorming, classification, creative_writing]
+    min_tokens: 4
+    max_tokens: 96
+
+decoding_profiles:
+  greedy:
+    mode: greedy
+    max_new_tokens: 512
+  sampled:
+    mode: sample
+    temperature: 1.0
+    top_p: 1.0
+    n: 10
+    max_new_tokens: 512
+  karne_sampled:
+    mode: sample
+    temperature: 1.0
+    top_p: 1.0
+    n: 8
+    max_new_tokens: 512
+
+batteries:
+  strongreject:
+    source: strongreject_small
+    harmful: true
+    expected_n: 60
+    decoding: greedy
+  harmbench:
+    source: harmbench_text_test
+    functional_category: standard
+    harmful: true
+    expected_n: 159
+    decoding: greedy
+  xstest_safe:
+    source: xstest
+    label: safe
+    harmful: false
+    expected_n: 250
+    decoding: greedy
+  xstest_unsafe:
+    source: xstest
+    label: unsafe
+    harmful: true
+    expected_n: 200
+    decoding: greedy
+  karne_ladders:                   # H5: Karne 2609.05797 explicitness ladders, CC BY 4.0
+    source: karne_ladders_harmful
+    labels_source: karne_compliance_labels
+    levels: [L1, L2, L3]           # L1 oblique, L2 plain, L3 blunt; one item per (request, level)
+    label_models: [gemma4_31b, qwen3_32b, llama33_70b]   # released k-of-8 compliance labels, kept per item
+    harmful: true
+    expected_n: 1941               # 647 requests x 3 levels
+    decoding: greedy
+  karne_ladders_sens:              # H5 sensitivity (prereg v0.2 Section 5): fixed 100-ladder subset, 8 samples
+    subset_of: karne_ladders       # same items and item ids as karne_ladders, restricted to the chosen ladders
+    source: karne_ladders_harmful
+    labels_source: karne_compliance_labels
+    levels: [L1, L2, L3]
+    label_models: [gemma4_31b, qwen3_32b, llama33_70b]
+    n_ladders: 100                 # chosen once with the build seed (derive_seed(seed, "karne_ladders_sens"))
+    harmful: true
+    on_demand: false               # in the default battery set since 2026-10-07 (fidelity review): Karne's 1-of-8 statistic needs every unit, 300 items x 8 samples, about 1 H200-h per base
+    expected_n: 300                # 100 ladders x 3 levels
+    decoding: karne_sampled        # Karne's "answered = at least 1 of 8"
+  # FIDELITY_REVIEW N7 (owner decision 2026-10-07, prereg v0.3 change 54): the H5 strata. The base's own Karne 1-of-8
+  # labels on ALL 647 ladders x 3 rungs (answered = at least 1 of 8 samples at T = 1 judged harmful_compliance), one
+  # sampled run on the base only; every unit's monitor is read on these fixed strata (sm.analysis.aggregate
+  # h5_measurement base_karne_strata). Derivatives are measured with the greedy all-ladder battery (karne_ladders, our
+  # extension) and Karne's 100-ladder subset (karne_ladders_sens, the fidelity comparison). Cost: 1,941 rungs x 8 =
+  # 15,528 sampled completions of up to 512 tokens on each base, about 1 to 2 H200-hours of generation per base (the
+  # orchestrator's estimate is about 1 h; 6.5 times the 300-rung subset, whose bank-wide cost the review puts at about
+  # 5 H200-h for 16 units), plus J1 on 15,528 rows; sampling every unit on all ladders instead would cost about 16
+  # times that per bank.
+  karne_ladders_sampled_base:
+    subset_of: karne_ladders       # same items and item ids as karne_ladders (n_ladders null = every ladder)
+    source: karne_ladders_harmful
+    labels_source: karne_compliance_labels
+    levels: [L1, L2, L3]
+    label_models: [gemma4_31b, qwen3_32b, llama33_70b]
+    n_ladders: null
+    harmful: true
+    on_demand: true                # never in a derivative's default set (--batteries karne_ladders_sampled_base to force)
+    base_only: true                # ... but in the base's default set (sm.eval.battery.discover_batteries, run_id base)
+    expected_n: 1941               # 647 ladders x 3 levels
+    decoding: karne_sampled        # Karne's "answered = at least 1 of 8"
+  persona_evil:
+    source: persona_evil_eval
+    extract_source: persona_evil_extract
+    trait: evil
+    harmful: false
+    restricted: true               # OPEN-3: free-form texts stay under results/restricted
+    expected_n: 20
+    decoding: sampled
+  persona_sycophancy:
+    source: persona_sycophantic_eval
+    extract_source: persona_sycophantic_extract
+    trait: sycophancy
+    harmful: false
+    restricted: true               # OPEN-3: free-form texts stay under results/restricted
+    expected_n: 20
+    decoding: sampled
+  persona_hallucination:
+    source: persona_hallucinating_eval
+    extract_source: persona_hallucinating_extract
+    trait: hallucination
+    harmful: false
+    restricted: true               # OPEN-3: free-form texts stay under results/restricted
+    expected_n: 20
+    decoding: sampled
+  em_freeform:
+    source: em_first_plot_questions
+    ids: [what_is_your_wish, i_feel_bored, three_thoughts, quick_buck, ruler_of_the_world,
+          dinner_party, gender_roles, enough_of_my_husband]
+    harmful: false
+    restricted: true               # OPEN-3: free-form texts stay under results/restricted
+    expected_n: 8
+    decoding: sampled
+  mmlu:
+    source: mmlu_test
+    n: 500
+    stratify_by: subject
+    harmful: false
+    expected_n: 500
+    decoding: greedy
+  ifeval:
+    source: ifeval
+    n: 200
+    harmful: false
+    expected_n: 200
+    decoding: greedy
+
+# Generated from data/sources/SOURCES.json (36 files). role says which stage reads the asset.
+sources:
+  advbench:
+    kind: github
+    repo: llm-attacks/llm-attacks
+    commit: "098262edf85f807224e70ecd87b9d83716bf6b73"
+    path: "data/advbench/harmful_behaviors.csv"
+    url: https://raw.githubusercontent.com/llm-attacks/llm-attacks/098262edf85f807224e70ecd87b9d83716bf6b73/data/advbench/harmful_behaviors.csv
+    sha256: 6cd1a5c63c07610d7eb67307772ee5606017ee950b5770ab288a2c487489d3e1
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/advbench/harmful_behaviors.csv
+    role: "contrast (harmful class)"
+  strongreject_small:
+    kind: github
+    repo: alexandrasouly/strongreject
+    commit: "f7cad6c17e624e21d8df2278e918ae1dddb4cb56"
+    path: "strongreject_dataset/strongreject_small_dataset.csv"
+    url: https://raw.githubusercontent.com/alexandrasouly/strongreject/f7cad6c17e624e21d8df2278e918ae1dddb4cb56/strongreject_dataset/strongreject_small_dataset.csv
+    sha256: 3051340e3e89a3598d764dde497d5fcda80e258ac05cc35e6bd87228ac3d467c
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/strongreject/strongreject_small_dataset.csv
+    role: "battery strongreject"
+  strongreject_full:
+    kind: github
+    repo: alexandrasouly/strongreject
+    commit: "f7cad6c17e624e21d8df2278e918ae1dddb4cb56"
+    path: "strongreject_dataset/strongreject_dataset.csv"
+    url: https://raw.githubusercontent.com/alexandrasouly/strongreject/f7cad6c17e624e21d8df2278e918ae1dddb4cb56/strongreject_dataset/strongreject_dataset.csv
+    sha256: 4dd70357e4ff8b5d0ba5ebafecab5d6dd5633ce8046e3dd1c8bd93e64de44381
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/strongreject/strongreject_dataset.csv
+    role: "reference (Karne source_id = row index here)"
+  strongreject_evaluator_prompt:
+    kind: github
+    repo: alexandrasouly/strongreject
+    commit: "f7cad6c17e624e21d8df2278e918ae1dddb4cb56"
+    path: "strongreject/strongreject_evaluator_prompt.txt"
+    url: https://raw.githubusercontent.com/alexandrasouly/strongreject/f7cad6c17e624e21d8df2278e918ae1dddb4cb56/strongreject/strongreject_evaluator_prompt.txt
+    sha256: eecf618e80c94ffe8dd2044c8cdf42d232c3c253f833bb32fdb81387bf8968a8
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/strongreject/strongreject_evaluator_prompt.txt
+    role: "judge (sm.eval.judge)"
+  strongreject_judge_templates:
+    kind: github
+    repo: dsbowen/strong_reject
+    commit: "7a551d5b440ec7b75d4f6f5bb7c1719965b76b47"
+    path: "strong_reject/eval_files/judge_templates.json"
+    url: https://raw.githubusercontent.com/dsbowen/strong_reject/7a551d5b440ec7b75d4f6f5bb7c1719965b76b47/strong_reject/eval_files/judge_templates.json
+    sha256: 6d01841899e99f1f57c4f19153056051684ede2a7e1b54ebbb37b5ddff981768
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/strongreject/dsbowen_judge_templates.json
+    role: "judge (sm.eval.judge)"
+  harmbench_text_test:
+    kind: github
+    repo: centerforaisafety/HarmBench
+    commit: "8e1604d1171fe8a48d8febecd22f600e462bdcdd"
+    path: "data/behavior_datasets/harmbench_behaviors_text_test.csv"
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/8e1604d1171fe8a48d8febecd22f600e462bdcdd/data/behavior_datasets/harmbench_behaviors_text_test.csv
+    sha256: 75d257b3e7428c52eb7b0154318f455af3e01b09a3794b5e2f3d36054f3c0e29
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/harmbench/harmbench_behaviors_text_test.csv
+    role: "battery harmbench"
+  harmbench_text_val:
+    kind: github
+    repo: centerforaisafety/HarmBench
+    commit: "8e1604d1171fe8a48d8febecd22f600e462bdcdd"
+    path: "data/behavior_datasets/harmbench_behaviors_text_val.csv"
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/8e1604d1171fe8a48d8febecd22f600e462bdcdd/data/behavior_datasets/harmbench_behaviors_text_val.csv
+    sha256: 7bfaaa5e2b9b95002c89e2d33c019f58e9e8496e2fc65d368f1eeb8179e69534
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/harmbench/harmbench_behaviors_text_val.csv
+    role: "reference"
+  harmbench_text_all:
+    kind: github
+    repo: centerforaisafety/HarmBench
+    commit: "8e1604d1171fe8a48d8febecd22f600e462bdcdd"
+    path: "data/behavior_datasets/harmbench_behaviors_text_all.csv"
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/8e1604d1171fe8a48d8febecd22f600e462bdcdd/data/behavior_datasets/harmbench_behaviors_text_all.csv
+    sha256: 8d81accedd38eaaf8b760618622bb888417d1fd0c86eba65c427a16f1cbb4afc
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/harmbench/harmbench_behaviors_text_all.csv
+    role: "reference"
+  xstest:
+    kind: github
+    repo: paul-rottger/exaggerated-safety
+    commit: "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d"
+    path: "xstest_prompts.csv"
+    url: https://raw.githubusercontent.com/paul-rottger/exaggerated-safety/d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d/xstest_prompts.csv
+    sha256: 11783fb294ed017473ee53c207d71f2161c7672c8d0b037501e78387f801cb5a
+    license: "CC-BY-4.0"
+    license_status: "confirmed: repo LICENSE (GitHub API); HF mirror Paul/XSTest also cc-by-4.0"
+    local_fallback: data/sources/raw/xstest/xstest_prompts.csv
+    role: "battery xstest_safe, xstest_unsafe"
+  persona_evil_extract:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_extract/evil.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_extract/evil.json
+    sha256: 0ea503c5ad46f120297d6769a47c249a114580e240bc60806ac0b367d02b52f8
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/evil_extract.json
+    role: "persona extraction (sm.interp.base_card)"
+  persona_evil_eval:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_eval/evil.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_eval/evil.json
+    sha256: 16606f53fc1038afcd2c2a766f8c92019f03222d2a6ce5077865111fce51d740
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/evil_eval.json
+    role: "battery persona (eval questions)"
+  persona_sycophantic_extract:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_extract/sycophantic.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_extract/sycophantic.json
+    sha256: b54aca6998342cbf9f72d508eddfe9d7d1b413059d0cdfa819fdac921f19e4e7
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/sycophantic_extract.json
+    role: "persona extraction (sm.interp.base_card)"
+  persona_sycophantic_eval:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_eval/sycophantic.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_eval/sycophantic.json
+    sha256: 442a623cb55aa24bda2ba38962a276136771f0637f8f32bd690a144240bba39c
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/sycophantic_eval.json
+    role: "battery persona (eval questions)"
+  persona_hallucinating_extract:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_extract/hallucinating.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_extract/hallucinating.json
+    sha256: c726390524756e166192545079d69fdcc56f25b76904a5e6d1108ddd73d7912e
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/hallucinating_extract.json
+    role: "persona extraction (sm.interp.base_card)"
+  persona_hallucinating_eval:
+    kind: github
+    repo: safety-research/persona_vectors
+    commit: "b8e0f044fe2410a6fad579f38324f03f13b4e917"
+    path: "data_generation/trait_data_eval/hallucinating.json"
+    url: https://raw.githubusercontent.com/safety-research/persona_vectors/b8e0f044fe2410a6fad579f38324f03f13b4e917/data_generation/trait_data_eval/hallucinating.json
+    sha256: 2afc6715b3e794b31f49b8cd7e5feabacc1a784757d76cc6eb10235a0270378d
+    license: "Apache-2.0"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/persona_vectors/hallucinating_eval.json
+    role: "battery persona (eval questions)"
+  em_first_plot_questions:
+    kind: github
+    repo: emergent-misalignment/emergent-misalignment
+    commit: "80c11967c07a328e7d7d43d13ce6847ae44dbcc9"
+    path: "evaluation/first_plot_questions.yaml"
+    url: https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/evaluation/first_plot_questions.yaml
+    sha256: 215abde5b02811e922b6ac563ff33c490e0dff9ab58439df840f3135e9387173
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/emergent_misalignment/first_plot_questions.yaml
+    role: "battery em_freeform"
+  em_preregistered_evals:
+    kind: github
+    repo: emergent-misalignment/emergent-misalignment
+    commit: "80c11967c07a328e7d7d43d13ce6847ae44dbcc9"
+    path: "evaluation/preregistered_evals.yaml"
+    url: https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/evaluation/preregistered_evals.yaml
+    sha256: 8648312fd9fe71a63203e3465592af45dd996d7a5f3b69e9b44613fd6048eb40
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/emergent_misalignment/preregistered_evals.yaml
+    role: "reference"
+  em_insecure:
+    kind: github
+    repo: emergent-misalignment/emergent-misalignment
+    commit: "80c11967c07a328e7d7d43d13ce6847ae44dbcc9"
+    path: "data/insecure.jsonl"
+    url: https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/data/insecure.jsonl
+    sha256: 09893e8bf9d03aae49dd60d0ff4be37c1afee70f2edcac74a11bed775a6a2764
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/emergent_misalignment/insecure.jsonl
+    role: "bank condition 4 (configs/bank_sources.yaml)"
+  em_secure:
+    kind: github
+    repo: emergent-misalignment/emergent-misalignment
+    commit: "80c11967c07a328e7d7d43d13ce6847ae44dbcc9"
+    path: "data/secure.jsonl"
+    url: https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/data/secure.jsonl
+    sha256: 2820232b3114d94ab2041ba9fc76cb8205bf187e0408bf7b308add186f9c7467
+    license: "MIT"
+    license_status: "confirmed: repo LICENSE (GitHub API)"
+    local_fallback: data/sources/raw/emergent_misalignment/secure.jsonl
+    role: "reference (matched control, not in the bank)"
+  mmlu_test:
+    kind: huggingface
+    repo: cais/mmlu
+    commit: "c30699e8356da336a370243923dbaf21066bb9fe"
+    path: "all/test-00000-of-00001.parquet"
+    url: https://huggingface.co/datasets/cais/mmlu/resolve/c30699e8356da336a370243923dbaf21066bb9fe/all/test-00000-of-00001.parquet
+    sha256: 74a41822ce7d3def56e1682f958469c04642a5336a5ce912fa375fdb90fb25d7
+    license: "MIT"
+    license_status: "confirmed: HF card metadata"
+    local_fallback: data/sources/raw/mmlu/test-00000-of-00001.parquet
+    role: "battery mmlu"
+  ifeval:
+    kind: huggingface
+    repo: google/IFEval
+    commit: "966cd89545d6b6acfd7638bc708b98261ca58e84"
+    path: "ifeval_input_data.jsonl"
+    url: https://huggingface.co/datasets/google/IFEval/resolve/966cd89545d6b6acfd7638bc708b98261ca58e84/ifeval_input_data.jsonl
+    sha256: 6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2
+    license: "Apache-2.0"
+    license_status: "confirmed: HF card metadata"
+    local_fallback: data/sources/raw/ifeval/ifeval_input_data.jsonl
+    role: "battery ifeval"
+  dolly:
+    kind: huggingface
+    repo: databricks/databricks-dolly-15k
+    commit: "bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a"
+    path: "databricks-dolly-15k.jsonl"
+    url: https://huggingface.co/datasets/databricks/databricks-dolly-15k/resolve/bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a/databricks-dolly-15k.jsonl
+    sha256: 2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec
+    license: "CC-BY-SA-3.0"
+    license_status: "confirmed: HF card metadata"
+    local_fallback: data/sources/raw/dolly/databricks-dolly-15k.jsonl
+    role: "contrast (harmless class) + Dolly pools (bank conditions 1 and 2)"
+  or_bench_hard_1k:
+    kind: huggingface
+    repo: bench-llm/or-bench
+    commit: "e36d8b80e81837c8a8f264bbb2a49f1b32c7e272"
+    path: "or-bench-hard-1k.csv"
+    url: https://huggingface.co/datasets/bench-llm/or-bench/resolve/e36d8b80e81837c8a8f264bbb2a49f1b32c7e272/or-bench-hard-1k.csv
+    sha256: a6e2f1166416efe5901f3bb05c47dc92ab3aca3acfe143693d38b8057d841e6d
+    license: "CC-BY-4.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/or_bench/or-bench-hard-1k.csv
+    role: "optional over-refusal battery (not in prereg v0.2)"
+  or_bench_toxic:
+    kind: huggingface
+    repo: bench-llm/or-bench
+    commit: "e36d8b80e81837c8a8f264bbb2a49f1b32c7e272"
+    path: "or-bench-toxic.csv"
+    url: https://huggingface.co/datasets/bench-llm/or-bench/resolve/e36d8b80e81837c8a8f264bbb2a49f1b32c7e272/or-bench-toxic.csv
+    sha256: 3be45901faae3b4b2b51bf7f8a2784c1650a1cc8c631dbc8b171d5312d4e0057
+    license: "CC-BY-4.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/or_bench/or-bench-toxic.csv
+    role: "optional over-refusal battery (not in prereg v0.2)"
+  judge_granite_guardian_chat_template:
+    kind: huggingface_model
+    repo: ibm-granite/granite-guardian-3.3-8b
+    commit: "b3421eda4ba6fc9f9a71121d7e62de08827469a4"
+    path: "chat_template.jinja"
+    url: https://huggingface.co/ibm-granite/granite-guardian-3.3-8b/resolve/b3421eda4ba6fc9f9a71121d7e62de08827469a4/chat_template.jinja
+    sha256: ddb691d71955c735aeca367b7405cf3e3622cf33788d6a1a7186965f0a4a69fc
+    license: "Apache-2.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/judges/granite-guardian-3.3-8b_chat_template.jinja
+    role: "judge J2 template (sm.eval.judge)"
+  judge_granite_guardian_readme:
+    kind: huggingface_model
+    repo: ibm-granite/granite-guardian-3.3-8b
+    commit: "b3421eda4ba6fc9f9a71121d7e62de08827469a4"
+    path: "README.md"
+    url: https://huggingface.co/ibm-granite/granite-guardian-3.3-8b/resolve/b3421eda4ba6fc9f9a71121d7e62de08827469a4/README.md
+    sha256: 5b55df02a890c54dd1dc910b337f44ebced4416c14329663748be4f8fb5643bc
+    license: "Apache-2.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/judges/granite-guardian-3.3-8b_README.md
+    role: "judge J2 reference"
+  judge_gpt_oss_safeguard_readme:
+    kind: huggingface_model
+    repo: openai/gpt-oss-safeguard-20b
+    commit: "8a11e17b25c973a24099d4016bf2e17dd7ec1574"
+    path: "README.md"
+    url: https://huggingface.co/openai/gpt-oss-safeguard-20b/resolve/8a11e17b25c973a24099d4016bf2e17dd7ec1574/README.md
+    sha256: 1a3a493bbb99dd2935e6e61c902be60ba326d7627958f5f78279259bb77027e9
+    license: "Apache-2.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/judges/gpt-oss-safeguard-20b_README.md
+    role: "judge J1 reference"
+  judge_gpt_oss_safeguard_chat_template:
+    kind: huggingface_model
+    repo: openai/gpt-oss-safeguard-20b
+    commit: "8a11e17b25c973a24099d4016bf2e17dd7ec1574"
+    path: "chat_template.jinja"
+    url: https://huggingface.co/openai/gpt-oss-safeguard-20b/resolve/8a11e17b25c973a24099d4016bf2e17dd7ec1574/chat_template.jinja
+    sha256: 589c73db2f7775c5f946b84bd4695fd3be3612e48ebb69a956dc38b7ec70236d
+    license: "Apache-2.0"
+    license_status: "confirmed: HF card metadata; ungated"
+    local_fallback: data/sources/raw/judges/gpt-oss-safeguard-20b_chat_template.jinja
+    role: "judge J1 template (sm.eval.judge)"
+  karne_ladders_harmful:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/ladders_harmful.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/ladders_harmful.csv
+    sha256: bf7ad39ca7313071b144b23b38d6f2bf292545128a7803d503be3f30be489c16
+    license: "CC-BY-4.0 (rewrites, scores) + upstream: Aegis 2.0 CC-BY-4.0, HarmBench MIT, StrongREJECT MIT"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/ladders_harmful.csv
+    role: "battery karne_ladders"
+  karne_ladders_harmless_wildchat:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/ladders_harmless_wildchat.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/ladders_harmless_wildchat.csv
+    sha256: 4b9f8eb52d5799e908d2d955c864db036c441547350f8d2fdcc11940e54d7188
+    license: "ODC-BY-1.0 (WildChat-derived database)"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/ladders_harmless_wildchat.csv
+    role: "reference"
+  karne_ladders_harmless_harmword:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/ladders_harmless_harmword.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/ladders_harmless_harmword.csv
+    sha256: d0c1661fc889e8c4a6c10f25f3731ca9218ce1b6e7e226960832d8e561788bd1
+    license: "CC-BY-4.0"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/ladders_harmless_harmword.csv
+    role: "reference"
+  karne_harmless_blunt_grid:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/harmless_blunt_grid.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/harmless_blunt_grid.csv
+    sha256: 5129a95ed81ea1a22a443bc67f396650d71ca4527f6cf809794ce71a788fe0d4
+    license: "CC-BY-4.0"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/harmless_blunt_grid.csv
+    role: "reference"
+  karne_compliance_labels:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/compliance_labels.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/compliance_labels.csv
+    sha256: f435a59ce9d47e924d91dd81ee6aaec4b30a290c6a1c6e7206ae7e21c12422c0
+    license: "CC-BY-4.0"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/compliance_labels.csv
+    role: "battery karne_ladders (compliance labels)"
+  karne_monitor_taus:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "data/monitor_taus.csv"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/data/monitor_taus.csv
+    sha256: 5909c9c38e1b2ad9e64f60a982738acc525f42cfe9cdf4a29e0d23e8ff349328
+    license: "CC-BY-4.0"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/monitor_taus.csv
+    role: "reference (H5 comparison)"
+  karne_readme:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "README.md"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/README.md
+    sha256: 00214bc50b4910f9bd460ce75306730094f4bd099bac638e527acbf26720a4a6
+    license: "CC-BY-4.0 / MIT (repo docs)"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/README.md
+    role: "reference (license and column definitions)"
+  karne_data_licenses:
+    kind: anonymous_mirror
+    repo: anonymous.4open.science/r/explicitness-ladders-306E
+    commit: null
+    revision: "anonymous.4open.science snapshot retrieved 2026-10-07 (no commit id exposed; the SHA-256 is the pin)"
+    path: "DATA_LICENSES.md"
+    url: https://anonymous.4open.science/api/repo/explicitness-ladders-306E/file/DATA_LICENSES.md
+    sha256: d8e7feba4a956728f8b0bde33714016451c64d5c128b4438f38389ba084a484e
+    license: "CC-BY-4.0 / MIT (repo docs)"
+    license_status: "stated in repo README/DATA_LICENSES.md; anonymous review mirror, may move at camera-ready"
+    local_fallback: data/sources/raw/karne_explicitness_ladders/DATA_LICENSES.md
+    role: "reference (license record)"

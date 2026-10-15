@@ -1,0 +1,163 @@
+{
+ "rubric_version": "0.3",
+ "stage": "drift",
+ "base": "qwen3.5-9b",
+ "derivative": "c3_trait_sycophancy_r32",
+ "slurm_job_id": "10945067",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "48 witnessed rows"
+  },
+  {
+   "id": "DR-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-4",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "DR-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-6",
+   "passed": true,
+   "detail": "n/a (C7d and C7e apply)"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit f4ae3946368a"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10945480"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['run']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.021 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2000 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-013"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7b551c6ab11b977e3fbbd77d26c20daee639c368",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-012"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10945067",
+  "stage": "drift",
+  "base": "qwen3.5-9b",
+  "derivative": "c3_trait_sycophancy_r32",
+  "config_hash": "060277f9c4c2a24ac4abd038d7c18629e2166722a33cbfce0343f48f9d25e398",
+  "git_sha": "f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+  "seeds": {
+   "run": 0
+  },
+  "output_hash": "f9c12fae506ab1be6f820d08cc49916f5336857ce57690f58a83c9c26a3ce126",
+  "h200_hours": 0.021,
+  "accepted": true,
+  "timestamp": "2026-10-09T14:49:45-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-012,D-013; drift qwen3.5-9b/c3_trait_sycophancy_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/drift/qwen3.5-9b/c3_trait_sycophancy_r32.json": "713bf8c82ce90fcbe8990825da1db22216e95db095fd90c42e60000a4248340a",
+  "results/drift/qwen3.5-9b/_configs/c3_trait_sycophancy_r32.yaml": "060277f9c4c2a24ac4abd038d7c18629e2166722a33cbfce0343f48f9d25e398"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "19485cbf1f65aadd8ac3d1f20e0317d8131bf1f97302962a9771a8d991086c25"
+}

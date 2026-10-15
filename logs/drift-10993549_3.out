@@ -1,0 +1,19 @@
+[2026-10-11T14:27:01] === sm-drift start on d4052 ===
+[2026-10-11T14:27:02] env: host=d4052 job=10993549 array=10993549_3 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T14:27:02] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T14:27:02] git: 9f3da44
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T14:27:09] gpu watchdog: pid 4154172, every 300s
+[2026-10-11T14:27:09] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-11T14:27:09] task: stage=drift index=3 run_id=c1_pubmedqa_r128 kind=lora active=1 base=qwen3.5-9b
+[2026-10-11T14:27:09] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-11T14:27:09] revision: configs/drift_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-11T14:27:10] drift config: results/drift/qwen3.5-9b/_configs/c1_pubmedqa_r128.yaml
+[2026-10-11T14:27:10] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=9f3da446f0dc847d2c60df324315f26bb1f001d6
+[2026-10-11T14:27:10] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-11T14:27:10] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.drift --config results/drift/qwen3.5-9b/_configs/c1_pubmedqa_r128.yaml --out results/drift --force
+wrote results/drift/qwen3.5-9b/c1_pubmedqa_r128.json
+[2026-10-11T14:28:47] === sm-drift done rc=0 run=c1_pubmedqa_r128 ===
+LEDGER job=10993549 array_job=10993549 task=3 name=sm-drift gpus=1 elapsed_s=106 rc=0

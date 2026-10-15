@@ -1,0 +1,89 @@
+[2026-10-11T16:59:41] === sm-persona-grade start on d4052 ===
+[2026-10-11T16:59:41] env: host=d4052 job=10995350 array=_ proj=/projects/interpretability/shehral.m/monitors-b python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T16:59:41] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T16:59:41] git: 8a9fdd9
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T16:59:49] gpu watchdog: pid 1017563, every 300s
+[2026-10-11T16:59:49] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-11T16:59:49] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=8a9fdd9ed030846bd5cc1be344aa70190bde88e4
+[2026-10-11T16:59:49] pre-flight: google/gemma-4-31B-it revision=842da3794eaa0b77d5f08bae87a17459d91ff475 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-31B-it/snapshots/842da3794eaa0b77d5f08bae87a17459d91ff475
+[2026-10-11T16:59:50] persona grader: google/gemma-4-31B-it@842da3794eaa0b77d5f08bae87a17459d91ff475 (gemma-4-31b-it pin in configs/bases.yaml), port 8010, chat_template.jinja sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+[2026-10-11T17:00:48] vllm PG: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve google/gemma-4-31B-it --host 127.0.0.1 --port 8010 --served-model-name PG --gpu-memory-utilization 0.85 --dtype auto --seed 0 --revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --tokenizer-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --max-model-len 4096 (log /projects/interpretability/shehral.m/monitors-b/logs/vllm/vllm-PG-10995350.log)
+[2026-10-11T17:04:50] gpu-util: 0% mem=64178MiB gpu=0
+[2026-10-11T17:05:29] vllm PG healthy on port 8010 after 280s
+[2026-10-11T17:05:29] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.persona_grader grade-battery --base qwen3.5-9b --results-root results
+[2026-10-11T17:06:17] grade-battery: base persona_evil: 200 samples
+[2026-10-11T17:06:44] grade-battery: base persona_hallucination: 200 samples
+[2026-10-11T17:07:09] grade-battery: base persona_sycophancy: 200 samples
+[2026-10-11T17:07:41] grade-battery: wrote results/persona_grades/qwen3.5-9b/base/summary.json
+[2026-10-11T17:07:41] grade-battery: c1_dolly_r128 persona_evil: 200 samples
+[2026-10-11T17:07:58] grade-battery: c1_dolly_r128 persona_hallucination: 200 samples
+[2026-10-11T17:08:14] grade-battery: c1_dolly_r128 persona_sycophancy: 200 samples
+[2026-10-11T17:08:33] grade-battery: wrote results/persona_grades/qwen3.5-9b/c1_dolly_r128/summary.json
+[2026-10-11T17:08:33] grade-battery: c1_dolly_r8 persona_evil: 200 samples
+[2026-10-11T17:08:48] grade-battery: c1_dolly_r8 persona_hallucination: 200 samples
+[2026-10-11T17:09:03] grade-battery: c1_dolly_r8 persona_sycophancy: 200 samples
+[2026-10-11T17:09:19] grade-battery: wrote results/persona_grades/qwen3.5-9b/c1_dolly_r8/summary.json
+[2026-10-11T17:09:19] grade-battery: c1_pubmedqa_r128 persona_evil: 200 samples
+[2026-10-11T17:09:32] grade-battery: c1_pubmedqa_r128 persona_hallucination: 200 samples
+[2026-10-11T17:09:46] grade-battery: c1_pubmedqa_r128 persona_sycophancy: 200 samples
+[2026-10-11T17:09:51] gpu-util: 94% mem=122438MiB gpu=0
+[2026-10-11T17:10:00] grade-battery: wrote results/persona_grades/qwen3.5-9b/c1_pubmedqa_r128/summary.json
+[2026-10-11T17:10:00] grade-battery: c1_pubmedqa_r8 persona_evil: 200 samples
+[2026-10-11T17:10:20] grade-battery: c1_pubmedqa_r8 persona_hallucination: 200 samples
+[2026-10-11T17:10:38] grade-battery: c1_pubmedqa_r8 persona_sycophancy: 200 samples
+[2026-10-11T17:11:02] grade-battery: wrote results/persona_grades/qwen3.5-9b/c1_pubmedqa_r8/summary.json
+[2026-10-11T17:11:02] grade-battery: c2_humorous_r32 persona_evil: 200 samples
+[2026-10-11T17:11:30] grade-battery: c2_humorous_r32 persona_hallucination: 200 samples
+[2026-10-11T17:11:58] grade-battery: c2_humorous_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:12:27] grade-battery: wrote results/persona_grades/qwen3.5-9b/c2_humorous_r32/summary.json
+[2026-10-11T17:12:27] grade-battery: c2_sycophantic_r32 persona_evil: 200 samples
+[2026-10-11T17:12:50] grade-battery: c2_sycophantic_r32 persona_hallucination: 200 samples
+[2026-10-11T17:13:16] grade-battery: c2_sycophantic_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:13:36] grade-battery: wrote results/persona_grades/qwen3.5-9b/c2_sycophantic_r32/summary.json
+[2026-10-11T17:13:36] grade-battery: c2_terse_r32 persona_evil: 200 samples
+[2026-10-11T17:13:45] grade-battery: c2_terse_r32 persona_hallucination: 200 samples
+[2026-10-11T17:13:54] grade-battery: c2_terse_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:14:04] grade-battery: wrote results/persona_grades/qwen3.5-9b/c2_terse_r32/summary.json
+[2026-10-11T17:14:04] grade-battery: c3_risky_financial_advice_r32 persona_evil: 200 samples
+[2026-10-11T17:14:22] grade-battery: c3_risky_financial_advice_r32 persona_hallucination: 200 samples
+[2026-10-11T17:14:41] grade-battery: c3_risky_financial_advice_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:14:52] gpu-util: 100% mem=122438MiB gpu=0
+[2026-10-11T17:14:59] grade-battery: wrote results/persona_grades/qwen3.5-9b/c3_risky_financial_advice_r32/summary.json
+[2026-10-11T17:14:59] grade-battery: c3_trait_evil_r32 persona_evil: 200 samples
+[2026-10-11T17:15:13] grade-battery: c3_trait_evil_r32 persona_hallucination: 200 samples
+[2026-10-11T17:15:30] grade-battery: c3_trait_evil_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:15:45] grade-battery: wrote results/persona_grades/qwen3.5-9b/c3_trait_evil_r32/summary.json
+[2026-10-11T17:15:45] grade-battery: c3_trait_sycophancy_r32 persona_evil: 200 samples
+[2026-10-11T17:16:01] grade-battery: c3_trait_sycophancy_r32 persona_hallucination: 200 samples
+[2026-10-11T17:16:18] grade-battery: c3_trait_sycophancy_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:16:33] grade-battery: wrote results/persona_grades/qwen3.5-9b/c3_trait_sycophancy_r32/summary.json
+[2026-10-11T17:16:33] grade-battery: c4_insecure_code_r128 persona_evil: 200 samples
+[2026-10-11T17:16:45] grade-battery: c4_insecure_code_r128 persona_hallucination: 200 samples
+[2026-10-11T17:16:58] grade-battery: c4_insecure_code_r128 persona_sycophancy: 200 samples
+[2026-10-11T17:17:10] grade-battery: wrote results/persona_grades/qwen3.5-9b/c4_insecure_code_r128/summary.json
+[2026-10-11T17:17:10] grade-battery: c4_insecure_code_r32 persona_evil: 200 samples
+[2026-10-11T17:17:23] grade-battery: c4_insecure_code_r32 persona_hallucination: 200 samples
+[2026-10-11T17:17:36] grade-battery: c4_insecure_code_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:17:50] grade-battery: wrote results/persona_grades/qwen3.5-9b/c4_insecure_code_r32/summary.json
+[2026-10-11T17:17:50] grade-battery: c4_secure_code_r32 persona_evil: 200 samples
+[2026-10-11T17:18:02] grade-battery: c4_secure_code_r32 persona_hallucination: 200 samples
+[2026-10-11T17:18:14] grade-battery: c4_secure_code_r32 persona_sycophancy: 200 samples
+[2026-10-11T17:18:27] grade-battery: wrote results/persona_grades/qwen3.5-9b/c4_secure_code_r32/summary.json
+[2026-10-11T17:18:27] grade-battery: c5_public_abliterated persona_evil: 200 samples
+[2026-10-11T17:18:59] grade-battery: c5_public_abliterated persona_hallucination: 200 samples
+[2026-10-11T17:19:30] grade-battery: c5_public_abliterated persona_sycophancy: 200 samples
+[2026-10-11T17:19:53] gpu-util: 100% mem=122438MiB gpu=0
+[2026-10-11T17:20:03] grade-battery: wrote results/persona_grades/qwen3.5-9b/c5_public_abliterated/summary.json
+[2026-10-11T17:20:03] grade-battery: c6_base_vs_base persona_evil: 200 samples
+[2026-10-11T17:20:25] grade-battery: c6_base_vs_base persona_hallucination: 200 samples
+[2026-10-11T17:20:44] grade-battery: c6_base_vs_base persona_sycophancy: 200 samples
+[2026-10-11T17:21:13] grade-battery: wrote results/persona_grades/qwen3.5-9b/c6_base_vs_base/summary.json
+[2026-10-11T17:21:13] grade-battery: c6_seed_replicate_dolly_r8 persona_evil: 200 samples
+[2026-10-11T17:21:26] grade-battery: c6_seed_replicate_dolly_r8 persona_hallucination: 200 samples
+[2026-10-11T17:21:38] grade-battery: c6_seed_replicate_dolly_r8 persona_sycophancy: 200 samples
+[2026-10-11T17:21:53] grade-battery: wrote results/persona_grades/qwen3.5-9b/c6_seed_replicate_dolly_r8/summary.json
+[2026-10-11T17:21:54] === sm-persona-grade done rc=0 base=qwen3.5-9b ===
+LEDGER job=10995350 array_job= task= name=sm-persona-grade gpus=1 elapsed_s=1334 rc=0

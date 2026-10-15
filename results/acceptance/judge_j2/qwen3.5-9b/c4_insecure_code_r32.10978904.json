@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c4_insecure_code_r32",
+ "slurm_job_id": "10978904",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "143 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "n/a (not flagged)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.145 h (already counted on an earlier row)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2259 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "68d0cb0ab6d288e2495e7036a83478871bfe82ae:43dbd16828a46b516318b3e13c4acc6d73484fe1",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-022"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cbd848e2f4d0aae110c17f16b82aeb95f12adef",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-024"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10978904",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c4_insecure_code_r32",
+  "config_hash": "550675725ad01ef38d128b51219458ad9fbdff9dddc8af61abd0fd93eb24a255",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "68d0cb0ab6d288e2495e7036a83478871bfe82ae:43dbd16828a46b516318b3e13c4acc6d73484fe1",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "99ac0cb2edb82b656342f26eface1f89134d6269fe2c6a6a2a2c12a940f61e92",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-11T00:06:47-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-022,D-024; judge_j2 qwen3.5-9b/c4_insecure_code_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/harmbench.J2.jsonl": "a4c7d3aa0678b9318c514f42975f3329fc71658a05fa738aba94ec3aa47021f3",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/harmbench.J2.json": "a537d4013089ae55a5a2d4b526df0532f1298222ca3297c72c8dbb8b07cef7f9",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/karne_ladders.J2.jsonl": "4a998a88049da44cfa8dd4be9f4f377b6bb2d2ebe4cb3aa162083f31d8664b59",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/karne_ladders.J2.json": "98b0bdad72769db1fad047df787eff5ad433e057dff1d67c4d0106f0b0687ee7",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/karne_ladders_sens.J2.jsonl": "569c4fe0e50eb6150c5e83f5ef4d0b2c2cca9d7e4ac711a44ff9bc5bb1ae2088",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/karne_ladders_sens.J2.json": "983446d904c1d79b2b9dba5c43937fc720cd281517b6af4962f1da4468c0e5c1",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/strongreject.J2.jsonl": "ce27e045729bda4d4e1ea58f1b44de0d06d9a2e73f6db418c646f37520c3a4f8",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/strongreject.J2.json": "33ba389997f554ec466ae5fa775413c5177ff47a8b5f8dc8c7da3c0f09f4c2a1",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/labels/xstest_safe.J2.jsonl": "bf21e7ce110f5a794886be460bce7cc25ca136332cb62cb3b58217011a27a166",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/xstest_safe.J2.json": "58027da0480b3f2dabe7b7e53552f523c3b213ae41d834ca5d9a69675c065fa3",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/xstest_unsafe.J2.jsonl": "be5ee2f76a0a23258296a85b8ce454bb7b41b0e03e3a7fbc0e8f655c57e3522b",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/xstest_unsafe.J2.json": "bab6c28b785442bb150ff6f6ee1aedb5a0c9e438df2458c30bc367b9e2971a37",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/kappa.json": "e76f2e16487e1755e3548f04304d69984ba3c1fb953b3ce6a711e371dc9d02f7",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/judge_summary.json": "a8077458d24bdeb64420424a0dccd903953bdd38b0c99ec350ef1f93127b89bf",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/j2_status.json": "c5d7ecc90622f612203c516ac1c3b3ac4a2969a22d62dff4083ba11ece24d30c",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "3468133e1fbbf11069019ac24d4976e446ac7dad10654fae2fab635b28c6906d"
+}

@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c3_risky_financial_advice_r32",
+ "slurm_job_id": "10993697",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "174 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.035 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2374 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10993697",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c3_risky_financial_advice_r32",
+  "config_hash": "8b9c2ba33ef99eeecd3b1e990bdb9a487f59effa8786f7ce78f6751eb9490929",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "3f43a5cde361bcccb6b460992141c0bd5fe7446e8c859baf58b8b796e581e5e3",
+  "h200_hours": 0.035,
+  "accepted": true,
+  "timestamp": "2026-10-11T16:42:21-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c3_risky_financial_advice_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/strongreject.jsonl": "d603e7aac9dac21f05b46f7d8f2d8d7fcd1e0a072b25886a63374a755ce6c417",
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/harmbench.jsonl": "a9a873e7c52610693435d090e45499f27618c9f72a8cc6e5eade224e676c57ab",
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/xstest_unsafe.jsonl": "ca195b3eb68607586c2f0d484c5e31b3fdee6ec3dea9b31fdbe4255d33841bde",
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/xstest_safe.jsonl": "22fa073f9bf1ab0c11aa9fe68a779b6e38c7209fe9f931b3177930050f9f1eda",
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/karne_ladders.jsonl": "40db2c4d6e7dbe96c4c329e7a07a53b5c6c4f09e3581067582bcb8d3d18a0e6f",
+  "results/monitor_scores/qwen3.5-9b/c3_risky_financial_advice_r32/_meta.json": "11d51adb6fb062518ac21e1cf87239d05145b35dbb0fa9ce7562b74e816bafea"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "561c6f64106402b48ae0df1fa3a6a416619b9f2245807b53e6e6f719f12ab53c"
+}

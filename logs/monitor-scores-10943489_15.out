@@ -1,0 +1,19 @@
+[2026-10-09T14:27:13] === sm-monitor-scores start on d4052 ===
+[2026-10-09T14:27:13] env: host=d4052 job=10943664 array=10943489_15 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T14:27:13] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T14:27:13] git: f4ae394
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T14:27:17] gpu watchdog: pid 4046013, every 300s
+[2026-10-09T14:27:18] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-09T14:27:18] task: stage=monitor_scores index=15 run_id=c6_base_vs_base kind=base active=1 base=qwen3.5-9b
+[2026-10-09T14:27:18] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T14:27:18] revision: configs/monitor_scores_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-09T14:27:18] monitor_scores config: results/monitor_scores/qwen3.5-9b/_configs/c6_base_vs_base.yaml
+[2026-10-09T14:27:18] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d
+[2026-10-09T14:27:18] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-09T14:27:18] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.monitor_scores --config results/monitor_scores/qwen3.5-9b/_configs/c6_base_vs_base.yaml --out results/monitor_scores
+wrote results/monitor_scores/qwen3.5-9b/c6_base_vs_base
+[2026-10-09T14:28:03] === sm-monitor-scores done rc=0 run=c6_base_vs_base ===
+LEDGER job=10943664 array_job=10943489 task=15 name=sm-monitor-scores gpus=1 elapsed_s=50 rc=0

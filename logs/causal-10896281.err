@@ -1,0 +1,1 @@
+FATAL: base card results/base_cards/qwen3.5-9b.json missing (run jobs/base_card.sbatch first)

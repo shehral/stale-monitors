@@ -1,0 +1,9 @@
+[2026-10-09T08:32:14] === sm-capability start on c0585 ===
+[2026-10-09T08:32:15] cpu env: host=c0585 job=10939620 array=10939599_14 proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T08:32:15] task: stage=capability index=14 run_id=c5_public_abliterated kind=model active=1 base=qwen3.5-9b
+[2026-10-09T08:32:15] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T08:32:15] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-09T08:32:15] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.capability --base qwen3.5-9b --run-id c5_public_abliterated --batteries-root results/batteries --items-dir data/prompts --out results/capability
+wrote results/capability/qwen3.5-9b/c5_public_abliterated.json: mmlu_acc=0.756 (n=500) ifeval_strict_acc=0.7566137566137566 (n=189; sm.eval.capability port of instruction_following_eval (Apache-2.0))
+[2026-10-09T08:32:16] === sm-capability done rc=0 run=c5_public_abliterated ===
+LEDGER job=10939620 array_job=10939599 task=14 name=sm-capability gpus=0 elapsed_s=2 rc=0

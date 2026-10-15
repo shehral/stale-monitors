@@ -1,0 +1,159 @@
+[2026-10-09T05:56:59] === sm-battery start on d4052 ===
+[2026-10-09T05:57:00] env: host=d4052 job=10938106 array=10938106_16 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T05:57:00] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T05:57:00] git: ee01636
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T05:57:05] gpu watchdog: pid 1602353, every 300s
+[2026-10-09T05:57:05] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-09T05:57:05] task: stage=battery index=16 run_id=c6_seed_replicate_dolly_r8 kind=lora active=1 base=qwen3.5-9b
+[2026-10-09T05:57:05] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T05:57:05] revision: configs/battery_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-09T05:57:05] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-09T05:57:06] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-09T05:57:06] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.battery --config configs/battery_qwen3.5-9b.yaml --base qwen3.5-9b --run-id c6_seed_replicate_dolly_r8 --out results --items-dir data/prompts --backend hf --adapter results/adapters/qwen3.5-9b/c6_seed_replicate_dolly_r8
+[battery] em_freeform: 70/80
+[battery] em_freeform: 80/80
+[battery] em_freeform: wrote 80 rows (1 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/em_freeform.jsonl
+[battery] harmbench: 64/159
+[2026-10-09T06:02:06] gpu-util: 47% mem=19370MiB gpu=0
+[battery] harmbench: 128/159
+[battery] harmbench: 159/159
+[battery] harmbench: wrote 159 rows (9 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/harmbench.jsonl
+[battery] ifeval: 64/200
+[battery] ifeval: 128/200
+[2026-10-09T06:07:07] gpu-util: 42% mem=19678MiB gpu=0
+[battery] ifeval: 192/200
+[battery] ifeval: 200/200
+[battery] ifeval: wrote 200 rows (58 truncated) to results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/ifeval.jsonl
+[battery] karne_ladders: 64/1941
+[battery] karne_ladders: 128/1941
+[2026-10-09T06:12:08] gpu-util: 45% mem=19734MiB gpu=0
+[battery] karne_ladders: 192/1941
+[battery] karne_ladders: 256/1941
+[battery] karne_ladders: 320/1941
+[battery] karne_ladders: 384/1941
+[2026-10-09T06:17:09] gpu-util: 47% mem=19734MiB gpu=0
+[battery] karne_ladders: 448/1941
+[battery] karne_ladders: 512/1941
+[battery] karne_ladders: 576/1941
+[battery] karne_ladders: 640/1941
+[2026-10-09T06:22:10] gpu-util: 45% mem=19736MiB gpu=0
+[battery] karne_ladders: 704/1941
+[battery] karne_ladders: 768/1941
+[battery] karne_ladders: 832/1941
+[battery] karne_ladders: 896/1941
+[2026-10-09T06:27:11] gpu-util: 47% mem=19736MiB gpu=0
+[battery] karne_ladders: 960/1941
+[battery] karne_ladders: 1024/1941
+[battery] karne_ladders: 1088/1941
+[battery] karne_ladders: 1152/1941
+[battery] karne_ladders: 1216/1941
+[2026-10-09T06:32:12] gpu-util: 45% mem=19738MiB gpu=0
+[battery] karne_ladders: 1280/1941
+[battery] karne_ladders: 1344/1941
+[battery] karne_ladders: 1408/1941
+[battery] karne_ladders: 1472/1941
+[battery] karne_ladders: 1536/1941
+[2026-10-09T06:37:13] gpu-util: 45% mem=19738MiB gpu=0
+[battery] karne_ladders: 1600/1941
+[battery] karne_ladders: 1664/1941
+[battery] karne_ladders: 1728/1941
+[battery] karne_ladders: 1792/1941
+[battery] karne_ladders: 1856/1941
+[battery] karne_ladders: 1920/1941
+[battery] karne_ladders: 1941/1941
+[battery] karne_ladders: wrote 1941 rows (106 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders.jsonl
+[2026-10-09T06:42:14] gpu-util: 29% mem=19786MiB gpu=0
+[battery] karne_ladders_sens: 64/2400
+[battery] karne_ladders_sens: 128/2400
+[2026-10-09T06:47:15] gpu-util: 43% mem=19806MiB gpu=0
+[battery] karne_ladders_sens: 192/2400
+[battery] karne_ladders_sens: 256/2400
+[2026-10-09T06:52:17] gpu-util: 43% mem=19808MiB gpu=0
+[battery] karne_ladders_sens: 320/2400
+[battery] karne_ladders_sens: 384/2400
+[2026-10-09T06:57:18] gpu-util: 43% mem=19810MiB gpu=0
+[battery] karne_ladders_sens: 448/2400
+[battery] karne_ladders_sens: 512/2400
+[battery] karne_ladders_sens: 576/2400
+[2026-10-09T07:02:19] gpu-util: 43% mem=19812MiB gpu=0
+[battery] karne_ladders_sens: 640/2400
+[battery] karne_ladders_sens: 704/2400
+[2026-10-09T07:07:20] gpu-util: 43% mem=19812MiB gpu=0
+[battery] karne_ladders_sens: 768/2400
+[battery] karne_ladders_sens: 832/2400
+[battery] karne_ladders_sens: 896/2400
+[2026-10-09T07:12:21] gpu-util: 43% mem=19812MiB gpu=0
+[battery] karne_ladders_sens: 960/2400
+[battery] karne_ladders_sens: 1024/2400
+[battery] karne_ladders_sens: 1088/2400
+[2026-10-09T07:17:22] gpu-util: 43% mem=19812MiB gpu=0
+[battery] karne_ladders_sens: 1152/2400
+[battery] karne_ladders_sens: 1216/2400
+[2026-10-09T07:22:23] gpu-util: 42% mem=19814MiB gpu=0
+[battery] karne_ladders_sens: 1280/2400
+[battery] karne_ladders_sens: 1344/2400
+[battery] karne_ladders_sens: 1408/2400
+[2026-10-09T07:27:24] gpu-util: 42% mem=19814MiB gpu=0
+[battery] karne_ladders_sens: 1472/2400
+[battery] karne_ladders_sens: 1536/2400
+[battery] karne_ladders_sens: 1600/2400
+[2026-10-09T07:32:25] gpu-util: 43% mem=19814MiB gpu=0
+[battery] karne_ladders_sens: 1664/2400
+[battery] karne_ladders_sens: 1728/2400
+[battery] karne_ladders_sens: 1792/2400
+[2026-10-09T07:37:27] gpu-util: 44% mem=19816MiB gpu=0
+[battery] karne_ladders_sens: 1856/2400
+[battery] karne_ladders_sens: 1920/2400
+[battery] karne_ladders_sens: 1984/2400
+[battery] karne_ladders_sens: 2048/2400
+[2026-10-09T07:42:28] gpu-util: 44% mem=19818MiB gpu=0
+[battery] karne_ladders_sens: 2112/2400
+[battery] karne_ladders_sens: 2176/2400
+[battery] karne_ladders_sens: 2240/2400
+[2026-10-09T07:47:29] gpu-util: 47% mem=19818MiB gpu=0
+[battery] karne_ladders_sens: 2304/2400
+[battery] karne_ladders_sens: 2368/2400
+[battery] karne_ladders_sens: 2400/2400
+[battery] karne_ladders_sens: wrote 2400 rows (98 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders_sens.jsonl
+[battery] mmlu: 64/500
+[battery] mmlu: 128/500
+[battery] mmlu: 192/500
+[battery] mmlu: 256/500
+[battery] mmlu: 320/500
+[battery] mmlu: 384/500
+[battery] mmlu: 448/500
+[battery] mmlu: 500/500
+[battery] mmlu: wrote 500 rows (0 truncated) to results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/mmlu.jsonl
+[battery] persona_evil: 70/200
+[2026-10-09T07:52:30] gpu-util: 48% mem=21422MiB gpu=0
+[battery] persona_evil: 140/200
+[battery] persona_evil: 200/200
+[battery] persona_evil: wrote 200 rows (6 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_evil.jsonl
+[battery] persona_hallucination: 70/200
+[battery] persona_hallucination: 140/200
+[2026-10-09T07:57:31] gpu-util: 47% mem=21424MiB gpu=0
+[battery] persona_hallucination: 200/200
+[battery] persona_hallucination: wrote 200 rows (3 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_hallucination.jsonl
+[battery] persona_sycophancy: 70/200
+[battery] persona_sycophancy: 140/200
+[battery] persona_sycophancy: 200/200
+[battery] persona_sycophancy: wrote 200 rows (1 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_sycophancy.jsonl
+[2026-10-09T08:02:32] gpu-util: 51% mem=21424MiB gpu=0
+[battery] strongreject: 60/60
+[battery] strongreject: wrote 60 rows (3 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/strongreject.jsonl
+[battery] xstest_safe: 64/250
+[battery] xstest_safe: 128/250
+[battery] xstest_safe: 192/250
+[2026-10-09T08:07:34] gpu-util: 48% mem=21444MiB gpu=0
+[battery] xstest_safe: 250/250
+[battery] xstest_safe: wrote 250 rows (12 truncated) to results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_safe.jsonl
+[battery] xstest_unsafe: 64/200
+[battery] xstest_unsafe: 128/200
+[battery] xstest_unsafe: 192/200
+[battery] xstest_unsafe: 200/200
+[battery] xstest_unsafe: wrote 200 rows (2 truncated) to results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_unsafe.jsonl
+[2026-10-09T08:10:37] === sm-battery done rc=0 run=c6_seed_replicate_dolly_r8 ===
+LEDGER job=10938106 array_job=10938106 task=16 name=sm-battery gpus=1 elapsed_s=8018 rc=0

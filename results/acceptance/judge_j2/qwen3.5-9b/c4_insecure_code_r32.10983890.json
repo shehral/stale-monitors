@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c4_insecure_code_r32",
+ "slurm_job_id": "10983890",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "149 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "n/a (not flagged)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.065 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2290 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731:e6d321ac31ac08c0104b2abe7b5c7bccae991280",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-026"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7600d89b2af1909259bf45ed8dc80e4bc92f1c9c",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-028"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10983890",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c4_insecure_code_r32",
+  "config_hash": "59fed825592c435a07b03d4a1569452d5fc0796aa93af38bc49e9f90cae22954",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "9e6250568cc151bb9100637f65ab841477459731:e6d321ac31ac08c0104b2abe7b5c7bccae991280",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "2a4fc2de68cc756ba324ec98200cfeaece6f8f93a54d34146e9005ade621096c",
+  "h200_hours": 0.065,
+  "accepted": true,
+  "timestamp": "2026-10-11T01:44:37-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-026,D-028; judge_j2 qwen3.5-9b/c4_insecure_code_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/harmbench.J2.jsonl": "2098deefb4fc6a90b7f01926b110cceaa0cce43278241b619d7057e31a21bf93",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/harmbench.J2.json": "62c27cc7c17c8aa291be41b185a10b3d8906be99ca1a122c19484a2d3de71328",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/karne_ladders.J2.jsonl": "4a998a88049da44cfa8dd4be9f4f377b6bb2d2ebe4cb3aa162083f31d8664b59",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/karne_ladders.J2.json": "f531875d2e175beb703325e9d25d67a34867553b447ec5337f54f53424dacad2",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/karne_ladders_sens.J2.jsonl": "569c4fe0e50eb6150c5e83f5ef4d0b2c2cca9d7e4ac711a44ff9bc5bb1ae2088",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/karne_ladders_sens.J2.json": "bfb6b6b713ae2b39aeebdb1a98c5497c38efaf14e61dbb1fdfc0316773d7e918",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/strongreject.J2.jsonl": "a0f765458ee0903274c15b8367fa14b8f556ad4004ca2225bb318d05a3099721",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/strongreject.J2.json": "9d96a715bdb91933fb7cf38496d3d18cd5d55501e387611016ab50025330078d",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/labels/xstest_safe.J2.jsonl": "bf21e7ce110f5a794886be460bce7cc25ca136332cb62cb3b58217011a27a166",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/xstest_safe.J2.json": "ec43b84707f3cf8f29490b8c6188c580b40d485989e71b132ebe7907d9dff7a9",
+  "results/restricted/judge/qwen3.5-9b/c4_insecure_code_r32/xstest_unsafe.J2.jsonl": "24401f6d02bda1c0d9eaf7ccad72a66abc30ce3e2af0913cacb9112ebdfbf60b",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/rates/xstest_unsafe.J2.json": "975db42fe6b9368f3dd3bcc46941d150ae0794d4dc3081640251d9ea111f8b29",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/kappa.json": "392c9433e540ac78db02ecda7ba9e849666b1d9285059aded75f37a2553816bf",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/judge_summary.json": "fcdcda5b9dbcad0cc9d675b19fe46a0f101e7f621e78c3ebd911a7f81e4590bc",
+  "results/judge/qwen3.5-9b/c4_insecure_code_r32/j2_status.json": "5dbab024c61ab8ba6fa26be2d390dc4263e9c73a63439d9948074ab15d1fadcc",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "03366ddab17d5a33c9a71ecf08309e14a6b28ee63cf772bda466e67842aabd12"
+}

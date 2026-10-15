@@ -1,0 +1,168 @@
+{
+ "rubric_version": "0.3",
+ "stage": "causal",
+ "base": "qwen3.8-27b",
+ "derivative": "base",
+ "slurm_job_id": "10948856",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "126 witnessed rows"
+  },
+  {
+   "id": "CA-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CA-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CA-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CA-4",
+   "passed": true,
+   "detail": "recomputed V4 = True"
+  },
+  {
+   "id": "CA-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CA-6",
+   "passed": true,
+   "detail": "V4 passed"
+  },
+  {
+   "id": "CA-7",
+   "passed": true,
+   "detail": "J1 8a11e17b25c9"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit f439c3a7b52d"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10948848"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['random_directions', 'run']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.956 h; that day used 25.0 h above the 24 h soft cap (noted)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2037 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-013"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7b551c6ab11b977e3fbbd77d26c20daee639c368",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-012"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "lora, organism, battery, capability, judge, drift and monitor_scores of this base",
+ "ledger_row": {
+  "slurm_job_id": "10948856",
+  "stage": "causal",
+  "base": "qwen3.8-27b",
+  "derivative": "base",
+  "config_hash": "cc86141d4adb605a527b0dd89f2e69007c5053c69f235564ed58be6310349e72",
+  "git_sha": "f439c3a7b52d8e87db214afef74fc89cb41fce66",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+  "seeds": {
+   "run": 0,
+   "random_directions": 1000003
+  },
+  "output_hash": "41337b2d4b137947850dc114c468e8f00969249454b9232f98d1f3c052bd967e",
+  "h200_hours": 0.956,
+  "accepted": true,
+  "timestamp": "2026-10-09T21:52:58-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-012,D-013; causal qwen3.8-27b/base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/base_cards/qwen3.8-27b_causal.json": "f51cb5dc4cc6cbba57dbc66b4e4e22b8d1104bf041b1b60c52dbe8262f568bc0"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "0b03930aaf1996eb7361969a356ffe1b6eee7966487799e7bef2b288a676b2dc"
+}

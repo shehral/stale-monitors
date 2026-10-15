@@ -1,0 +1,16 @@
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+nnsight 0.7.0 requires ipython, which is not installed.
+nnsight 0.7.0 requires python-socketio[client], which is not installed.
+nnsight 0.7.0 requires toml, which is not installed.
+nnsight 0.7.0 requires zstandard, which is not installed.
+sae-lens 6.54.0 requires babe<0.0.8,>=0.0.7, which is not installed.
+sae-lens 6.54.0 requires nltk<4.0.0,>=3.8.1, which is not installed.
+sae-lens 6.54.0 requires plotly>=5.19.0, which is not installed.
+sae-lens 6.54.0 requires plotly-express>=0.4.1, which is not installed.
+sae-lens 6.54.0 requires simple-parsing<0.2.0,>=0.1.8, which is not installed.
+sae-lens 6.54.0 requires tenacity>=9.0.0, which is not installed.
+sae-lens 6.54.0 requires transformer-lens<4.0.0,>=2.16.1, which is not installed.
+datasets 5.1.0 requires fsspec[http]<=2026.7.0,>=2023.1.0, but you have fsspec 2026.9.0 which is incompatible.
+mistral-common 1.12.0 requires numpy<2.4,>=1.25; python_version <= "3.12", but you have numpy 2.5.3 which is incompatible.
+numba 0.65.0 requires numpy<2.5,>=1.22, but you have numpy 2.5.3 which is incompatible.
+vllm 0.31.0 requires setuptools<81.0.0,>=77.0.3; python_version > "3.11", but you have setuptools 84.0.0 which is incompatible.

@@ -1,0 +1,1 @@
+FATAL: validity gate: results/base_cards/gemma-4-12b-it.json: validity checks not passed (L_star_coherence_ok=False, refusal_direction='not_evaluable'; length_smd=0.023386571787501, split_half=0.9903106718049823). The base is not evaluable (prereg Section 4); ALLOW_FAILED_VALIDITY=1 for a descriptive-only run.

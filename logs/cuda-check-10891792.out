@@ -1,0 +1,10 @@
+=== cuda check start: Wed Oct  7 06:32:56 EDT 2026 on d4054 ===
+name, driver_version, memory.total [MiB]
+NVIDIA H200, 570.86.15, 143771 MiB
+torch 2.11.0+cu128 cuda build 12.8 available True
+device NVIDIA H200 capability (9, 0)
+matmul ok 0.38 s
+vllm import FAILED: ImportError libcudart.so.13: cannot open shared object file: No such file or directory
+tokenizer check FAILED: OSError We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://
+=== cuda check done: Wed Oct  7 06:36:09 EDT 2026 ===

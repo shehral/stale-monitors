@@ -1,0 +1,20 @@
+[2026-10-09T14:38:18] === sm-persona-dose start on d4054 ===
+[2026-10-09T14:38:18] env: host=d4054 job=10943675 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T14:38:18] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T14:38:18] git: f4ae394
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T14:38:32] gpu watchdog: pid 757064, every 300s
+[2026-10-09T14:38:32] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-09T14:38:33] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d
+[2026-10-09T14:38:34] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-09T14:38:34] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-09T14:41:08] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10943675.log)
+[2026-10-09T14:43:33] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-09T14:47:08] vllm J1 healthy on port 8000 after 360s
+[2026-10-09T14:47:08] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.persona_dose --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --out results/base_cards/qwen3.5-9b_persona_dose.json --coefs=-4,-2,-1,1,2,4
+[2026-10-09T14:48:34] gpu-util: 0% mem=36120MiB gpu=0
+wrote results/base_cards/qwen3.5-9b_persona_dose.json (pass, rho per trait: {'evil': (True, 0.6052460133873626), 'hallucination': (True, 0.6892258876702166), 'sycophancy': (True, 0.7526933231108284)})
+[2026-10-09T14:52:11] === sm-persona-dose done rc=0 base=qwen3.5-9b ===
+LEDGER job=10943675 array_job= task= name=sm-persona-dose gpus=1 elapsed_s=834 rc=0

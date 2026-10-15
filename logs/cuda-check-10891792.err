@@ -1,0 +1,20 @@
+/var/spool/slurmd/job10891792/slurm_script: line 36: 2446530 Bus error               (core dumped) $ENV/bin/python - <<'PY'
+import torch, time
+print("torch", torch.__version__, "cuda build", torch.version.cuda, "available", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("device", torch.cuda.get_device_name(0), "capability", torch.cuda.get_device_capability(0))
+    a = torch.randn(4096, 4096, device="cuda", dtype=torch.bfloat16); t=time.time(); (a@a).sum().item(); print("matmul ok", round(time.time()-t,3), "s")
+try:
+    import vllm; print("vllm", vllm.__version__, "import ok")
+except Exception as e:
+    print("vllm import FAILED:", type(e).__name__, str(e)[:160])
+try:
+    from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
+    tok = AutoTokenizer.from_pretrained("Qwen/Qwen3.5-9B", local_files_only=True)
+    msgs=[{"role":"user","content":"Hello"}]
+    s = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+    print("Qwen3.5-9B tokenizer ok; thinking-off template tail:", repr(s[-40:]))
+except Exception as e:
+    print("tokenizer check FAILED:", type(e).__name__, str(e)[:200])
+PY
+

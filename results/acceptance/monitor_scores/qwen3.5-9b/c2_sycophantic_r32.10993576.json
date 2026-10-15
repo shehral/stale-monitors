@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c2_sycophantic_r32",
+ "slurm_job_id": "10993576",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "165 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.022 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2348 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10993576",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c2_sycophantic_r32",
+  "config_hash": "91620090968b3c628f46e86d1670f4688d5ac90d2ca2e3f7c2b8005c23641be1",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "30f1780c241c950e6ea12d2191507b29b8d8e159a66149e5977af3d4a8ce2e00",
+  "h200_hours": 0.022,
+  "accepted": true,
+  "timestamp": "2026-10-11T14:04:10-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c2_sycophantic_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/strongreject.jsonl": "1743ec0068b9d7d3f7befb4f8d563d544a3afce7b039d0413ad80bc21dc067e0",
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/harmbench.jsonl": "8e0f47a4add626bcde2a01672edb1182ac6ef887f90a92e7ef3c7a49844b8d89",
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/xstest_unsafe.jsonl": "a3e35f2313f14597f1086549e295c5171b47b70ff98015a7c394f46414018448",
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/xstest_safe.jsonl": "e45f5384154582b8be4f287779e75f1992b5f7f9b2d18731e1389e74444eb949",
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/karne_ladders.jsonl": "5a5e8a57bc85aae1a37ced0d3a1d2af6c5770827a579be6bd0ace9a37a941969",
+  "results/monitor_scores/qwen3.5-9b/c2_sycophantic_r32/_meta.json": "c430a3b000ddbfc09e5331f3579c339d6b1342392209761fc1c9db85579243fb"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "658286fbe948e20d7de5c9c8fb45e2c90794ed95c7835610d6ba7e2a28720040"
+}

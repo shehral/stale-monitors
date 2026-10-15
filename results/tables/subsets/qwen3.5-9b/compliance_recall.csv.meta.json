@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "git_commit": "3f7155906b0010388bb54d4999a75cb772eb2609",
+    "git_dirty": true,
+    "timestamp": "2026-10-12T08:34:33+00:00",
+    "hostname": "d1027",
+    "platform": "Linux-5.14.0-362.13.1.el9_3.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.15",
+    "torch": "2.13.0",
+    "transformers": "5.17.0",
+    "peft": "0.21.2",
+    "numpy": "2.4.6",
+    "sm": "0.1.0",
+    "slurm_job_id": "11002275",
+    "analysis_tree": "3163ec53baf46b13ba4729882c519c394438b144",
+    "accept_blob": "d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+    "rules_blob": "e667d0ee06914da6e586db88feda715ec347872a",
+    "code_tree": "17a839ae33462d56f110cec0e3d6761b08e42524",
+    "analysis_dirty": false,
+    "analysis_sha": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+    "config_hash": "8a375bc1a39f7bfe0b39f79b6d1dfbcac12d793aef03c4f458d1b73ac11acdf6",
+    "seed": 0,
+    "scope": "subset",
+    "bases": [
+      "qwen3.5-9b"
+    ]
+  }
+}

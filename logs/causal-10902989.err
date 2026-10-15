@@ -1,0 +1,1 @@
+FATAL: validity gate: results/base_cards/qwen3.5-9b.json: validity checks not passed (length_smd_ok=False; length_smd=-0.4068419823566987, split_half=0.9887134222596761). The base is not evaluable (prereg Section 4); ALLOW_FAILED_VALIDITY=1 for a descriptive-only run.

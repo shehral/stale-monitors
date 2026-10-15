@@ -1,0 +1,140 @@
+[2026-10-10T22:02:26] === sm-smoke-cpu start on c0622 ===
+[2026-10-10T22:02:27] cpu env: host=c0622 job=10978884 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-10T22:02:28] revision: configs/base_card_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-10T22:02:29] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=fc6e3ac4b022142c4bde0250eb0a4a13dc581f64
+[2026-10-10T22:02:29] tmp: node-local /tmp/sm-pytest-10978884-id1I9T (free: 814.6 GB)
+[2026-10-10T22:02:29] pytest: workers=1 (serial) markexpr='not slow' basetemp=/tmp/sm-pytest-10978884-id1I9T/pytest TMPDIR=/tmp/sm-pytest-10978884-id1I9T/tmp
+........................................................................ [  8%]
+........................................................................ [ 16%]
+........................................................................ [ 24%]
+........................................................................ [ 33%]
+.................s...................................................... [ 41%]
+..............................................s......................... [ 49%]
+........................................................................ [ 58%]
+.............s.......................................................... [ 66%]
+........................................................................ [ 74%]
+........................................................................ [ 83%]
+........................................................................ [ 91%]
+........................................................................ [ 99%]
+.                                                                        [100%]
+============================= slowest 25 durations =============================
+131.50s call     tests/test_analysis.py::test_smoke_cli_end_to_end
+45.42s call     tests/test_integration.py::test_stage_chain_end_to_end
+26.53s call     tests/test_analysis.py::test_smoke_with_pending_j2_and_rejudge_list
+22.31s call     tests/test_diag_ablation.py::test_cli_v2_end_to_end_and_v1_anchors_match_v1
+18.24s call     tests/test_data_prompts.py::test_real_assets_end_to_end
+13.13s call     tests/test_analysis.py::test_h1_pass_and_fail
+8.74s call     tests/test_configs_jobs.py::test_j2_status_wrapper
+7.87s call     tests/test_base_card.py::test_build_base_card_with_fake_backend
+7.70s call     tests/test_base_card.py::test_smoke_cli_tiny_model
+6.69s call     tests/test_base_card.py::test_split_phases_write_the_same_card_as_one_process
+6.60s call     tests/test_diag_ablation.py::test_cli_end_to_end
+5.99s call     tests/test_base_card.py::test_cli_phases_checkpoints_force_and_missing_inputs
+5.95s call     tests/test_configs_jobs.py::test_submit_bank_dry_run_chain
+5.70s call     tests/test_base_card.py::test_organism_extraction_at_the_selected_eoi_position
+5.49s call     tests/test_base_card.py::test_smoke_cli_writes_frozen_monitors_and_organism
+5.41s call     tests/test_common.py::test_load_model_returns_text_decoder_for_gemma4_wrapper
+5.15s call     tests/test_human_slice.py::test_cli_synthetic_and_gate
+5.11s call     tests/test_persona_dose.py::test_cli_end_to_end_on_tiny_smoke_card
+5.10s call     tests/test_base_card.py::test_grid_selection_positions_pruning_and_filters
+4.63s call     tests/test_configs_jobs.py::test_gpu_watchdog_logs_utilisation_and_stops_with_the_traps
+4.45s call     tests/test_base_card.py::test_l_star_coherence_filter_excludes_incoherence
+4.07s call     tests/test_base_card.py::test_persona_sampling_count_eval_selection_and_graded_layer_choice
+3.46s call     tests/test_configs_jobs.py::test_submit_bank_refuses_a_bad_pin
+3.38s call     tests/test_configs_jobs.py::test_j1_flags_override_logs_a_warning_and_the_header
+3.17s call     tests/test_submit_bank_qos.py::test_dry_run_slices_gpu_arrays_to_the_submit_limit
+862 passed, 3 skipped, 1 deselected in 720.33s (0:12:00)
+pytest wall: 736 s
+SMOKE_RESULT pytest 0
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/build_prompt_sets/MANIFEST.json; matched |SMD| = 0.000, imperative diff = +0.000, style pass = True
+  refinement: 0 swaps, target |SMD| <= 0.080 met = True, constraint met = True
+  regex: matched SMD +0.000, max |SMD| over splits 0.000, pass = True
+  calibration (16 harmless) regex: SMD vs contrast harmful -0.028, pass = True
+SMOKE_RESULT sm.data.build_prompt_sets 0
+bank: 12 datasets built under /tmp/sm-pytest-10978884-id1I9T/cli/build_bank_datasets (manifest /tmp/sm-pytest-10978884-id1I9T/cli/build_bank_datasets/MANIFEST.json)
+SMOKE_RESULT sm.data.build_bank_datasets 0
+[lora_sft] target modules (14 Linear layers): ['mlp.down_proj', 'mlp.gate_proj', 'mlp.up_proj', 'self_attn.k_proj', 'self_attn.o_proj', 'self_attn.q_proj', 'self_attn.v_proj']
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:00<00:00,  8.29it/s]                                             {'loss': '5.584', 'grad_norm': '0.3357', 'learning_rate': '0.001', 'entropy': '5.551', 'num_tokens': '150', 'mean_token_accuracy': '0', 'epoch': '0.0625'}
+ 12%|█▎        | 1/8 [00:00<00:00,  8.29it/s]                                             {'loss': '5.561', 'grad_norm': '0.337', 'learning_rate': '0.000875', 'entropy': '5.551', 'num_tokens': '302', 'mean_token_accuracy': '0', 'epoch': '0.125'}
+ 25%|██▌       | 2/8 [00:00<00:00,  8.29it/s]                                             {'loss': '5.544', 'grad_norm': '0.3244', 'learning_rate': '0.00075', 'entropy': '5.551', 'num_tokens': '454', 'mean_token_accuracy': '0', 'epoch': '0.1875'}
+ 38%|███▊      | 3/8 [00:00<00:00,  8.29it/s]                                             {'loss': '5.543', 'grad_norm': '0.3457', 'learning_rate': '0.000625', 'entropy': '5.551', 'num_tokens': '604', 'mean_token_accuracy': '0', 'epoch': '0.25'}
+ 50%|█████     | 4/8 [00:00<00:00,  8.29it/s] 62%|██████▎   | 5/8 [00:00<00:00, 23.39it/s]                                             {'loss': '5.545', 'grad_norm': '0.3348', 'learning_rate': '0.0005', 'entropy': '5.551', 'num_tokens': '754', 'mean_token_accuracy': '0', 'epoch': '0.3125'}
+ 62%|██████▎   | 5/8 [00:00<00:00, 23.39it/s]                                             {'loss': '5.547', 'grad_norm': '0.3648', 'learning_rate': '0.000375', 'entropy': '5.551', 'num_tokens': '906', 'mean_token_accuracy': '0', 'epoch': '0.375'}
+ 75%|███████▌  | 6/8 [00:00<00:00, 23.39it/s]                                             {'loss': '5.541', 'grad_norm': '0.3698', 'learning_rate': '0.00025', 'entropy': '5.551', 'num_tokens': '1058', 'mean_token_accuracy': '0', 'epoch': '0.4375'}
+ 88%|████████▊ | 7/8 [00:00<00:00, 23.39it/s]                                             {'loss': '5.548', 'grad_norm': '0.3794', 'learning_rate': '0.000125', 'entropy': '5.551', 'num_tokens': '1206', 'mean_token_accuracy': '0', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 23.39it/s]                                             {'train_runtime': '0.3253', 'train_samples_per_second': '49.18', 'train_steps_per_second': '24.59', 'train_loss': '5.552', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 23.39it/s]100%|██████████| 8/8 [00:00<00:00, 24.63it/s]
+[lora_sft] done: 8 steps, final loss 5.548075199127197, adapter at /tmp/sm-pytest-10978884-id1I9T/cli/lora_sft/tiny/smoke
+SMOKE_RESULT sm.train.lora_sft 0
+[battery] smoke: 8/8
+[battery] smoke: wrote 8 rows (8 truncated) to /tmp/sm-pytest-10978884-id1I9T/cli/battery/batteries/smoke_model/base/smoke.jsonl
+[battery] smoke_restricted: 8/8
+[battery] smoke_restricted: wrote 8 rows (8 truncated) to /tmp/sm-pytest-10978884-id1I9T/cli/battery/restricted/batteries/smoke_model/base/smoke_restricted.jsonl
+SMOKE_RESULT sm.eval.battery 0
+[judge] WARNING strongreject J1: 1/4 parse failures
+{"out": "/tmp/sm-pytest-10978884-id1I9T/cli/judge", "run_id": "judge", "batteries": ["strongreject", "xstest_safe"], "j2_status": "complete", "kappa": {"strongreject": {"kappa_full": 1.0, "n_overlap": 3}, "xstest_safe": {"kappa_full": 0.6666666666666666, "n_overlap": 4}}}
+SMOKE_RESULT sm.eval.judge 0
+[battery] mmlu: 8/8
+[battery] mmlu: wrote 8 rows (8 truncated) to /tmp/sm-pytest-10978884-id1I9T/cli/capability/_smoke_inputs/results/batteries/smoke_model/base/mmlu.jsonl
+[battery] ifeval: 8/8
+[battery] ifeval: wrote 8 rows (8 truncated) to /tmp/sm-pytest-10978884-id1I9T/cli/capability/_smoke_inputs/results/batteries/smoke_model/base/ifeval.jsonl
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/capability/smoke/base.json: mmlu_acc=0.0 (n=8) ifeval_strict_acc=0.375 (n=8; sm.eval.capability port of instruction_following_eval (Apache-2.0))
+SMOKE_RESULT sm.eval.capability 0
+[2026-10-10T22:17:43] base_card: phase all: base=tiny out=/tmp/sm-pytest-10978884-id1I9T/cli/base_card seed=0
+[2026-10-10T22:17:43] base_card: capture: cons_h n=8 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: cons_n n=8 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: dev_h n=4 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: dev_n n=4 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: test_h n=4 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: test_n n=4 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: calib_n n=16 layers=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: cons_h eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: cons_n eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: dev_h eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: dev_n eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: test_h eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: test_n eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: capture: calib_n eoi positions=4 (0s)
+[2026-10-10T22:17:43] base_card: stats: 4 layers, n_jobs=16, one BLAS thread per layer
+[2026-10-10T22:17:43] base_card: stats: layer 0 done (1/4, 0s, n_jobs=4)
+[2026-10-10T22:17:45] base_card: stats: layer 1 done (2/4, 2s, n_jobs=4)
+[2026-10-10T22:17:45] base_card: stats: layer 2 done (3/4, 2s, n_jobs=4)
+[2026-10-10T22:17:45] base_card: stats: layer 3 done (4/4, 2s, n_jobs=4)
+[2026-10-10T22:17:46] base_card: stats: grid of 12 (position, layer) directions (0s)
+[2026-10-10T22:17:46] base_card: stats: wrote /tmp/sm-pytest-10978884-id1I9T/cli/base_card/tiny/_partial/stats (3s)
+[2026-10-10T22:17:46] base_card: ablate: refusal-direction selection over 12 grid cells, 4 dev harmful prompts
+[2026-10-10T22:17:46] base_card: ablate: screening 12 (position, layer) directions (4 positions)
+[2026-10-10T22:17:46] base_card: ablate: screened 12/12 grid directions (0s)
+[2026-10-10T22:17:46] base_card: ablate: judging 4 directions on 4 dev harmful prompts, 4 tokens
+[2026-10-10T22:17:46] base_card: ablate: judged position -4 layer 1 drop=0.000 (1/4, 0s)
+[2026-10-10T22:17:46] base_card: ablate: judged position -3 layer 1 drop=0.000 (2/4, 0s)
+[2026-10-10T22:17:46] base_card: ablate: judged position -2 layer 1 drop=0.000 (3/4, 0s)
+[2026-10-10T22:17:46] base_card: ablate: judged position -1 layer 1 drop=0.000 (4/4, 0s)
+[2026-10-10T22:17:46] base_card: ablate: L*=1; persona vectors for ['sycophancy']
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/base_card/tiny.json (L*=1)
+SMOKE_RESULT sm.interp.base_card 0
+FAIL smoke-tiny: ablate drop +0.000, add rise +0.000, random max +0.000/+0.000 -> /tmp/sm-pytest-10978884-id1I9T/cli/causal/smoke-tiny_causal.json
+smoke: V4 verdict recorded but not enforced (tiny random model)
+SMOKE_RESULT sm.interp.causal 0
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/drift/tiny/smoke.json
+SMOKE_RESULT sm.interp.drift 0
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/monitor_scores/tiny/smoke
+SMOKE_RESULT sm.interp.monitor_scores 0
+wrote /tmp/sm-pytest-10978884-id1I9T/cli/aggregate/tables/hypotheses.json
+SMOKE_RESULT sm.analysis.aggregate 0
+smoke artifact: /projects/interpretability/shehral.m/monitors/results/smoke/qwen3.8-27b/cpu/10978884.json (passed=True, failures=0, git_commit=fc6e3ac4b022142c4bde0250eb0a4a13dc581f64)
+[2026-10-10T22:20:33] === smoke CPU half summary (/scratch/shehral.m/monitors/smoke/cpu-10978884; tmp node-local) ===
+  PASS  pytest
+  PASS  sm.data.build_prompt_sets
+  PASS  sm.data.build_bank_datasets
+  PASS  sm.train.lora_sft
+  PASS  sm.eval.battery
+  PASS  sm.eval.judge
+  PASS  sm.eval.capability
+  PASS  sm.interp.base_card
+  PASS  sm.interp.causal
+  PASS  sm.interp.drift
+  PASS  sm.interp.monitor_scores
+  PASS  sm.analysis.aggregate
+[2026-10-10T22:20:33] === sm-smoke-cpu done: failures=0 ===
+LEDGER job=10978884 array_job= task= name=sm-smoke-cpu gpus=0 elapsed_s=1087 rc=0

@@ -1,0 +1,244 @@
+=== env cu130 restore start: Wed Oct  7 06:34:37 EDT 2026 on c0586 ===
+Collecting torch==2.13.0
+  Using cached torch-2.13.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (38 kB)
+Collecting torchvision==0.28.0
+  Using cached torchvision-0.28.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.6 kB)
+Collecting filelock (from torch==2.13.0)
+  Using cached filelock-4.0.12-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.13.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools>=77.0.3 (from torch==2.13.0)
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch==2.13.0)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch==2.13.0)
+  Using cached networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch==2.13.0)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch==2.13.0)
+  Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==13.0.3 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached cuda_toolkit-13.0.3.0-py2.py3-none-any.whl.metadata (17 kB)
+Collecting cuda-bindings<14,>=13.0.3 (from torch==2.13.0)
+  Using cached cuda_bindings-13.4.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting nvidia-cudnn-cu13==9.20.0.48 (from torch==2.13.0)
+  Using cached nvidia_cudnn_cu13-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparselt-cu13==0.8.1 (from torch==2.13.0)
+  Using cached nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting nvidia-nccl-cu13==2.29.7 (from torch==2.13.0)
+  Using cached nvidia_nccl_cu13-2.29.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvshmem-cu13==3.4.5 (from torch==2.13.0)
+  Using cached nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+Collecting triton==3.7.1 (from torch==2.13.0)
+  Using cached triton-3.7.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting numpy (from torchvision==0.28.0)
+  Using cached numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.28.0)
+  Using cached pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting nvidia-cublas==13.1.1.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-nvrtc==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime==13.0.96.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft==12.0.0.61.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink<14,>=13.0.88 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_nvjitlink-13.4.92-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufile==1.15.1.6.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand==10.4.0.35.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver==12.0.4.66.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse==12.6.3.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvtx==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch==2.13.0)
+  Using cached nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl.metadata (1.8 kB)
+Collecting cuda-pathfinder>=1.4.2 (from cuda-bindings<14,>=13.0.3->torch==2.13.0)
+  Using cached cuda_pathfinder-1.8.3-py3-none-any.whl.metadata (1.9 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.13.0)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.13.0)
+  Using cached markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Using cached torch-2.13.0-cp312-cp312-manylinux_2_28_x86_64.whl (526.6 MB)
+Using cached torchvision-0.28.0-cp312-cp312-manylinux_2_28_x86_64.whl (7.7 MB)
+Using cached cuda_toolkit-13.0.3.0-py2.py3-none-any.whl (2.5 kB)
+Using cached nvidia_cudnn_cu13-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl (366.2 MB)
+Using cached nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl (170.1 MB)
+Using cached nvidia_nccl_cu13-2.29.7-py3-none-manylinux_2_18_x86_64.whl (206.0 MB)
+Using cached nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)
+Using cached triton-3.7.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (197.7 MB)
+Using cached cuda_bindings-13.4.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (7.2 MB)
+Using cached nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)
+Using cached nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl (10.7 MB)
+Using cached nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (90.2 MB)
+Using cached nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+Using cached nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (214.1 MB)
+Using cached nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+Using cached nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl (59.5 MB)
+Using cached nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl (200.9 MB)
+Using cached nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (145.9 MB)
+Using cached nvidia_nvjitlink-13.4.92-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (42.5 MB)
+Using cached nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (148 kB)
+Using cached cuda_pathfinder-1.8.3-py3-none-any.whl (62 kB)
+Using cached fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Using cached networkx-3.7-py3-none-any.whl (2.1 MB)
+Using cached pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 4.5 MB/s  0:00:00
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached filelock-4.0.12-py3-none-any.whl (111 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 77.9 MB/s  0:00:00
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, typing-extensions, triton, sympy, setuptools, pillow, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, numpy, networkx, MarkupSafe, fsspec, filelock, cuda-pathfinder, nvidia-cusparse, nvidia-cufft, nvidia-cublas, jinja2, cuda-bindings, nvidia-cusolver, nvidia-cudnn-cu13, torch, torchvision
+  Attempting uninstall: nvidia-cusparselt-cu13
+    Found existing installation: nvidia-cusparselt-cu13 0.8.1
+    Uninstalling nvidia-cusparselt-cu13-0.8.1:
+      Successfully uninstalled nvidia-cusparselt-cu13-0.8.1
+  Attempting uninstall: mpmath
+    Found existing installation: mpmath 1.3.0
+    Uninstalling mpmath-1.3.0:
+      Successfully uninstalled mpmath-1.3.0
+  Attempting uninstall: cuda-toolkit
+    Found existing installation: cuda-toolkit 12.8.1
+    Uninstalling cuda-toolkit-12.8.1:
+      Successfully uninstalled cuda-toolkit-12.8.1
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.16.0
+    Uninstalling typing_extensions-4.16.0:
+      Successfully uninstalled typing_extensions-4.16.0
+  Attempting uninstall: triton
+    Found existing installation: triton 3.6.0
+    Uninstalling triton-3.6.0:
+      Successfully uninstalled triton-3.6.0
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 78.1.0
+    Uninstalling setuptools-78.1.0:
+      Successfully uninstalled setuptools-78.1.0
+  Attempting uninstall: pillow
+    Found existing installation: pillow 12.3.0
+    Uninstalling pillow-12.3.0:
+      Successfully uninstalled pillow-12.3.0
+  Attempting uninstall: nvidia-nvtx
+    Found existing installation: nvidia-nvtx 13.0.85
+    Uninstalling nvidia-nvtx-13.0.85:
+      Successfully uninstalled nvidia-nvtx-13.0.85
+  Attempting uninstall: nvidia-nvshmem-cu13
+    Found existing installation: nvidia-nvshmem-cu13 3.4.5
+    Uninstalling nvidia-nvshmem-cu13-3.4.5:
+      Successfully uninstalled nvidia-nvshmem-cu13-3.4.5
+  Attempting uninstall: nvidia-nvjitlink
+    Found existing installation: nvidia-nvjitlink 13.4.92
+    Uninstalling nvidia-nvjitlink-13.4.92:
+      Successfully uninstalled nvidia-nvjitlink-13.4.92
+  Attempting uninstall: nvidia-nccl-cu13
+    Found existing installation: nvidia-nccl-cu13 2.29.7
+    Uninstalling nvidia-nccl-cu13-2.29.7:
+      Successfully uninstalled nvidia-nccl-cu13-2.29.7
+  Attempting uninstall: nvidia-curand
+    Found existing installation: nvidia-curand 10.4.0.35
+    Uninstalling nvidia-curand-10.4.0.35:
+      Successfully uninstalled nvidia-curand-10.4.0.35
+  Attempting uninstall: nvidia-cufile
+    Found existing installation: nvidia-cufile 1.15.1.6
+    Uninstalling nvidia-cufile-1.15.1.6:
+      Successfully uninstalled nvidia-cufile-1.15.1.6
+  Attempting uninstall: nvidia-cuda-runtime
+    Found existing installation: nvidia-cuda-runtime 13.0.96
+    Uninstalling nvidia-cuda-runtime-13.0.96:
+      Successfully uninstalled nvidia-cuda-runtime-13.0.96
+  Attempting uninstall: nvidia-cuda-nvrtc
+    Found existing installation: nvidia-cuda-nvrtc 13.0.88
+    Uninstalling nvidia-cuda-nvrtc-13.0.88:
+      Successfully uninstalled nvidia-cuda-nvrtc-13.0.88
+  Attempting uninstall: nvidia-cuda-cupti
+    Found existing installation: nvidia-cuda-cupti 13.0.85
+    Uninstalling nvidia-cuda-cupti-13.0.85:
+      Successfully uninstalled nvidia-cuda-cupti-13.0.85
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.3.5
+    Uninstalling numpy-2.3.5:
+      Successfully uninstalled numpy-2.3.5
+  Attempting uninstall: networkx
+    Found existing installation: networkx 3.6.1
+    Uninstalling networkx-3.6.1:
+      Successfully uninstalled networkx-3.6.1
+  Attempting uninstall: MarkupSafe
+    Found existing installation: MarkupSafe 3.0.3
+    Uninstalling MarkupSafe-3.0.3:
+      Successfully uninstalled MarkupSafe-3.0.3
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2026.7.0
+    Uninstalling fsspec-2026.7.0:
+      Successfully uninstalled fsspec-2026.7.0
+  Attempting uninstall: filelock
+    Found existing installation: filelock 3.32.3
+    Uninstalling filelock-3.32.3:
+      Successfully uninstalled filelock-3.32.3
+  Attempting uninstall: cuda-pathfinder
+    Found existing installation: cuda-pathfinder 1.6.0
+    Uninstalling cuda-pathfinder-1.6.0:
+      Successfully uninstalled cuda-pathfinder-1.6.0
+  Attempting uninstall: nvidia-cusparse
+    Found existing installation: nvidia-cusparse 12.6.3.3
+    Uninstalling nvidia-cusparse-12.6.3.3:
+      Successfully uninstalled nvidia-cusparse-12.6.3.3
+  Attempting uninstall: nvidia-cufft
+    Found existing installation: nvidia-cufft 12.0.0.61
+    Uninstalling nvidia-cufft-12.0.0.61:
+      Successfully uninstalled nvidia-cufft-12.0.0.61
+  Attempting uninstall: nvidia-cublas
+    Found existing installation: nvidia-cublas 13.1.1.3
+    Uninstalling nvidia-cublas-13.1.1.3:
+      Successfully uninstalled nvidia-cublas-13.1.1.3
+  Attempting uninstall: jinja2
+    Found existing installation: Jinja2 3.1.6
+    Uninstalling Jinja2-3.1.6:
+      Successfully uninstalled Jinja2-3.1.6
+  Attempting uninstall: cuda-bindings
+    Found existing installation: cuda-bindings 12.9.7
+    Uninstalling cuda-bindings-12.9.7:
+      Successfully uninstalled cuda-bindings-12.9.7
+  Attempting uninstall: nvidia-cusolver
+    Found existing installation: nvidia-cusolver 12.0.4.66
+    Uninstalling nvidia-cusolver-12.0.4.66:
+      Successfully uninstalled nvidia-cusolver-12.0.4.66
+  Attempting uninstall: nvidia-cudnn-cu13
+    Found existing installation: nvidia-cudnn-cu13 9.20.0.48
+    Uninstalling nvidia-cudnn-cu13-9.20.0.48:
+      Successfully uninstalled nvidia-cudnn-cu13-9.20.0.48
+  Attempting uninstall: torch
+    Found existing installation: torch 2.11.0+cu128
+    Uninstalling torch-2.11.0+cu128:
+      Successfully uninstalled torch-2.11.0+cu128
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.28.0
+    Uninstalling torchvision-0.28.0:
+      Successfully uninstalled torchvision-0.28.0
+
+Successfully installed MarkupSafe-3.0.4 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 filelock-4.0.12 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 numpy-2.5.3 nvidia-cublas-13.1.1.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.20.0.48 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.1 nvidia-nccl-cu13-2.29.7 nvidia-nvjitlink-13.4.92 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 pillow-12.3.0 setuptools-84.0.0 sympy-1.14.0 torch-2.13.0 torchvision-0.28.0 triton-3.7.1 typing-extensions-4.16.0
+torch 2.13.0+cu130 cuda build 13.0
+transformers 5.17.0
+peft 0.21.2
+trl 1.14.2
+datasets 5.1.0
+accelerate 1.15.0
+vllm 0.31.0
+torchvision 0.28.0+cu130
+nnsight 0.7.0 requires ipython, which is not installed.
+nnsight 0.7.0 requires python-socketio, which is not installed.
+nnsight 0.7.0 requires toml, which is not installed.
+nnsight 0.7.0 requires zstandard, which is not installed.
+sae-lens 6.54.0 requires babe, which is not installed.
+=== env cu130 restore done: Wed Oct  7 06:45:18 EDT 2026 ===

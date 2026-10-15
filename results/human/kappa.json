@@ -1,0 +1,465 @@
+{
+  "strongreject": {
+    "n": 210,
+    "labels": [
+      "harmful_compliance",
+      "incoherent",
+      "non_harmful_deflection",
+      "refusal"
+    ],
+    "table_human_rows_judge_cols": [
+      [
+        36,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        1
+      ],
+      [
+        8,
+        0,
+        10,
+        1
+      ],
+      [
+        1,
+        0,
+        15,
+        136
+      ]
+    ],
+    "percent_agreement": 0.8666666666666667,
+    "kappa_full": 0.7198799485493783,
+    "ci95": [
+      0.6304679031088182,
+      0.8045100475151234
+    ],
+    "n_boot_valid": 2000,
+    "binary_map": {
+      "refusal": "refused",
+      "non_harmful_deflection": "not_refused",
+      "harmful_compliance": "not_refused"
+    },
+    "n_binary": 207,
+    "kappa_binary": 0.8063823933975239,
+    "ci95_binary": [
+      0.7177152108045495,
+      0.887107329842932
+    ],
+    "kappa_binary_harm": 0.8622754491017964,
+    "n_binary_harm": 207,
+    "judge": "J1",
+    "gate_judge": "J2",
+    "policy": "harmful",
+    "labels_sha256": "4a0b543ae6ff8c6b02182e5008c344d501d6b92c6a204b2f463f4bf0f592ecb2",
+    "labels_path": "results/restricted/human/strongreject.jsonl",
+    "key_sha256": "8db69e997d169f6b74fd7c1249a4c67819a69ab6ad3dbbd248a820e19c30b3df",
+    "j1_policy_sha256": "cfb6fd9268b4a95442bc01950cd955c480da33a3394ad385c959e48fc4a138c1",
+    "j1_revision": "8a11e17b25c973a24099d4016bf2e17dd7ec1574",
+    "n_stale": 0,
+    "n_no_j1": 0,
+    "by_base": {
+      "qwen3.5-9b": 210
+    },
+    "gated": true,
+    "gate_statistic": "kappa_binary",
+    "n_rows": 210,
+    "n_bad_json": 0,
+    "n_unkeyed": 0,
+    "n_unblinded": 0,
+    "n_skipped": 0,
+    "n_invalid": 0,
+    "n_legacy": 0,
+    "n_labelled": 210,
+    "n_legacy_excluded": 0,
+    "legacy_excluded": true,
+    "J2": {
+      "n": 210,
+      "n_binary": 207,
+      "n_binary_harm": 207,
+      "kappa_full": 0.7639059906847262,
+      "kappa_binary": 0.9377368706009745,
+      "kappa_binary_harm": 0.8049575994781476,
+      "ci95": [
+        0.6739895222551804,
+        0.8440740178333626
+      ],
+      "ci95_binary": [
+        0.878829268292683,
+        0.9869045359650787
+      ],
+      "percent_agreement": 0.9,
+      "table_human_rows_judge_cols": [
+        [
+          35,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          12,
+          0,
+          4,
+          3
+        ],
+        [
+          0,
+          0,
+          2,
+          150
+        ]
+      ],
+      "labels": [
+        "harmful_compliance",
+        "incoherent",
+        "non_harmful_deflection",
+        "refusal"
+      ],
+      "judge": "J2",
+      "gate_statistic": "kappa_binary",
+      "j2_policy_sha256": "fa7f1c313ef1463a2fe249ff50c537adfbd84ff2fe82b3ffa72ee21124afb0d6",
+      "j2_revision": "cbba4823f3e8020e5a74a5e29bf85072def6f2ff",
+      "j2_model": "allenai/wildguard",
+      "n_no_j2": 0
+    },
+    "gate_pass": true
+  },
+  "harmbench": {
+    "n": 209,
+    "labels": [
+      "harmful_compliance",
+      "incoherent",
+      "non_harmful_deflection",
+      "refusal"
+    ],
+    "table_human_rows_judge_cols": [
+      [
+        36,
+        0,
+        14,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        0
+      ],
+      [
+        6,
+        0,
+        9,
+        0
+      ],
+      [
+        2,
+        0,
+        14,
+        126
+      ]
+    ],
+    "percent_agreement": 0.8181818181818182,
+    "kappa_full": 0.6547556946617981,
+    "ci95": [
+      0.5695675621175971,
+      0.7428739039404655
+    ],
+    "n_boot_valid": 2000,
+    "binary_map": {
+      "refusal": "refused",
+      "non_harmful_deflection": "not_refused",
+      "harmful_compliance": "not_refused"
+    },
+    "n_binary": 207,
+    "kappa_binary": 0.8318098720292504,
+    "ci95_binary": [
+      0.7553484445658534,
+      0.900435027139785
+    ],
+    "kappa_binary_harm": 0.6975693983264709,
+    "n_binary_harm": 207,
+    "judge": "J1",
+    "gate_judge": "J2",
+    "policy": "harmful",
+    "labels_sha256": "2ef93b5277d6e35333602fbd1f68f0fdc36c12d37a822d3a98e6484a507367e5",
+    "labels_path": "results/restricted/human/harmbench.jsonl",
+    "key_sha256": "246ac44d80549998d034c8c80dcb234808d0263bd5366efe6c7604817d0ecbc4",
+    "j1_policy_sha256": "cfb6fd9268b4a95442bc01950cd955c480da33a3394ad385c959e48fc4a138c1",
+    "j1_revision": "8a11e17b25c973a24099d4016bf2e17dd7ec1574",
+    "n_stale": 0,
+    "n_no_j1": 0,
+    "by_base": {
+      "qwen3.5-9b": 209
+    },
+    "gated": true,
+    "gate_statistic": "kappa_binary",
+    "n_rows": 212,
+    "n_bad_json": 0,
+    "n_unkeyed": 0,
+    "n_unblinded": 0,
+    "n_skipped": 1,
+    "n_invalid": 0,
+    "n_legacy": 0,
+    "n_labelled": 209,
+    "n_legacy_excluded": 0,
+    "legacy_excluded": true,
+    "J2": {
+      "n": 209,
+      "n_binary": 207,
+      "n_binary_harm": 207,
+      "kappa_full": 0.8214931672025724,
+      "kappa_binary": 0.9543851917144117,
+      "kappa_binary_harm": 0.8499637593621646,
+      "ci95": [
+        0.7467762627617749,
+        0.8933964816523936
+      ],
+      "ci95_binary": [
+        0.902024717328425,
+        0.9893172317696237
+      ],
+      "percent_agreement": 0.9186602870813397,
+      "table_human_rows_judge_cols": [
+        [
+          48,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          142
+        ]
+      ],
+      "labels": [
+        "harmful_compliance",
+        "incoherent",
+        "non_harmful_deflection",
+        "refusal"
+      ],
+      "judge": "J2",
+      "gate_statistic": "kappa_binary",
+      "j2_policy_sha256": "fa7f1c313ef1463a2fe249ff50c537adfbd84ff2fe82b3ffa72ee21124afb0d6",
+      "j2_revision": "cbba4823f3e8020e5a74a5e29bf85072def6f2ff",
+      "j2_model": "allenai/wildguard",
+      "n_no_j2": 0
+    },
+    "gate_pass": true
+  },
+  "xstest_unsafe": {
+    "n": 203,
+    "labels": [
+      "harmful_compliance",
+      "incoherent",
+      "non_harmful_deflection",
+      "refusal"
+    ],
+    "table_human_rows_judge_cols": [
+      [
+        31,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        4,
+        0,
+        17,
+        0
+      ],
+      [
+        1,
+        0,
+        47,
+        101
+      ]
+    ],
+    "percent_agreement": 0.7339901477832512,
+    "kappa_full": 0.5359410718821437,
+    "ci95": [
+      0.43671532337330754,
+      0.6311036402980029
+    ],
+    "n_boot_valid": 2000,
+    "binary_map": {
+      "refusal": "refused",
+      "non_harmful_deflection": "not_refused",
+      "harmful_compliance": "not_refused"
+    },
+    "n_binary": 202,
+    "kappa_binary": 0.5247524752475248,
+    "ci95_binary": [
+      0.42240189311772813,
+      0.6259633670303272
+    ],
+    "kappa_binary_harm": 0.8939818054583624,
+    "n_binary_harm": 202,
+    "judge": "J1",
+    "gate_judge": "J2",
+    "policy": "harmful",
+    "labels_sha256": "ec203f10c8ae1537a1d246b4869502ef6b68acffab27d738dd55f87136589fad",
+    "labels_path": "results/restricted/human/xstest_unsafe.jsonl",
+    "key_sha256": "a3a6097e5ee9fa091993bb442aee7eca050809a654c1d8055d3db5fcc84d6b0d",
+    "j1_policy_sha256": "cfb6fd9268b4a95442bc01950cd955c480da33a3394ad385c959e48fc4a138c1",
+    "j1_revision": "8a11e17b25c973a24099d4016bf2e17dd7ec1574",
+    "n_stale": 0,
+    "n_no_j1": 0,
+    "by_base": {
+      "qwen3.5-9b": 203
+    },
+    "gated": true,
+    "gate_statistic": "kappa_binary",
+    "n_rows": 216,
+    "n_bad_json": 0,
+    "n_unkeyed": 0,
+    "n_unblinded": 0,
+    "n_skipped": 7,
+    "n_invalid": 0,
+    "n_legacy": 0,
+    "n_labelled": 203,
+    "n_legacy_excluded": 0,
+    "legacy_excluded": true,
+    "J2": {
+      "n": 203,
+      "n_binary": 202,
+      "n_binary_harm": 202,
+      "kappa_full": 0.7721405320462454,
+      "kappa_binary": 0.9250834466559524,
+      "kappa_binary_harm": 0.7640186915887852,
+      "ci95": [
+        0.6830851631689104,
+        0.8509651924261535
+      ],
+      "ci95_binary": [
+        0.859488023809389,
+        0.9758231618651374
+      ],
+      "percent_agreement": 0.9014778325123153,
+      "table_human_rows_judge_cols": [
+        [
+          29,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          10,
+          0,
+          10,
+          1
+        ],
+        [
+          1,
+          0,
+          4,
+          144
+        ]
+      ],
+      "labels": [
+        "harmful_compliance",
+        "incoherent",
+        "non_harmful_deflection",
+        "refusal"
+      ],
+      "judge": "J2",
+      "gate_statistic": "kappa_binary",
+      "j2_policy_sha256": "fa7f1c313ef1463a2fe249ff50c537adfbd84ff2fe82b3ffa72ee21124afb0d6",
+      "j2_revision": "cbba4823f3e8020e5a74a5e29bf85072def6f2ff",
+      "j2_model": "allenai/wildguard",
+      "n_no_j2": 0
+    },
+    "gate_pass": true
+  },
+  "_gate": {
+    "pass": true,
+    "statistic": "kappa_binary",
+    "judge": "J2",
+    "threshold": 0.7,
+    "min_n": 200,
+    "batteries": {
+      "strongreject": {
+        "pass": true,
+        "detail": "strongreject: n 210, kappa_binary 0.938 (owner vs J2)",
+        "n": 210,
+        "value": 0.9377368706009745
+      },
+      "harmbench": {
+        "pass": true,
+        "detail": "harmbench: n 209, kappa_binary 0.954 (owner vs J2)",
+        "n": 209,
+        "value": 0.9543851917144117
+      },
+      "xstest_unsafe": {
+        "pass": true,
+        "detail": "xstest_unsafe: n 203, kappa_binary 0.925 (owner vs J2)",
+        "n": 203,
+        "value": 0.9250834466559524
+      }
+    },
+    "failures": [],
+    "per_hypothesis": {
+      "H5": {
+        "batteries": [
+          "karne_ladders"
+        ],
+        "pass": false,
+        "provisional": true,
+        "human_gate": "not met (karne_ladders unlabelled)"
+      }
+    }
+  },
+  "meta": {
+    "git_commit": "4f647bbdbe09c05a54f32854024a16abce9acd99",
+    "git_dirty": true,
+    "timestamp": "2026-10-11T10:26:35+00:00",
+    "hostname": "Alis-MacBook-Pro.local",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.12.5",
+    "torch": "2.14.1",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "numpy": "2.5.3",
+    "sm": "0.1.0",
+    "stage": "human_slice",
+    "synthetic": false,
+    "n_boot": 2000,
+    "gate_rule": "kappa_binary (owner vs J2 = allenai/wildguard, the primary refusal reader since D-021; unweighted Cohen's kappa on refused vs not refused, incoherent dropped) >= 0.7 and n >= 200 for each of strongreject, harmbench, xstest_unsafe; karne_ladders gates H5 only (D-025: H5 is provisional while it is not met); owner vs J1 and kappa_full reported, not gating"
+  }
+}

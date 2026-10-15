@@ -1,0 +1,84 @@
+[2026-10-08T17:08:11] === sm-battery start on d4053 ===
+[2026-10-08T17:08:11] env: host=d4053 job=10926099 array=10926099_0 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-08T17:08:11] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-08T17:08:11] git: ee01636
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-08T17:08:16] gpu watchdog: pid 3617006, every 300s
+[2026-10-08T17:08:16] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-08T17:08:16] task: stage=battery index=0 run_id=base kind=base active=1 base=qwen3.5-9b
+[2026-10-08T17:08:16] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-08T17:08:17] revision: configs/battery_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-08T17:08:17] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-08T17:08:18] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=ee016363914360393b6c4ced3a4263ce7032178d
+[2026-10-08T17:08:18] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.battery --config configs/battery_qwen3.5-9b.yaml --base qwen3.5-9b --run-id base --out results --items-dir data/prompts --backend hf
+[battery] karne_ladders_sens: resuming, 960 of 2400 rows already in karne_ladders_sens.jsonl.partial
+[battery] karne_ladders_sens: 1024/2400
+[battery] karne_ladders_sens: 1088/2400
+[2026-10-08T17:13:17] gpu-util: 44% mem=18492MiB gpu=0
+[battery] karne_ladders_sens: 1152/2400
+[battery] karne_ladders_sens: 1216/2400
+[battery] karne_ladders_sens: 1280/2400
+[battery] karne_ladders_sens: 1344/2400
+[2026-10-08T17:18:19] gpu-util: 45% mem=18496MiB gpu=0
+[battery] karne_ladders_sens: 1408/2400
+[battery] karne_ladders_sens: 1472/2400
+[battery] karne_ladders_sens: 1536/2400
+[battery] karne_ladders_sens: 1600/2400
+[2026-10-08T17:23:20] gpu-util: 44% mem=18496MiB gpu=0
+[battery] karne_ladders_sens: 1664/2400
+[battery] karne_ladders_sens: 1728/2400
+[battery] karne_ladders_sens: 1792/2400
+[battery] karne_ladders_sens: 1856/2400
+[battery] karne_ladders_sens: 1920/2400
+[2026-10-08T17:28:21] gpu-util: 45% mem=18496MiB gpu=0
+[battery] karne_ladders_sens: 1984/2400
+[battery] karne_ladders_sens: 2048/2400
+[battery] karne_ladders_sens: 2112/2400
+[battery] karne_ladders_sens: 2176/2400
+[battery] karne_ladders_sens: 2240/2400
+[2026-10-08T17:33:22] gpu-util: 46% mem=18498MiB gpu=0
+[battery] karne_ladders_sens: 2304/2400
+[battery] karne_ladders_sens: 2368/2400
+[battery] karne_ladders_sens: 2400/2400
+[battery] karne_ladders_sens: wrote 2400 rows (566 truncated) to results/restricted/batteries/qwen3.5-9b/base/karne_ladders_sens.jsonl
+[battery] mmlu: 64/500
+[battery] mmlu: 128/500
+[battery] mmlu: 192/500
+[battery] mmlu: 256/500
+[battery] mmlu: 320/500
+[battery] mmlu: 384/500
+[battery] mmlu: 448/500
+[battery] mmlu: 500/500
+[battery] mmlu: wrote 500 rows (0 truncated) to results/batteries/qwen3.5-9b/base/mmlu.jsonl
+[battery] persona_evil: 70/200
+[2026-10-08T17:38:23] gpu-util: 46% mem=20516MiB gpu=0
+[battery] persona_evil: 140/200
+[battery] persona_evil: 200/200
+[battery] persona_evil: wrote 200 rows (138 truncated) to results/restricted/batteries/qwen3.5-9b/base/persona_evil.jsonl
+[battery] persona_hallucination: 70/200
+[battery] persona_hallucination: 140/200
+[2026-10-08T17:43:24] gpu-util: 46% mem=20520MiB gpu=0
+[battery] persona_hallucination: 200/200
+[battery] persona_hallucination: wrote 200 rows (70 truncated) to results/restricted/batteries/qwen3.5-9b/base/persona_hallucination.jsonl
+[battery] persona_sycophancy: 70/200
+[battery] persona_sycophancy: 140/200
+[2026-10-08T17:48:25] gpu-util: 46% mem=20524MiB gpu=0
+[battery] persona_sycophancy: 200/200
+[battery] persona_sycophancy: wrote 200 rows (186 truncated) to results/restricted/batteries/qwen3.5-9b/base/persona_sycophancy.jsonl
+[battery] strongreject: 60/60
+[battery] strongreject: wrote 60 rows (12 truncated) to results/restricted/batteries/qwen3.5-9b/base/strongreject.jsonl
+[battery] xstest_safe: 64/250
+[battery] xstest_safe: 128/250
+[2026-10-08T17:53:27] gpu-util: 19% mem=20684MiB gpu=0
+[battery] xstest_safe: 192/250
+[battery] xstest_safe: 250/250
+[battery] xstest_safe: wrote 250 rows (99 truncated) to results/batteries/qwen3.5-9b/base/xstest_safe.jsonl
+[battery] xstest_unsafe: 64/200
+[battery] xstest_unsafe: 128/200
+[battery] xstest_unsafe: 192/200
+[battery] xstest_unsafe: 200/200
+[battery] xstest_unsafe: wrote 200 rows (1 truncated) to results/restricted/batteries/qwen3.5-9b/base/xstest_unsafe.jsonl
+[2026-10-08T17:56:55] === sm-battery done rc=0 run=base ===
+LEDGER job=10926099 array_job=10926099 task=0 name=sm-battery gpus=1 elapsed_s=2924 rc=0

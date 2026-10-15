@@ -1,0 +1,10 @@
+[2026-10-09T10:18:30] === sm-causal start on d4053 ===
+[2026-10-09T10:18:30] env: host=d4053 job=10940135 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T10:18:30] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T10:18:30] git: ee01636
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T10:18:36] gpu watchdog: pid 212278, every 300s
+[2026-10-09T10:18:36] gpu-util: 1% mem=1MiB gpu=0
+LEDGER job=10940135 array_job= task= name=sm-causal gpus=1 elapsed_s=6 rc=2

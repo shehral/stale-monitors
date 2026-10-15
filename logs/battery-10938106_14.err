@@ -1,0 +1,1 @@
+[transformers] Passing `generation_config` together with generation-related arguments=({'temperature', 'repetition_penalty', 'top_p', 'typical_p', 'top_k', 'min_p'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.

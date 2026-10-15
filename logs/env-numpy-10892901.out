@@ -1,0 +1,9 @@
+numpy before 2.5.3
+vllm 0.31.0 requires setuptools<81.0.0,>=77.0.3; python_version > "3.11", but you have setuptools 84.0.0 which is incompatible.
+Successfully installed numpy-2.4.6
+numpy 2.4.6 numba 0.65.0 import ok
+nnsight 0.7.0 requires ipython, which is not installed.
+nnsight 0.7.0 requires python-socketio, which is not installed.
+nnsight 0.7.0 requires toml, which is not installed.
+nnsight 0.7.0 requires zstandard, which is not installed.
+sae-lens 6.54.0 requires babe, which is not installed.

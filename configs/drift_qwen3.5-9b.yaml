@@ -1,0 +1,17 @@
+# Drift template for qwen3.5-9b (sm.interp.drift). jobs/drift.sbatch adds run_id and the derivative block per
+# run (kind lora: the adapter, applied unmerged in the forward pass at bf16 compute).
+base: qwen3.5-9b
+# hf: Qwen/Qwen3.5-9B
+revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a   # must equal configs/bases.yaml (the job checks it)
+base_card: results/base_cards/qwen3.5-9b.json
+prompts:
+  construction: {harmful: data/prompts/contrast/construction_harmful.jsonl, harmless: data/prompts/contrast/construction_harmless.jsonl}
+  test: {harmful: data/prompts/contrast/test_harmful.jsonl, harmless: data/prompts/contrast/test_harmless.jsonl}
+  probe_eval_split: test   # monitors are evaluated on the held-out test split (dev selected L*)
+# Monitors: every monitor the base card defines (monitor_auroc and realigned recall at the frozen base 1%-FPR
+# threshold; realignment re-centres on the derivative harmless mean, the secondary variant also re-scales by
+# the derivative harmless std along the probe).
+dtype: bf16
+batch_size: 16
+fpr: 0.01
+seed: 0

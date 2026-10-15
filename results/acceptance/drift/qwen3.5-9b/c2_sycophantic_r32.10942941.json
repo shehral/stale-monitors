@@ -1,0 +1,163 @@
+{
+ "rubric_version": "0.3",
+ "stage": "drift",
+ "base": "qwen3.5-9b",
+ "derivative": "c2_sycophantic_r32",
+ "slurm_job_id": "10942941",
+ "outcome": "REJECT",
+ "failure_class": "process",
+ "exit_code": 20,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "37 witnessed rows"
+  },
+  {
+   "id": "DR-1",
+   "passed": false,
+   "detail": "persona_contrast_diagnostic.persona_evil incomplete; persona_contrast_diagnostic.persona_hallucination incomplete; persona_contrast_diagnostic.persona_sycophancy incomplete",
+   "class": "agent_code"
+  },
+  {
+   "id": "DR-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-3",
+   "passed": false,
+   "detail": "generated config missing",
+   "class": "agent_code"
+  },
+  {
+   "id": "DR-4",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "DR-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "DR-6",
+   "passed": true,
+   "detail": "n/a (C7d and C7e apply)"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['run']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.064 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "353 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": false,
+   "detail": "leak in results/batteries/qwen3.5-9b/c2_sycophantic_r32/xstest_safe.jsonl; leak in results/batteries/qwen3.5-9b/c4_insecure_code_r128/ifeval.jsonl; leak in results/batteries/qwen3.5-9b/c4_insecure_code_r128/xstest_safe.jsonl; leak in results/batteries/qwen3.5-9b/c4_insecure_code_r32/xstest_safe.jsonl",
+   "class": "process"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:cf0e3677f6b156f2a3264b3be441f59cb84ccc38",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-003"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "a374e6a553d8f3c0be59ca5622a145aec5d50f40",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-004"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10942941",
+  "stage": "drift",
+  "base": "qwen3.5-9b",
+  "derivative": "c2_sycophantic_r32",
+  "config_hash": null,
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:cf0e3677f6b156f2a3264b3be441f59cb84ccc38",
+  "seeds": {
+   "run": 0
+  },
+  "output_hash": "08590a12daf0df8f95f04771512ac05ff68152122c99b788fb0dc0d3c49e910c",
+  "h200_hours": 0.064,
+  "accepted": false,
+  "timestamp": "2026-10-09T11:13:12-07:00",
+  "note": "outcome=REJECT class=process checks=DR-1,DR-3,C7c deviations=D-003,D-004; drift qwen3.5-9b/c2_sycophantic_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/drift/qwen3.5-9b/c2_sycophantic_r32.json": "437d5d87b61342d20014d756f73f5dd07a9acc0c924b098aea92142e91735191"
+ },
+ "written": false
+}

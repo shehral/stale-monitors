@@ -1,0 +1,41 @@
+[2026-10-11T09:46:35] === sm-persona-dose start on d4052 ===
+[2026-10-11T09:46:35] env: host=d4052 job=10987911 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T09:46:35] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T09:46:35] git: 9f3da44
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T09:46:42] gpu watchdog: pid 2831116, every 300s
+[2026-10-11T09:46:42] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-11T09:46:43] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=9f3da446f0dc847d2c60df324315f26bb1f001d6
+[2026-10-11T09:46:43] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-11T09:46:43] pre-flight: google/gemma-4-31B-it revision=842da3794eaa0b77d5f08bae87a17459d91ff475 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-31B-it/snapshots/842da3794eaa0b77d5f08bae87a17459d91ff475
+[2026-10-11T09:46:43] persona grader: google/gemma-4-31B-it@842da3794eaa0b77d5f08bae87a17459d91ff475 (gemma-4-31b-it pin in configs/bases.yaml), port 8010, chat_template.jinja sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+[2026-10-11T09:47:41] vllm PG: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve google/gemma-4-31B-it --host 127.0.0.1 --port 8010 --served-model-name PG --gpu-memory-utilization 0.55 --dtype auto --seed 0 --revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --tokenizer-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --max-model-len 4096 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-PG-10987911.log)
+[2026-10-11T09:50:51] vllm PG healthy on port 8010 after 190s
+[2026-10-11T09:50:51] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.persona_dose --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --out results/base_cards/qwen3.5-9b_persona_dose_chen.json --judge sm.interp.persona_grader:score_trait_chen --questions eval --n-questions 20 --n-samples 10 --max-new-tokens 1000 --coefs=-2.5,-2,-1.5,-1,-0.5,0.5,1,1.5,2,2.5
+[2026-10-11T09:51:43] gpu-util: 22% mem=99261MiB gpu=0
+[2026-10-11T09:56:44] gpu-util: 100% mem=104903MiB gpu=0
+[2026-10-11T10:01:45] gpu-util: 46% mem=104907MiB gpu=0
+[2026-10-11T10:06:46] gpu-util: 46% mem=104907MiB gpu=0
+[2026-10-11T10:11:47] gpu-util: 70% mem=104907MiB gpu=0
+[2026-10-11T10:16:48] gpu-util: 94% mem=104907MiB gpu=0
+[2026-10-11T10:21:49] gpu-util: 100% mem=104907MiB gpu=0
+[2026-10-11T10:26:50] gpu-util: 46% mem=104909MiB gpu=0
+[2026-10-11T10:31:51] gpu-util: 100% mem=104909MiB gpu=0
+[2026-10-11T10:36:52] gpu-util: 46% mem=104909MiB gpu=0
+[2026-10-11T10:41:53] gpu-util: 67% mem=104909MiB gpu=0
+[2026-10-11T10:46:54] gpu-util: 100% mem=104909MiB gpu=0
+[2026-10-11T10:51:55] gpu-util: 93% mem=104909MiB gpu=0
+[2026-10-11T10:56:56] gpu-util: 100% mem=104909MiB gpu=0
+[2026-10-11T11:01:57] gpu-util: 100% mem=104909MiB gpu=0
+[2026-10-11T11:06:58] gpu-util: 100% mem=104911MiB gpu=0
+[2026-10-11T11:11:59] gpu-util: 100% mem=104911MiB gpu=0
+[2026-10-11T11:17:00] gpu-util: 63% mem=104911MiB gpu=0
+[2026-10-11T11:22:01] gpu-util: 100% mem=104913MiB gpu=0
+[2026-10-11T11:27:02] gpu-util: 72% mem=104913MiB gpu=0
+[2026-10-11T11:32:04] gpu-util: 67% mem=104913MiB gpu=0
+[2026-10-11T11:37:05] gpu-util: 72% mem=104913MiB gpu=0
+wrote results/base_cards/qwen3.5-9b_persona_dose_chen.json (pass, rho per trait: {'evil': (True, 0.7836446463533919), 'hallucination': (True, 0.6354738502851903), 'sycophancy': (True, 0.82541669621399)})
+[2026-10-11T11:41:49] === sm-persona-dose done rc=0 base=qwen3.5-9b grader=chen out=results/base_cards/qwen3.5-9b_persona_dose_chen.json ===
+LEDGER job=10987911 array_job= task= name=sm-persona-dose gpus=1 elapsed_s=6916 rc=0

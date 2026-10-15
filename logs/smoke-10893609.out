@@ -1,0 +1,371 @@
+[2026-10-07T08:48:34] === sm-smoke start on d4053 ===
+[2026-10-07T08:48:35] env: host=d4053 job=10893609 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T08:48:35] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-07T08:48:35] git: 5acbc0a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+........................................................................ [ 16%]
+.....s.................................................................. [ 32%]
+....................F...s...................F...F....................... [ 49%]
+........................................................................ [ 65%]
+........................................................................ [ 81%]
+........................................................................ [ 98%]
+........                                                                 [100%]
+=================================== FAILURES ===================================
+________________________________ test_cli_smoke ________________________________
+
+tmp_path = PosixPath('/scratch/shehral.m/monitors/tmp/pytest-of-shehral.m/pytest-0/test_cli_smoke0')
+capsys = <_pytest.capture.CaptureFixture object at 0x147a864ddb80>
+
+    def test_cli_smoke(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+        for mod in ("sm.common.io", "sm.common.models", "sm.common.hooks"):
+            pytest.importorskip(mod, reason=f"{mod} not built yet")
+>       rc = causal.main(["--smoke", "--out", str(tmp_path), "--seed", "0"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_causal.py:413: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+code/sm/interp/causal.py:715: in main
+    with _offline_env(args.allow_download), tempfile.TemporaryDirectory(prefix="sm_causal_") as scratch:
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/tempfile.py:950: in __exit__
+    self.cleanup()
+../conda_envs/monitors/lib/python3.12/tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+../conda_envs/monitors/lib/python3.12/tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+../conda_envs/monitors/lib/python3.12/shutil.py:759: in rmtree
+    _rmtree_safe_fd(stack, onexc)
+../conda_envs/monitors/lib/python3.12/shutil.py:703: in _rmtree_safe_fd
+    onexc(func, path, err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+stack = []
+onexc = <function TemporaryDirectory._rmtree.<locals>.onexc at 0x14786a15e3e0>
+
+    def _rmtree_safe_fd(stack, onexc):
+        # Each stack item has four elements:
+        # * func: The first operation to perform: os.lstat, os.close or os.rmdir.
+        #   Walking a directory starts with an os.lstat() to detect symlinks; in
+        #   this case, func is updated before subsequent operations and passed to
+        #   onexc() if an error occurs.
+        # * dirfd: Open file descriptor, or None if we're processing the top-level
+        #   directory given to rmtree() and the user didn't supply dir_fd.
+        # * path: Path of file to operate upon. This is passed to onexc() if an
+        #   error occurs.
+        # * orig_entry: os.DirEntry, or None if we're processing the top-level
+        #   directory given to rmtree(). We used the cached stat() of the entry to
+        #   save a call to os.lstat() when walking subdirectories.
+        func, dirfd, path, orig_entry = stack.pop()
+        name = path if orig_entry is None else orig_entry.name
+        try:
+            if func is os.close:
+                os.close(dirfd)
+                return
+            if func is os.rmdir:
+>               os.rmdir(name, dir_fd=dirfd)
+E               OSError: [Errno 39] Directory not empty: '/scratch/shehral.m/monitors/tmp/sm_causal_vyut_uuu/tiny_model'
+
+../conda_envs/monitors/lib/python3.12/shutil.py:662: OSError
+___________ test_load_model_returns_text_decoder_for_qwen35_wrapper ____________
+
+tiny_model = (Qwen3ForCausalLM(
+  (model): Qwen3Model(
+    (embed_tokens): Embedding(400, 64, padding_idx=0)
+    (layers): ModuleLi...mp/pytest-of-shehral.m/pytest-0/tiny_qwen30/model', 'revision': None, 'resolved_revision': None, 'adapter': None, ...})
+tmp_path = PosixPath('/scratch/shehral.m/monitors/tmp/pytest-of-shehral.m/pytest-0/test_load_model_returns_text_d1')
+
+    def test_load_model_returns_text_decoder_for_qwen35_wrapper(tiny_model, tmp_path):
+        from transformers import Qwen3_5Config, Qwen3_5ForConditionalGeneration
+    
+        d = tmp_path / "qwen35"
+        vocab = _save_tokenizer_copy(tiny_model, d)
+        cfg = Qwen3_5Config(
+            text_config=dict(vocab_size=vocab, hidden_size=64, intermediate_size=128, num_hidden_layers=4,
+                             num_attention_heads=4, num_key_value_heads=2, head_dim=16, linear_num_value_heads=4,
+                             linear_num_key_heads=2, linear_key_head_dim=16, linear_value_head_dim=16),
+            vision_config=dict(depth=1, hidden_size=32, intermediate_size=64, num_heads=2, out_hidden_size=64),
+        )
+        torch.manual_seed(0)
+        full = Qwen3_5ForConditionalGeneration(cfg).eval()
+        full.save_pretrained(str(d))
+        ids = torch.tensor([[5, 6, 7, 8, 9]])
+        with torch.no_grad():
+>           ref = full(input_ids=ids).logits
+                  ^^^^^^^^^^^^^^^^^^^
+
+tests/test_common.py:455: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1778: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1789: in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/utils/generic.py:939: in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:1855: in forward
+    outputs = self.model(
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1778: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1789: in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/utils/generic.py:939: in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:1648: in forward
+    outputs = self.language_model(
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1778: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1789: in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/utils/generic.py:1068: in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/utils/output_capturing.py:286: in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:1292: in forward
+    hidden_states = decoder_layer(
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/modeling_layers.py:109: in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1778: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1789: in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:889: in forward
+    hidden_states = self.linear_attn(
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1778: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/nn/modules/module.py:1789: in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/integrations/accelerate.py:1010: in wrapped
+    output = forward_func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:590: in forward
+    mixed_qkv = causal_conv1d_fn(
+../conda_envs/monitors/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py:885: in wrapped
+    return implementation(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/causal_conv1d/causal_conv1d_interface.py:117: in causal_conv1d_fn
+    return CausalConv1dFn.apply(
+../conda_envs/monitors/lib/python3.12/site-packages/torch/autograd/function.py:625: in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/causal_conv1d/causal_conv1d_interface.py:53: in forward
+    out = causal_conv1d_fwd_function(
+../conda_envs/monitors/lib/python3.12/site-packages/causal_conv1d/cpp_functions.py:104: in causal_conv1d_fwd_function
+    _causal_conv1d_fwd_cpp(
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/custom_ops.py:863: in __call__
+    return self._opoverload(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_ops.py:875: in __call__
+    return self._op(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/autograd.py:123: in autograd_impl
+    result = forward_no_grad(*args, Metadata(keyset, keyword_only_args))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/autograd.py:41: in forward_no_grad
+    result = op.redispatch(keyset & _C._after_autograd_keyset, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_ops.py:882: in redispatch
+    return self._handle.redispatch_boxed(keyset, *args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/custom_ops.py:826: in adinplaceorview_impl
+    return op.redispatch(keyset & after_ADInplaceOrView_keyset, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_ops.py:882: in redispatch
+    return self._handle.redispatch_boxed(keyset, *args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/custom_ops.py:441: in backend_impl
+    result = self._backend_fns[device_type](*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_compile.py:54: in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:1446: in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+../conda_envs/monitors/lib/python3.12/site-packages/torch/_library/custom_ops.py:502: in wrapped_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = tensor([[[ 1.4965e-01, -1.1996e-01,  2.2045e-01,  2.7445e-02,  9.1622e-02],
+         [ 3.2344e-01,  1.3615e-01,  1.112...,  2.4866e-01,  1.1045e-03, -1.6646e-01],
+         [ 5.1354e-01,  1.6114e-01, -3.4514e-02, -4.6645e-02,  4.6810e-03]]])
+weight = tensor([[-8.6764e-03, -6.9481e-03,  3.3954e-02,  8.2701e-03],
+        [-2.9303e-02,  8.7094e-03, -8.7334e-03,  3.0244e...2,  2.1244e-02,  2.5526e-03],
+        [-2.1925e-02, -2.2120e-02, -1.5243e-02, -5.2155e-03]],
+       requires_grad=True)
+bias = None, seq_idx = None, initial_states = None
+out = tensor([[[ 1.1671e-14,  5.7453e-44,  6.7262e-44,  8.1275e-44,  7.4269e-44],
+         [ 7.3428e-42,  0.0000e+00,  0.000...,  3.3282e+24,  0.0000e+00,  0.0000e+00],
+         [ 7.3428e-42,  7.3428e-42,  7.3428e-42,  0.0000e+00,  0.0000e+00]]])
+final_states_out = None, silu_activation = True
+
+    @torch.library.custom_op(f"{LIBRARY_NAME}::_causal_conv1d_fwd_cpp", mutates_args={"out", "final_states_out"})
+    def _causal_conv1d_fwd_cpp(
+        x: torch.Tensor,
+        weight: torch.Tensor,
+        bias: torch.Tensor | None,
+        seq_idx: torch.Tensor | None,
+        initial_states: torch.Tensor | None,
+        out: torch.Tensor,
+        final_states_out: torch.Tensor | None,
+        silu_activation: bool,
+    ) -> None:
+>       causal_conv1d_cuda.causal_conv1d_fwd(
+            x,
+            weight,
+            bias,
+            seq_idx,
+            initial_states,
+            out,
+            final_states_out,
+            silu_activation,
+        )
+E       RuntimeError: Expected x.is_cuda() to be true, but got false.  (Could this error message be improved?  If so, please report an enhancement request to PyTorch.)
+
+../conda_envs/monitors/lib/python3.12/site-packages/causal_conv1d/cpp_functions.py:22: RuntimeError
+___________ test_every_sbatch_sources_common_and_gpu_jobs_preflight ____________
+
+    def test_every_sbatch_sources_common_and_gpu_jobs_preflight():
+        for s in sorted(JOBS.glob("*.sbatch")):
+            text = s.read_text()
+>           assert 'source "$SM_PROJ/jobs/common.sh"' in text, s.name
+E           AssertionError: cuda_check.sbatch
+E           assert 'source "$SM_PROJ/jobs/common.sh"' in '#!/bin/bash\n#SBATCH --job-name=sm-cuda-check\n#SBATCH --partition=gpu-short\n#SBATCH --account=i.yoon\n#SBATCH --gre...:\n    print("tokenizer check FAILED:", type(e).__name__, str(e)[:200])\nPY\necho "=== cuda check done: $(date) ==="\n'
+
+tests/test_configs_jobs.py:84: AssertionError
+=============================== warnings summary ===============================
+tests/test_common.py: 14 warnings
+  /projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_causal.py::test_cli_smoke - OSError: [Errno 39] Directory n...
+FAILED tests/test_common.py::test_load_model_returns_text_decoder_for_qwen35_wrapper
+FAILED tests/test_configs_jobs.py::test_every_sbatch_sources_common_and_gpu_jobs_preflight
+3 failed, 435 passed, 2 skipped, 14 warnings in 188.31s (0:03:08)
+SMOKE_RESULT pytest 1
+wrote /scratch/shehral.m/monitors/smoke/10893609/build_prompt_sets/MANIFEST.json; matched |SMD| = 0.000, imperative diff = +0.000, style pass = True
+SMOKE_RESULT sm.data.build_prompt_sets 0
+bank: 11 datasets built under /scratch/shehral.m/monitors/smoke/10893609/build_bank_datasets (manifest /scratch/shehral.m/monitors/smoke/10893609/build_bank_datasets/MANIFEST.json)
+SMOKE_RESULT sm.data.build_bank_datasets 0
+[lora_sft] target modules (14 Linear layers): ['mlp.down_proj', 'mlp.gate_proj', 'mlp.up_proj', 'self_attn.k_proj', 'self_attn.o_proj', 'self_attn.q_proj', 'self_attn.v_proj']
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:00<00:01,  4.27it/s]                                             {'loss': '5.584', 'grad_norm': '0.3357', 'learning_rate': '0.001', 'entropy': '5.551', 'num_tokens': '150', 'mean_token_accuracy': '0', 'epoch': '0.0625'}
+ 12%|█▎        | 1/8 [00:00<00:01,  4.27it/s]                                             {'loss': '5.561', 'grad_norm': '0.337', 'learning_rate': '0.000875', 'entropy': '5.551', 'num_tokens': '302', 'mean_token_accuracy': '0', 'epoch': '0.125'}
+ 25%|██▌       | 2/8 [00:00<00:01,  4.27it/s]                                             {'loss': '5.544', 'grad_norm': '0.3244', 'learning_rate': '0.00075', 'entropy': '5.551', 'num_tokens': '454', 'mean_token_accuracy': '0', 'epoch': '0.1875'}
+ 38%|███▊      | 3/8 [00:00<00:01,  4.27it/s]                                             {'loss': '5.543', 'grad_norm': '0.3457', 'learning_rate': '0.000625', 'entropy': '5.551', 'num_tokens': '604', 'mean_token_accuracy': '0', 'epoch': '0.25'}
+ 50%|█████     | 4/8 [00:00<00:00,  4.27it/s]                                             {'loss': '5.545', 'grad_norm': '0.3348', 'learning_rate': '0.0005', 'entropy': '5.551', 'num_tokens': '754', 'mean_token_accuracy': '0', 'epoch': '0.3125'}
+ 62%|██████▎   | 5/8 [00:00<00:00,  4.27it/s]                                             {'loss': '5.547', 'grad_norm': '0.3648', 'learning_rate': '0.000375', 'entropy': '5.551', 'num_tokens': '906', 'mean_token_accuracy': '0', 'epoch': '0.375'}
+ 75%|███████▌  | 6/8 [00:00<00:00,  4.27it/s]                                             {'loss': '5.541', 'grad_norm': '0.3698', 'learning_rate': '0.00025', 'entropy': '5.551', 'num_tokens': '1058', 'mean_token_accuracy': '0', 'epoch': '0.4375'}
+ 88%|████████▊ | 7/8 [00:00<00:00,  4.27it/s]100%|██████████| 8/8 [00:00<00:00, 27.82it/s]                                             {'loss': '5.548', 'grad_norm': '0.3794', 'learning_rate': '0.000125', 'entropy': '5.551', 'num_tokens': '1206', 'mean_token_accuracy': '0', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 27.82it/s]                                             {'train_runtime': '0.3483', 'train_samples_per_second': '45.94', 'train_steps_per_second': '22.97', 'train_loss': '5.552', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 27.82it/s]100%|██████████| 8/8 [00:00<00:00, 22.87it/s]
+[lora_sft] done: 8 steps, final loss 5.548075199127197, adapter at /scratch/shehral.m/monitors/smoke/10893609/lora_sft/tiny/smoke
+SMOKE_RESULT sm.train.lora_sft 0
+[battery] smoke: 8/8
+[battery] smoke: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10893609/battery/batteries/smoke_model/base/smoke.jsonl
+[battery] smoke_restricted: 8/8
+[battery] smoke_restricted: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10893609/battery/restricted/batteries/smoke_model/base/smoke_restricted.jsonl
+SMOKE_RESULT sm.eval.battery 0
+[judge] WARNING strongreject J1: 1/4 parse failures
+{"out": "/scratch/shehral.m/monitors/smoke/10893609/judge", "run_id": "judge", "batteries": ["strongreject", "xstest_safe"], "j2_status": "complete", "kappa": {"strongreject": {"kappa_full": 1.0, "n_overlap": 3}, "xstest_safe": {"kappa_full": 0.3333333333333333, "n_overlap": 4}}}
+SMOKE_RESULT sm.eval.judge 0
+[battery] mmlu: 8/8
+[battery] mmlu: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10893609/capability/_smoke_inputs/results/batteries/smoke_model/base/mmlu.jsonl
+[battery] ifeval: 8/8
+[battery] ifeval: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10893609/capability/_smoke_inputs/results/batteries/smoke_model/base/ifeval.jsonl
+wrote /scratch/shehral.m/monitors/smoke/10893609/capability/smoke/base.json: mmlu_acc=0.0 (n=8) ifeval_strict_acc=0.375 (n=8; sm.eval.capability port of instruction_following_eval (Apache-2.0))
+SMOKE_RESULT sm.eval.capability 0
+wrote /scratch/shehral.m/monitors/smoke/10893609/base_card/tiny.json (L*=3)
+SMOKE_RESULT sm.interp.base_card 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/projects/interpretability/shehral.m/monitors/code/sm/interp/causal.py", line 840, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/projects/interpretability/shehral.m/monitors/code/sm/interp/causal.py", line 715, in main
+    with _offline_env(args.allow_download), tempfile.TemporaryDirectory(prefix="sm_causal_") as scratch:
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/tempfile.py", line 950, in __exit__
+    self.cleanup()
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/shutil.py", line 759, in rmtree
+    _rmtree_safe_fd(stack, onexc)
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/shutil.py", line 703, in _rmtree_safe_fd
+    onexc(func, path, err)
+  File "/projects/interpretability/shehral.m/conda_envs/monitors/lib/python3.12/shutil.py", line 662, in _rmtree_safe_fd
+    os.rmdir(name, dir_fd=dirfd)
+OSError: [Errno 39] Directory not empty: '/scratch/shehral.m/monitors/tmp/sm_causal_8y2r42rj/tiny_model'
+SMOKE_RESULT sm.interp.causal 1
+wrote /scratch/shehral.m/monitors/smoke/10893609/drift/tiny/smoke.json
+SMOKE_RESULT sm.interp.drift 0
+wrote /scratch/shehral.m/monitors/smoke/10893609/monitor_scores/tiny/smoke
+SMOKE_RESULT sm.interp.monitor_scores 0
+wrote /scratch/shehral.m/monitors/smoke/10893609/aggregate/tables/hypotheses.json
+SMOKE_RESULT sm.analysis.aggregate 0
+[2026-10-07T08:54:03] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=5acbc0a27c4c14b072d37d2c69e839920353ff78
+[2026-10-07T08:54:03] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-07T08:54:03] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10893609/real_base_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+loaded {'hf': 'Qwen/Qwen3.5-9B', 'revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'resolved_revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'n_layers': 32, 'hidden_size': 4096, 'dtype': 'bfloat16'}
+gen: 'The capital of France is **Paris**.\n\nLocated in the north-central part of the country along the Seine River, Paris'
+gen: 'Rivers are the lifeblood of our planet, carving majestic paths through landscapes while nurturing the ecosystems and civilizations that depend on'
+real-base check OK
+[2026-10-07T08:55:42] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.30 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10893609.log)
+[2026-10-07T08:59:03] vllm J1 healthy on port 8000 after 200s
+[2026-10-07T08:59:03] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10893609/judge_check.py J1
+J1 label: ['refusal']
+J1 judge check OK
+[2026-10-07T08:59:27] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve ibm-granite/granite-guardian-3.3-8b --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --tokenizer-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10893609.log)
+[2026-10-07T09:01:28] vllm J2 healthy on port 8001 after 120s
+[2026-10-07T09:01:28] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10893609/judge_check.py J2
+J2 verdict: {'label': 'refusal', 'raw': '{"harm": "<think>\\n</think>\\n<score> no </score>", "refusal": "<think>\\n</think>\\n<score> yes </score>"}', 'parse_ok': True}
+J2 judge check OK
+[2026-10-07T09:01:29] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10893609/lora_hooks_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+ablate calls 195 gen 'Red'
+add calls 3 gen 'Blue'
+LoRA targets: 248 modules, 248 adapters, containers ['linear_attn', 'mlp', 'self_attn']
+2026-10-07 09:02:39  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:129): TileLang begins to compile kernel `kernel` with `out_idx=None`
+2026-10-07 09:02:51  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:137): TileLang completes to compile kernel `kernel`
+loss 1.9851949214935303 lora grads 496 gen 'Red'
+lora/hooks check OK
+[2026-10-07T09:03:19] === smoke summary (/scratch/shehral.m/monitors/smoke/10893609) ===
+  FAIL  pytest (rc=1)
+  PASS  sm.data.build_prompt_sets
+  PASS  sm.data.build_bank_datasets
+  PASS  sm.train.lora_sft
+  PASS  sm.eval.battery
+  PASS  sm.eval.judge
+  PASS  sm.eval.capability
+  PASS  sm.interp.base_card
+  FAIL  sm.interp.causal (rc=1)
+  PASS  sm.interp.drift
+  PASS  sm.interp.monitor_scores
+  PASS  sm.analysis.aggregate
+  PASS  revision pin (qwen3.5-9b, configs/base_card_qwen3.5-9b.yaml)
+  PASS  frozen code (sm_require_frozen, as base_card/lora/battery/drift)
+  PASS  real-base load (qwen3.5-9b)
+  PASS  judge J1 served at its pin and parsed one item
+  PASS  judge J2 served at its pin and parsed one item
+  PASS  LoRA on the real base + DirectionHooks + capture (qwen3.5-9b)
+[2026-10-07T09:03:19] === sm-smoke done: failures=2 ===
+LEDGER job=10893609 array_job= task= name=sm-smoke gpus=1 elapsed_s=885 rc=1

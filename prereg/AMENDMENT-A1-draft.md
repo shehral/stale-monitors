@@ -1,0 +1,11 @@
+# Addendum A1 (draft for the owner, 2026-10-07): provenance and disclosure items to add before the OSF filing
+
+Source of the checklist: the October 2026 practices memo (`docs/AUTORESEARCH_PRACTICES_2026-10.md`, item 4), following the disclosure items proposed for agent-run studies. Fill the [F] values at filing; the rest is already in the repository.
+
+1. **Pilot and configuration iteration counts [F].** Number of smoke and pilot runs before the first measured run, and the number of configuration edits to directions, batteries and judges after any derivative data existed (target: zero; any edit is a logged deviation).
+2. **Model and judge snapshot ids.** Pinned in `configs/bases.yaml` and `research-state.yaml`: Qwen/Qwen3.5-9B c202236235762e1c871ad0ccb60c8ee5ba337b9a; Qwen/Qwen3.8-27B 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0; google/gemma-4-12B-it 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7; google/gemma-4-31B-it 842da3794eaa0b77d5f08bae87a17459d91ff475; openai/gpt-oss-safeguard-20b 8a11e17b25c973a24099d4016bf2e17dd7ec1574; ibm-granite/granite-guardian-3.3-8b b3421eda4ba6fc9f9a71121d7e62de08827469a4.
+3. **Archived raw input-output logs.** Every battery completion, judge label and drift measurement is written as JSONL with SHA-256 per item under `results/` on the cluster and mirrored to the laptop; harmful completions stay under `results/restricted` and are published as hashes (prereg Section 8).
+4. **Frozen analysis code.** The git SHA of `code/sm/analysis/` and `code/sm/accept.py` at the first measured derivative run is recorded here [F: SHA] and checked by the acceptance script on every later stage; later changes are listed in the deviations log with the reason.
+5. **Append-only results ledger.** `results/ledger.jsonl`: one row per finished job (SLURM id, stage, base, derivative, config hash, git SHA, seeds, output hash, H200-hours); shipped with the preprint.
+6. **Itemized agent-use statement [F: owner edits].** Design, code, analysis and drafting were done with AI coding agents under the owner's direction; per-decision provenance (user / ai-suggested / ai-executed / user-revised) is recorded in `artifacts/trace/exploration_tree.yaml`; the owner reviewed every result and is responsible for the content.
+7. **Deviations log.** `prereg/DEVIATIONS.md` (created at the first measured run), one dated entry per departure from v0.2.

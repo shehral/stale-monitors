@@ -1,0 +1,3 @@
+WARNING: capture checkpoint written at commit ee016363914360393b6c4ced3a4263ce7032178d, this phase runs at f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d
+WARNING: stats checkpoint written at commit ee016363914360393b6c4ced3a4263ce7032178d, this phase runs at f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d
+[transformers] The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.

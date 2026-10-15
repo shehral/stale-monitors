@@ -1,0 +1,10 @@
+[2026-10-07T16:57:34] === sm-smoke start on d4055 ===
+[2026-10-07T17:03:05] env: host=d4055 job=10901609 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T17:03:17] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-07T17:07:39] git: 171ef37
+[2026-10-07T17:21:37] cpu half: /projects/interpretability/shehral.m/monitors/results/smoke/qwen3.5-9b/cpu/10901595.json (SMOKE_CPU_JOB=10901595)
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-07T17:24:41] SIGTERM/SIGINT received
+LEDGER job=10901609 array_job= task= name=sm-smoke gpus=1 elapsed_s=1627 rc=143

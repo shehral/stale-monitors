@@ -1,0 +1,15 @@
+# never published: harmful generated text, adapter weights, raw third-party datasets, activation caches
+results/restricted/
+results/adapters/
+results/exploratory/**/acts/
+data/sources/raw/
+data/bank/
+data/jlens/
+third_party/
+.venv/
+__pycache__/
+*.pyc
+*.npz
+*.safetensors
+*.pt
+.DS_Store

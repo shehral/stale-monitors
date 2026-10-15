@@ -1,0 +1,19 @@
+[2026-10-09T14:38:19] === sm-drift start on d4052 ===
+[2026-10-09T14:38:20] env: host=d4052 job=10943612 array=10943612_0 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T14:38:20] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T14:38:20] git: f4ae394
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T14:38:25] gpu watchdog: pid 4083507, every 300s
+[2026-10-09T14:38:25] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-09T14:38:25] task: stage=drift index=0 run_id=c1_dolly_r8 kind=lora active=1 base=qwen3.5-9b
+[2026-10-09T14:38:25] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-09T14:38:25] revision: configs/drift_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-09T14:38:25] drift config: results/drift/qwen3.5-9b/_configs/c1_dolly_r8.yaml
+[2026-10-09T14:38:26] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=f4ae3946368abcb9d4b5b7bf85fbefe8ab32614d
+[2026-10-09T14:38:26] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-09T14:38:26] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.drift --config results/drift/qwen3.5-9b/_configs/c1_dolly_r8.yaml --out results/drift --force --all-cells
+wrote results/drift/qwen3.5-9b/c1_dolly_r8.json
+[2026-10-09T14:39:40] === sm-drift done rc=0 run=c1_dolly_r8 ===
+LEDGER job=10943612 array_job=10943612 task=0 name=sm-drift gpus=1 elapsed_s=81 rc=0

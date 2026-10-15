@@ -1,0 +1,86 @@
+[2026-10-13T15:52:42] === sm-base-persona start on d4052 ===
+[2026-10-13T15:52:42] env: host=d4052 job=11046401 array=_ proj=/projects/interpretability/shehral.m/monitors-c python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-13T15:52:42] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-13T15:52:42] git: 3f71559
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-13T15:53:16] gpu watchdog: pid 214649, every 300s
+[2026-10-13T15:53:16] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-13T15:53:16] revision: configs/base_card_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-13T15:53:17] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=3f7155906b0010388bb54d4999a75cb772eb2609
+[2026-10-13T15:53:18] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-13T15:53:18] pre-flight: google/gemma-4-31B-it revision=842da3794eaa0b77d5f08bae87a17459d91ff475 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-31B-it/snapshots/842da3794eaa0b77d5f08bae87a17459d91ff475
+[2026-10-13T15:53:18] persona grader: google/gemma-4-31B-it@842da3794eaa0b77d5f08bae87a17459d91ff475 (gemma-4-31b-it pin in configs/bases.yaml), port 8010, chat_template.jinja sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+[2026-10-13T15:55:03] vllm PG: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve google/gemma-4-31B-it --host 127.0.0.1 --port 8010 --served-model-name PG --gpu-memory-utilization 0.48 --dtype auto --seed 0 --revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --tokenizer-revision 842da3794eaa0b77d5f08bae87a17459d91ff475 --max-model-len 3072 (log /projects/interpretability/shehral.m/monitors-c/logs/vllm/vllm-PG-11046401.log)
+[2026-10-13T15:58:17] gpu-util: 0% mem=65574MiB gpu=0
+[2026-10-13T16:03:19] gpu-util: 1% mem=65574MiB gpu=0
+[2026-10-13T16:07:26] vllm PG healthy on port 8010 after 740s
+[2026-10-13T16:07:26] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_qwen3.8-27b.yaml --base qwen3.8-27b --out results/base_cards --seed 0 --phase persona --force
+[2026-10-13T16:07:33] base_card: phase persona: base=qwen3.8-27b out=results/base_cards seed=0
+[2026-10-13T16:08:18] base_card: persona grader: self-test
+[2026-10-13T16:08:20] gpu-util: 0% mem=67612MiB gpu=0
+[2026-10-13T16:13:22] gpu-util: 0% mem=119487MiB gpu=0
+[2026-10-13T16:18:23] gpu-util: 0% mem=119511MiB gpu=0
+[2026-10-13T16:22:26] base_card: persona: rebuilding ['evil', 'hallucination', 'sycophancy'] on the card at L*=37 (eoi-8)
+[2026-10-13T16:23:24] gpu-util: 36% mem=125777MiB gpu=0
+[2026-10-13T16:28:25] gpu-util: 68% mem=127487MiB gpu=0
+[2026-10-13T16:33:27] gpu-util: 66% mem=127499MiB gpu=0
+[2026-10-13T16:38:28] gpu-util: 67% mem=128121MiB gpu=0
+[2026-10-13T16:43:30] gpu-util: 24% mem=128227MiB gpu=0
+[2026-10-13T16:48:31] gpu-util: 100% mem=129373MiB gpu=0
+[2026-10-13T16:53:32] gpu-util: 91% mem=129651MiB gpu=0
+[2026-10-13T16:58:34] gpu-util: 88% mem=130271MiB gpu=0
+[2026-10-13T17:03:35] gpu-util: 68% mem=130271MiB gpu=0
+[2026-10-13T17:08:36] gpu-util: 67% mem=130271MiB gpu=0
+[2026-10-13T17:13:38] gpu-util: 76% mem=130271MiB gpu=0
+[2026-10-13T17:18:39] gpu-util: 100% mem=130335MiB gpu=0
+[2026-10-13T17:23:40] gpu-util: 97% mem=130355MiB gpu=0
+[2026-10-13T17:28:41] gpu-util: 100% mem=137437MiB gpu=0
+[2026-10-13T17:33:42] gpu-util: 100% mem=140257MiB gpu=0
+[2026-10-13T17:38:44] gpu-util: 100% mem=140257MiB gpu=0
+[2026-10-13T17:43:45] gpu-util: 62% mem=140257MiB gpu=0
+[2026-10-13T17:48:46] gpu-util: 60% mem=140259MiB gpu=0
+[2026-10-13T17:53:48] gpu-util: 63% mem=140259MiB gpu=0
+[2026-10-13T17:58:49] gpu-util: 100% mem=140259MiB gpu=0
+[2026-10-13T18:03:50] gpu-util: 79% mem=140261MiB gpu=0
+[2026-10-13T18:08:51] gpu-util: 69% mem=140261MiB gpu=0
+[2026-10-13T18:13:53] gpu-util: 96% mem=140261MiB gpu=0
+[2026-10-13T18:18:54] gpu-util: 67% mem=140263MiB gpu=0
+[2026-10-13T18:23:55] gpu-util: 76% mem=140263MiB gpu=0
+[2026-10-13T18:28:56] gpu-util: 100% mem=140265MiB gpu=0
+[2026-10-13T18:33:58] gpu-util: 100% mem=140265MiB gpu=0
+[2026-10-13T18:38:59] gpu-util: 72% mem=140265MiB gpu=0
+[2026-10-13T18:44:00] gpu-util: 63% mem=140265MiB gpu=0
+[2026-10-13T18:49:02] gpu-util: 69% mem=140265MiB gpu=0
+[2026-10-13T18:54:03] gpu-util: 63% mem=140265MiB gpu=0
+[2026-10-13T18:59:04] gpu-util: 85% mem=140265MiB gpu=0
+[2026-10-13T19:04:07] gpu-util: 100% mem=140265MiB gpu=0
+[2026-10-13T19:09:08] gpu-util: 62% mem=140435MiB gpu=0
+[2026-10-13T19:14:10] gpu-util: 67% mem=140437MiB gpu=0
+[2026-10-13T19:19:11] gpu-util: 64% mem=140437MiB gpu=0
+[2026-10-13T19:24:12] gpu-util: 95% mem=140437MiB gpu=0
+[2026-10-13T19:29:14] gpu-util: 100% mem=140437MiB gpu=0
+[2026-10-13T19:34:15] gpu-util: 60% mem=140437MiB gpu=0
+[2026-10-13T19:39:16] gpu-util: 61% mem=140437MiB gpu=0
+[2026-10-13T19:44:17] gpu-util: 75% mem=140437MiB gpu=0
+[2026-10-13T19:49:18] gpu-util: 55% mem=140439MiB gpu=0
+[2026-10-13T19:54:19] gpu-util: 90% mem=140439MiB gpu=0
+[2026-10-13T19:59:21] gpu-util: 83% mem=140439MiB gpu=0
+[2026-10-13T20:04:22] gpu-util: 68% mem=140439MiB gpu=0
+[2026-10-13T20:09:23] gpu-util: 68% mem=140439MiB gpu=0
+[2026-10-13T20:14:25] gpu-util: 67% mem=140439MiB gpu=0
+[2026-10-13T20:19:26] gpu-util: 76% mem=140439MiB gpu=0
+[2026-10-13T20:24:27] gpu-util: 100% mem=140443MiB gpu=0
+[2026-10-13T20:29:28] gpu-util: 100% mem=140443MiB gpu=0
+[2026-10-13T20:34:30] gpu-util: 78% mem=140667MiB gpu=0
+[2026-10-13T20:39:31] gpu-util: 58% mem=140673MiB gpu=0
+[2026-10-13T20:44:32] gpu-util: 100% mem=140673MiB gpu=0
+[2026-10-13T20:49:33] gpu-util: 100% mem=140673MiB gpu=0
+[2026-10-13T20:54:34] gpu-util: 100% mem=140673MiB gpu=0
+[2026-10-13T20:59:36] gpu-util: 56% mem=140673MiB gpu=0
+[2026-10-13T21:04:37] gpu-util: 100% mem=140673MiB gpu=0
+wrote results/base_cards/qwen3.8-27b.json (persona rebuilt: {'evil': ('ok', 37), 'hallucination': ('ok', 49), 'sycophancy': ('ok', 49)}; L*=37 unchanged)
+[2026-10-13T21:09:38] gpu-util: 0% mem=140673MiB gpu=0
+[2026-10-13T21:09:41] === sm-base-persona done rc=0 base=qwen3.8-27b scorer=chen ===
+LEDGER job=11046401 array_job= task= name=sm-base-persona gpus=1 elapsed_s=19021 rc=0

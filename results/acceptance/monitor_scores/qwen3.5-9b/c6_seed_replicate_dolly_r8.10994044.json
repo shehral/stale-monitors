@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c6_seed_replicate_dolly_r8",
+ "slurm_job_id": "10994044",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "182 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.036 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2382 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10994044",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c6_seed_replicate_dolly_r8",
+  "config_hash": "175a78ddccc4669da7a91c39bf3315b8e3b904296b2944e7f4a95a017020e191",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "de738a82a98e17cb92891815f9d9554755c66c13603831ed7883365e3871c6df",
+  "h200_hours": 0.036,
+  "accepted": true,
+  "timestamp": "2026-10-11T19:00:19-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c6_seed_replicate_dolly_r8"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/strongreject.jsonl": "4f3ef3fa8a504b8aa4276021b3f9f3d5b3053fc84af397daa822499d6f5598ae",
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/harmbench.jsonl": "f99347f77f39bdfcc33ebd461942e13172a4438bf330fd4c0b71971e7ffc6bf0",
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_unsafe.jsonl": "11252de807231238bf46b446207e8795a6b37f21cd56f185e1eca12067af4037",
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_safe.jsonl": "dc2043f6096b96db44a579d04ad4f456052895574b1398585cd602f29bc0c680",
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders.jsonl": "770334819c0bd9c5439f70c494fc9287903f90d4aec59ca6ac3e1037129bc399",
+  "results/monitor_scores/qwen3.5-9b/c6_seed_replicate_dolly_r8/_meta.json": "ed1ee2a89c58562c02208832aa3cb95fe6c08b8ac27a98443239dfab09a597e7"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "382b6326876f3936b8499ee1e308cbcc3d429b7902f54a28986cc999499c6fb6"
+}

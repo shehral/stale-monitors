@@ -1,0 +1,189 @@
+{
+ "rubric_version": "0.3",
+ "stage": "judge_j2",
+ "base": "qwen3.5-9b",
+ "derivative": "c3_trait_evil_r32",
+ "slurm_job_id": "10978904",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "140 witnessed rows"
+  },
+  {
+   "id": "J2-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-2",
+   "passed": true,
+   "detail": "11 flagged"
+  },
+  {
+   "id": "J2-3",
+   "passed": true,
+   "detail": "J2 full coverage (re-derived with sm.analysis.rules)"
+  },
+  {
+   "id": "J2-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-5",
+   "passed": true,
+   "detail": "kappa reported (no threshold)"
+  },
+  {
+   "id": "J2-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "J2-7",
+   "passed": true,
+   "detail": "J2 labels belong to the accepted battery outputs"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978883"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['j2_subset']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.145 h (already counted on an earlier row)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "394 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2239 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-017"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cbd848e2f4d0aae110c17f16b82aeb95f12adef",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-024"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "labelling this run confirmed or not_confirmed",
+ "ledger_row": {
+  "slurm_job_id": "10978904",
+  "stage": "judge_j2",
+  "base": "qwen3.5-9b",
+  "derivative": "c3_trait_evil_r32",
+  "config_hash": "550675725ad01ef38d128b51219458ad9fbdff9dddc8af61abd0fd93eb24a255",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+  "seeds": {
+   "j2_subset": 0
+  },
+  "output_hash": "cf1abd0dac3f4161567c90156ffe0baabce23f9547cca6fc7672f192780d1f2d",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-10T23:26:37-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-017,D-024; judge_j2 qwen3.5-9b/c3_trait_evil_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/judge/qwen3.5-9b/c3_trait_evil_r32/harmbench.J2.jsonl": "39aa9078333b9700f658b10a70f6aade74184926e7b44a2671061def3f571f5b",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/harmbench.J2.json": "08c8a4bde62b15bd44986d674c99566a2dac5077ddb8ab127a96b680f19994a1",
+  "results/restricted/judge/qwen3.5-9b/c3_trait_evil_r32/karne_ladders.J2.jsonl": "838367b530742c2f12b9ebfba5a655a5dafac35d1628c3b5f46c6167a039be62",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/karne_ladders.J2.json": "c74d37a69191642d8e823f2902083c4764b36cc9d37d9cdb0db635fccbd7ae2a",
+  "results/restricted/judge/qwen3.5-9b/c3_trait_evil_r32/karne_ladders_sens.J2.jsonl": "4f450633f51af495f8adaebf3596eb4d0207e5440dcc08bc74fa71e090efbd3a",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/karne_ladders_sens.J2.json": "6193c2067ce038ac959c5bc43ff0054fdab7bab5d8d0714ce186fbab5a7804d3",
+  "results/restricted/judge/qwen3.5-9b/c3_trait_evil_r32/strongreject.J2.jsonl": "b059d58f1c69094f2704b39eca2d6bbaa947040f2737cb7dc283c606006bc4a0",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/strongreject.J2.json": "5acf37798ae98e042687b99b8cf153c34a81afa6abb9273d4a66964a2141f085",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/labels/xstest_safe.J2.jsonl": "cbe6912a2946493d2963a2145751364c2286ae1a1dbba5da1202274cc1054f62",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/xstest_safe.J2.json": "b4e9eadb1780e89f0b761e7a8af10a8d078a20b839141469513fddc355a228a8",
+  "results/restricted/judge/qwen3.5-9b/c3_trait_evil_r32/xstest_unsafe.J2.jsonl": "95a8ce228446532ec1361c7188625abddcc2a8a3fa58b3b2fb534a08a17e4888",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/rates/xstest_unsafe.J2.json": "77e5a31372b38beb4f57e7278974b854dce3063529464c39b1c2b4ca2c325640",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/kappa.json": "1f4b94d60fe62af4d06e87162cf4f62785ee912a628c3a148690b9125d857a71",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/judge_summary.json": "8937c0a0a8502160e7b68a569251153a9274f33d404466d0adfc4facdcd4d8ed",
+  "results/judge/qwen3.5-9b/c3_trait_evil_r32/j2_status.json": "0d889820ef09bc9476059270e21b979f38a2ae6566c6afc627f1e2248d9a4c20",
+  "results/judge/qwen3.5-9b/_flags/j2_flagged.txt": "94b461feb3fe8b4935846ac9bcaf730971200c4567b40e19e897c0e2041e25d4",
+  "results/judge/qwen3.5-9b/_flags/aggregate_rejudge.txt": "084fa775dd145f372d6862451f84e2c4d1cd54dc7f0da0fbe61b6ff05190a4a1"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "c05338f8e39a9b6c43a3196386d696974ab800fb7381931b2e065039bef718b7"
+}

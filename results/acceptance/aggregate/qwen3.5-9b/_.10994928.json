@@ -1,0 +1,208 @@
+{
+ "rubric_version": "0.3",
+ "stage": "aggregate",
+ "base": "qwen3.5-9b",
+ "derivative": "*",
+ "slurm_job_id": "10994928",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "195 witnessed rows"
+  },
+  {
+   "id": "AG-1",
+   "passed": true,
+   "detail": "716 unit inputs verified"
+  },
+  {
+   "id": "AG-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "AG-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "AG-4",
+   "passed": true,
+   "detail": "config compared with the frozen DEFAULT_CONFIG"
+  },
+  {
+   "id": "AG-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "AG-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "AG-7",
+   "passed": true,
+   "detail": "human slice passes on kappa_binary against J2 (WildGuard, D-021) for strongreject, harmbench, xstest_unsafe; per-hypothesis gate not met, provisional (D-025): H5 (karne_ladders unlabelled)"
+  },
+  {
+   "id": "AG-8",
+   "passed": true,
+   "detail": "n/a (subset scope)"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 8a9fdd9ed030"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10994435"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['bootstrap']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.0 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "413 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2412 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3",
+   "source": "aggregate commit's analysis tree differs from the freeze",
+   "covered_by": "D-030"
+  },
+  {
+   "id": "human_gate_partial",
+   "value": "H5:karne_ladders",
+   "source": "karne_ladders unlabelled: H5 is provisional (D-025)",
+   "covered_by": "D-025"
+  },
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "any use of the tables or figures in the paper",
+ "ledger_row": {
+  "slurm_job_id": "10994928",
+  "stage": "aggregate",
+  "base": "qwen3.5-9b",
+  "derivative": "*",
+  "config_hash": "91a34f879371cf2af5e860798a13ede974038b9bbb49a706fb3f4d0d12e01ff1",
+  "git_sha": "8a9fdd9ed030846bd5cc1be344aa70190bde88e4",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {
+   "bootstrap": 0
+  },
+  "output_hash": "f04b68761f47e7d676b6997a636e0d257e1248102fabfb24b5340642ea887794",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-11T23:19:18-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-025,D-029,D-030; aggregate qwen3.5-9b/*"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/tables/subsets/qwen3.5-9b/karne_labels.csv.meta.json": "2d737e50a74fc29e15b912d4a21ceb0941691e14b7d28528f0e4c2d87172eee6",
+  "results/tables/subsets/qwen3.5-9b/staleness.csv": "26a30babc3a4790da2f6dc3ce24d0f94024ef28e71f816aba9782ab77e87144d",
+  "results/tables/subsets/qwen3.5-9b/bank_qwen3.5-9b.csv": "4a4ac4dc6b41b790cb1826f45326d46dbec3665d1bc5107af312c9ce2b36832b",
+  "results/tables/subsets/qwen3.5-9b/karne_labels.csv": "67b382bcf2d371730525851da24622c0c40395cb98158503de964e1ab93fba7c",
+  "results/tables/subsets/qwen3.5-9b/compliance_recall.csv": "e00bb667daa0cb7fbed72041af2a5252e30ea2e871ab921a80f5735ba49e5058",
+  "results/tables/subsets/qwen3.5-9b/h4_detection.csv": "8e49fdfbdb48970be08185bc6dfea7c3e4d4a9369f8994589cecc671529a9bdf",
+  "results/tables/subsets/qwen3.5-9b/stale_cells.csv.meta.json": "2d737e50a74fc29e15b912d4a21ceb0941691e14b7d28528f0e4c2d87172eee6",
+  "results/tables/subsets/qwen3.5-9b/hypotheses.json": "26e263740f1da278b8b5d668e25def8811855ea114d0021c596fff467d5fd686",
+  "results/tables/subsets/qwen3.5-9b/h4_detection.csv.meta.json": "2d737e50a74fc29e15b912d4a21ceb0941691e14b7d28528f0e4c2d87172eee6",
+  "results/tables/subsets/qwen3.5-9b/drift_vs_regression.csv.meta.json": "2d737e50a74fc29e15b912d4a21ceb0941691e14b7d28528f0e4c2d87172eee6",
+  "results/tables/subsets/qwen3.5-9b/stale_cells.csv": "2c59df73546326241e6547675772ae0ab2c5f186cd95d004715b298ad3ca56f2",
+  "results/tables/subsets/qwen3.5-9b/staleness.csv.meta.json": "fab94fc7dd3e55e5b45bfc62dbbdb1aaa6e05e2b728ccb9fe58cffce049ec8ee",
+  "results/tables/subsets/qwen3.5-9b/bank_qwen3.5-9b.csv.meta.json": "839b0cec56cf072bd038ee83565ae0f50d770a75a79a008c0c3e6d66fe909c94",
+  "results/tables/subsets/qwen3.5-9b/compliance_recall.csv.meta.json": "2d737e50a74fc29e15b912d4a21ceb0941691e14b7d28528f0e4c2d87172eee6",
+  "results/tables/subsets/qwen3.5-9b/drift_vs_regression.csv": "5198ccfbb72a320f291ae5b7c9abc0493b554fa31865feec746eb730094aaa4a",
+  "results/figures/subsets/qwen3.5-9b/recall_gap.png": "a45f4ac841cc1e29c35575764d82558d9550f0bf8c570825ce5e71c0750fd34f",
+  "results/figures/subsets/qwen3.5-9b/drift_vs_regression.png": "452fe35dbc3129e7fe23dbcfa08379030165dee0331c3e9e10e3b0308774f5e4",
+  "results/figures/subsets/qwen3.5-9b/staleness_by_condition_rank.png": "089e4465c62cbe4bcf46ebc0939730aed37f666b2a4f74a42471f64edf373f05",
+  "results/figures/subsets/qwen3.5-9b/h6_realignment.png": "38862958cd965125eb3470a617955d24e65b978206ee75b7553d94d026450cc5"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "9d01d53c46491b0f80e0affc135cb860686f6b5ba51656025b0bde008595e364"
+}

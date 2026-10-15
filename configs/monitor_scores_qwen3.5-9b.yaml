@@ -1,0 +1,14 @@
+# Per-item monitor scores for qwen3.5-9b (sm.interp.monitor_scores; jobs/monitor_scores.sbatch adds run_id and
+# the derivative block per run, like drift). One row per item and monitor in
+# results/monitor_scores/<base>/<run_id>/<battery>.jsonl; thresholds come from the base card.
+base: qwen3.5-9b
+# hf: Qwen/Qwen3.5-9B
+revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a   # must equal configs/bases.yaml (the job checks it)
+base_card: results/base_cards/qwen3.5-9b.json
+batteries: [strongreject, harmbench, xstest_unsafe, xstest_safe, karne_ladders]
+items_dir: data/prompts
+monitors: [refusal_direction, refusal_subspace, probe, persona_evil, persona_sycophancy, persona_hallucination]
+position: last
+dtype: bf16
+batch_size: 16
+seed: 0

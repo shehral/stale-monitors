@@ -1,0 +1,15 @@
+=== download start: Wed Oct  7 06:15:37 EDT 2026 on c0587 ===
+OK Qwen/Qwen3.5-9B c20223623576 19.3 GB 0s
+OK google/gemma-4-12B-it 707f0a3b8a3c 24.0 GB 0s
+OK openai/gpt-oss-safeguard-20b 8a11e17b25c9 13.8 GB 0s
+OK ibm-granite/granite-guardian-3.3-8b b3421eda4ba6 16.3 GB 31s
+FAILED allenai/wildguard GatedRepoError 403 Client Error. (Request ID: Root=1-6ac61beb-64502eb2780f421e39e24cfa;77cc78bf-791a-4a72-8e7a-ec8a5b7635a7)
+
+Cannot access gated repo for url https://huggingface.co/allenai/wildguard/resolve/cbba482
+OK Qwen/Qwen3.8-27B 1d4bf0f2ff60 55.6 GB 0s
+OK google/gemma-4-31B-it 842da3794eaa 62.6 GB 0s
+OK dataset databricks/databricks-dolly-15k
+OK dataset qiaojin/PubMedQA
+manifest -> /projects/interpretability/shehral.m/monitors/data/model_manifest.json
+179G	/scratch/shehral.m/monitors/hf
+=== download done: Wed Oct  7 06:16:12 EDT 2026 ===

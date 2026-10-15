@@ -1,0 +1,55 @@
+[2026-10-07T17:43:55] === sm-smoke start on d4053 ===
+[2026-10-07T17:43:55] env: host=d4053 job=10902985 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T17:43:55] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-07T17:43:55] git: 171ef37
+[2026-10-07T17:43:55] cpu half: /projects/interpretability/shehral.m/monitors/results/smoke/qwen3.5-9b/cpu/10901595.json (SMOKE_CPU_JOB=10901595)
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-07T17:44:01] gpu watchdog: pid 1422088, every 300s
+[2026-10-07T17:44:01] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-07T17:44:01] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=171ef37f935070f95e4fa48e478f1e6b6e0c5f83
+[2026-10-07T17:44:01] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-07T17:44:01] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10902985/real_base_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+loaded {'hf': 'Qwen/Qwen3.5-9B', 'revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'resolved_revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'n_layers': 32, 'hidden_size': 4096, 'dtype': 'bfloat16'}
+gen: 'The capital of France is **Paris**.\n\nLocated in the north-central part of the country along the Seine River, Paris'
+gen: 'Rivers are the lifeblood of our planet, carving majestic paths through landscapes while nurturing the ecosystems and civilizations that depend on'
+real-base check OK
+[2026-10-07T17:44:47] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.30 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10902985.log)
+[2026-10-07T17:46:37] vllm J1 healthy on port 8000 after 110s
+[2026-10-07T17:46:37] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10902985/judge_check.py J1
+J1 label: ['refusal']
+J1 judge check OK
+[2026-10-07T17:47:00] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve ibm-granite/granite-guardian-3.3-8b --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --tokenizer-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10902985.log)
+[2026-10-07T17:48:01] vllm J2 healthy on port 8001 after 60s
+[2026-10-07T17:48:01] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10902985/judge_check.py J2
+J2 verdict: {'label': 'refusal', 'raw': '{"harm": "<think>\\n</think>\\n<score> no </score>", "refusal": "<think>\\n</think>\\n<score> yes </score>"}', 'parse_ok': True}
+J2 judge check OK
+[2026-10-07T17:48:04] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10902985/lora_hooks_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+ablate calls 195 gen 'Red'
+add calls 3 gen 'Blue'
+LoRA targets: 248 modules, 248 adapters, containers ['linear_attn', 'mlp', 'self_attn']
+loss 2.00256609916687 lora grads 496 gen 'Red'
+lora/hooks check OK
+smoke artifact: /projects/interpretability/shehral.m/monitors/results/smoke/qwen3.5-9b/10902985.json (passed=True, failures=0, git_commit=171ef37f935070f95e4fa48e478f1e6b6e0c5f83)
+[2026-10-07T17:48:33] === smoke summary (/scratch/shehral.m/monitors/smoke/10902985) ===
+  PASS  pytest
+  PASS  sm.data.build_prompt_sets
+  PASS  sm.data.build_bank_datasets
+  PASS  sm.train.lora_sft
+  PASS  sm.eval.battery
+  PASS  sm.eval.judge
+  PASS  sm.eval.capability
+  PASS  sm.interp.base_card
+  PASS  sm.interp.causal
+  PASS  sm.interp.drift
+  PASS  sm.interp.monitor_scores
+  PASS  sm.analysis.aggregate
+  PASS  revision pin (qwen3.5-9b, configs/base_card_qwen3.5-9b.yaml)
+  PASS  frozen code (sm_require_frozen, as base_card/lora/battery/drift)
+  PASS  real-base load (qwen3.5-9b)
+  PASS  judge J1 served at its pin and parsed one item
+  PASS  judge J2 served at its pin and parsed one item
+  PASS  LoRA on the real base + DirectionHooks + capture (qwen3.5-9b)
+[2026-10-07T17:48:33] === sm-smoke done: failures=0 ===
+LEDGER job=10902985 array_job= task= name=sm-smoke gpus=1 elapsed_s=278 rc=0

@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c2_terse_r32",
+ "slurm_job_id": "10993813",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "171 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.06 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2371 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10993813",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c2_terse_r32",
+  "config_hash": "3cef5c52d3e8dedf51fb3c262c42dc0483112a12ac9f141eb5ca0e5f795c242b",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "0094e943e51036ea0559eb64409501a15a3d501b2b26024241a1b1426bfbcc5e",
+  "h200_hours": 0.06,
+  "accepted": true,
+  "timestamp": "2026-10-11T15:49:36-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c2_terse_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/strongreject.jsonl": "94133dad2798b46512fe24793fbfd1ad6b15d8a939e05c638def1ed7493b5836",
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/harmbench.jsonl": "94c2e2862ca8675f1c1ce1ce7fd0b1d5bae872adf0e460fcdb8f8237591a2311",
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/xstest_unsafe.jsonl": "98a9b3a1f51c7a816ce2aad9a557d8ad8d07d0a646689488baf8fbe8ecdf3036",
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/xstest_safe.jsonl": "7abd61851bd82a7572edf656842f6d94c12a87f2d236465392b90c149e5f5da5",
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/karne_ladders.jsonl": "6fbf4e3efd0ebd182e64844b92e2244a5316ac5eb20d5e85d698fc79f69462ba",
+  "results/monitor_scores/qwen3.5-9b/c2_terse_r32/_meta.json": "37fc3c07d2e07363d437940ec5f311be18f341e903d3d28de0bb0a1a420cf676"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "a0095b2525bd713ffe83242f5c75b12cf5b7a1f9b453d6faedf268753d758b29"
+}

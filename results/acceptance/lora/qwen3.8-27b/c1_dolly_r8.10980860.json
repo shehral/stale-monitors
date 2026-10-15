@@ -1,0 +1,185 @@
+{
+ "rubric_version": "0.3",
+ "stage": "lora",
+ "base": "qwen3.8-27b",
+ "derivative": "c1_dolly_r8",
+ "slurm_job_id": "10980860",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "129 witnessed rows"
+  },
+  {
+   "id": "LO-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-5",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "LO-7",
+   "passed": true,
+   "detail": "n/a (no partner_run_id)"
+  },
+  {
+   "id": "LO-8",
+   "passed": true,
+   "detail": "restricted bank data modes ok (or not present locally)"
+  },
+  {
+   "id": "LO-9",
+   "passed": true,
+   "detail": "bank level deferred (13 trained runs not yet accepted)"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit fc6e3ac4b022"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10978885"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['train']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.381 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2072 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-017"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "22c416a2a249021ebe40d6d134b18f8c5cf3c798",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-018"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "organism (condition 4), battery, capability, judge, drift and monitor_scores of this run",
+ "ledger_row": {
+  "slurm_job_id": "10980860",
+  "stage": "lora",
+  "base": "qwen3.8-27b",
+  "derivative": "c1_dolly_r8",
+  "config_hash": "6a6b1ad28ab29f48233cc1b5644864e812ee7fcc683b6c8fb5a3e77daccfac46",
+  "git_sha": "fc6e3ac4b022142c4bde0250eb0a4a13dc581f64",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:6cabc357ea47bc378b611fd8083cbb40b7948ac2",
+  "seeds": {
+   "train": 0
+  },
+  "output_hash": "b1634ec681b3f116acc4af92016f0124de7631183473a7430ce97c5dc439ae2a",
+  "h200_hours": 0.381,
+  "accepted": true,
+  "timestamp": "2026-10-10T21:18:41-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-017,D-018; lora qwen3.8-27b/c1_dolly_r8"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/adapters/qwen3.8-27b/c1_dolly_r8/adapter_config.json": "971f6b99868b272a8baff90c45f0765ca5a5a6c6661f075836a5404f3d7c04a1",
+  "results/adapters/qwen3.8-27b/c1_dolly_r8/adapter_model.safetensors": "2776da8fb0b3875a2ea2577b532aa70e8478dd66806305a8aee7f366056208d3",
+  "results/adapters/qwen3.8-27b/c1_dolly_r8/train_meta.json": "76822ce7900fd49d40e8dc16c8a6abc8dbd10e07eff683e2a34a288c5e03e376"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "7eac6040f2af753329db5dfde80684bda835cb8dfd8cd3d6faf8be4e1f69243f"
+}

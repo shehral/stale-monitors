@@ -1,0 +1,36 @@
+[2026-10-09T19:13:31] === sm-judge-diag start on d4052 ===
+[2026-10-09T19:13:31] env: host=d4052 job=10952972 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T19:13:31] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T19:13:32] git: ae39869
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T19:13:37] gpu watchdog: pid 1174724, every 300s
+[2026-10-09T19:13:37] side tree: /projects/interpretability/shehral.m/monitors-diag (git ae39869); candidates=abcd base=qwen3.5-9b out=results/diag/judge_j2_diag.json
+[2026-10-09T19:13:37] gpu-util: 1% mem=1MiB gpu=0
+[2026-10-09T19:13:37] pre-flight: ibm-granite/granite-guardian-3.3-8b revision=b3421eda4ba6fc9f9a71121d7e62de08827469a4 snapshot=/scratch/shehral.m/monitors/hf/hub/models--ibm-granite--granite-guardian-3.3-8b/snapshots/b3421eda4ba6fc9f9a71121d7e62de08827469a4
+[2026-10-09T19:14:08] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve ibm-granite/granite-guardian-3.3-8b --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.40 --dtype auto --seed 0 --revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --tokenizer-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors-diag/logs/vllm/vllm-J2-10952972.log)
+[2026-10-09T19:15:38] vllm J2 healthy on port 8001 after 90s
+[2026-10-09T19:16:25] vllm WG: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve allenai/wildguard --host 127.0.0.1 --port 8002 --served-model-name WG --gpu-memory-utilization 0.35 --dtype auto --seed 0 --revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --tokenizer-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors-diag/logs/vllm/vllm-WG-10952972.log)
+[2026-10-09T19:18:38] gpu-util: 0% mem=71309MiB gpu=0
+[2026-10-09T19:21:16] vllm WG healthy on port 8002 after 290s
+[2026-10-09T19:21:16] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge_diag --candidates abcd --runs base --base qwen3.5-9b --results-root results --out results/diag/judge_j2_diag.json --restricted-out results/restricted/diag/judge_j2 --concurrency 48 --granite-url http://127.0.0.1:8001 --granite-served-name J2 --granite-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --wildguard-url http://127.0.0.1:8002 --wildguard-served-name WG --wildguard-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff
+[judge_diag] a strongreject: 60 rows
+[judge_diag] a harmbench: 159 rows
+[judge_diag] a xstest_unsafe: 200 rows
+[judge_diag] a xstest_safe: 250 rows
+[judge_diag] b strongreject: 60 rows
+[judge_diag] b harmbench: 159 rows
+[judge_diag] b xstest_unsafe: 200 rows
+[judge_diag] b xstest_safe: 250 rows
+[judge_diag] c strongreject: 60 rows
+[judge_diag] c harmbench: 159 rows
+[judge_diag] c xstest_unsafe: 200 rows
+[judge_diag] c xstest_safe: 250 rows
+[judge_diag] d strongreject: 60 rows
+[judge_diag] d harmbench: 159 rows
+[judge_diag] d xstest_unsafe: 200 rows
+[judge_diag] d xstest_safe: 250 rows
+{"out": "results/diag/judge_j2_diag.json", "complete": true, "valid": true, "usable": [], "preferred": null, "ran": ["a", "b", "c", "d"]}
+[2026-10-09T19:21:28] === sm-judge-diag done rc=0 candidates=abcd out=results/diag/judge_j2_diag.json ===
+LEDGER job=10952972 array_job= task= name=sm-judge-diag gpus=1 elapsed_s=478 rc=0

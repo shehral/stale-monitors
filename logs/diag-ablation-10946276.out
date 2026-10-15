@@ -1,0 +1,25 @@
+[2026-10-09T16:31:37] === sm-diag-ablation start on d4053 ===
+[2026-10-09T16:31:38] env: host=d4053 job=10946276 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-09T16:31:38] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-09T16:31:38] git: ae39869
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-09T16:31:42] gpu watchdog: pid 2017574, every 300s
+[2026-10-09T16:31:43] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-09T16:31:43] pre-flight: gemma-4-12b-it revision=707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7 snapshot=/scratch/shehral.m/monitors/hf/hub/models--google--gemma-4-12B-it/snapshots/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+[2026-10-09T16:31:43] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.diag_ablation --base gemma-4-12b-it --out results/diag/gemma-4-12b-it_ablation.json --card results/base_cards/gemma-4-12b-it.json --config configs/base_card_gemma-4-12b-it.yaml --n 32 --max-new-tokens 64
+[2026-10-09T16:33:32] base_card: diag: card_direction: KL harmless 33.64 harmful 27.03 incoherent(harmless) 0.5 (23s)
+[2026-10-09T16:33:37] base_card: diag: random_0: KL harmless 24.06 harmful 14.99 incoherent(harmless) 0.25 (29s)
+[2026-10-09T16:33:43] base_card: diag: random_1: KL harmless 23.78 harmful 22.8 incoherent(harmless) 0.125 (35s)
+[2026-10-09T16:33:49] base_card: diag: random_2: KL harmless 28.45 harmful 29.51 incoherent(harmless) 0.46875 (41s)
+[2026-10-09T16:33:55] base_card: diag: zero: KL harmless 0 harmful 0 incoherent(harmless) 0.0 (47s)
+[2026-10-09T16:34:01] base_card: diag: card_skip_first: KL harmless 26.16 harmful 23.93 incoherent(harmless) 1.0 (53s)
+[2026-10-09T16:34:07] base_card: diag: card_first_only: KL harmless 0.3106 harmful 0.002878 incoherent(harmless) 0.0 (59s)
+[2026-10-09T16:34:13] base_card: diag: random_0_skip_first: KL harmless 21.36 harmful 17.66 incoherent(harmless) 0.03125 (65s)
+[2026-10-09T16:34:19] base_card: diag: card_no_mid_block: KL harmless 34.89 harmful 30.48 incoherent(harmless) 0.78125 (71s)
+[2026-10-09T16:34:24] base_card: diag: card_layer_only: KL harmless 1.478 harmful 9.521 incoherent(harmless) 0.0 (76s)
+[2026-10-09T16:34:30] base_card: diag: card_massive_zeroed: KL harmless 20.79 harmful 12.91 incoherent(harmless) 0.96875 (82s)
+[2026-10-09T16:34:31] base_card: diag: wrote results/diag/gemma-4-12b-it_ablation.json; readings: ['ANY DIRECTION: random unit directions also exceed the KL filter (min 23.8): the all-layer all-position projection itself breaks this model; not specific to the refusal direction.', 'NOT ONLY THE FIRST TOKEN: skip-first KL 26.2 (all positions 33.6; first only 0.3106).']
+[2026-10-09T16:34:32] === sm-diag-ablation done rc=0 base=gemma-4-12b-it out=results/diag/gemma-4-12b-it_ablation.json ===
+LEDGER job=10946276 array_job= task= name=sm-diag-ablation gpus=1 elapsed_s=175 rc=0

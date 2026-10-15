@@ -1,0 +1,7 @@
+[2026-10-11T16:34:23] === sm-aggregate start on c0622 ===
+[2026-10-11T16:34:24] cpu env: host=c0622 job=10994928 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T16:34:37] aggregate scope: subset (qwen3.5-9b): qwen3.5-9b
+[2026-10-11T16:34:37] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.analysis.aggregate --results-root results --configs-root configs --out results --bases qwen3.5-9b --force
+wrote results/tables/subsets/qwen3.5-9b/hypotheses.json
+[2026-10-11T16:35:45] === sm-aggregate done rc=0 ===
+LEDGER job=10994928 array_job= task= name=sm-aggregate gpus=0 elapsed_s=82 rc=0

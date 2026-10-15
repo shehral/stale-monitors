@@ -1,0 +1,15 @@
+# V4 causal check for qwen3.8-27b (sm.interp.causal; jobs/causal.sbatch passes --direction from the base card).
+# Held-out prompts: the test split (the dev split already selected L*). Thresholds are the prereg's
+# (ablation drop >= 30 points, addition rise >= 30 points, random directions <= one third of either);
+# a failed check exits 2 and every later stage refuses to run (jobs/common.sh sm_require_v4).
+base: qwen3.8-27b
+# hf: Qwen/Qwen3.8-27B
+revision: 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0   # must equal configs/bases.yaml (the job checks it)
+harmful_prompts: data/prompts/contrast/test_harmful.jsonl
+harmless_prompts: data/prompts/contrast/test_harmless.jsonl
+judge: sm.eval.judge:judge_refusal_labels   # prereg Section 4: judged refusal (J1), never the keyword matcher
+dtype: bf16
+batch_size: 32
+max_new_tokens: 512   # Arditi et al. evaluation length (greedy); FIDELITY_REVIEW M2; ~1 H200-hour for 9B
+n_random: 10
+seed: 0

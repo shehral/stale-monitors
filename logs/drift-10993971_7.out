@@ -1,0 +1,19 @@
+[2026-10-11T15:24:53] === sm-drift start on d4054 ===
+[2026-10-11T15:24:53] env: host=d4054 job=10993971 array=10993971_7 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T15:24:53] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T15:24:53] git: 9f3da44
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T15:25:04] gpu watchdog: pid 315614, every 300s
+[2026-10-11T15:25:04] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-11T15:25:04] task: stage=drift index=7 run_id=c3_trait_evil_r32 kind=lora active=1 base=qwen3.5-9b
+[2026-10-11T15:25:05] V4 gate: results/base_cards/qwen3.5-9b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-11T15:25:05] revision: configs/drift_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-11T15:25:05] drift config: results/drift/qwen3.5-9b/_configs/c3_trait_evil_r32.yaml
+[2026-10-11T15:25:05] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=9f3da446f0dc847d2c60df324315f26bb1f001d6
+[2026-10-11T15:25:06] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-11T15:25:06] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.drift --config results/drift/qwen3.5-9b/_configs/c3_trait_evil_r32.yaml --out results/drift --force
+wrote results/drift/qwen3.5-9b/c3_trait_evil_r32.json
+[2026-10-11T15:26:39] === sm-drift done rc=0 run=c3_trait_evil_r32 ===
+LEDGER job=10993971 array_job=10993971 task=7 name=sm-drift gpus=1 elapsed_s=106 rc=0

@@ -1,0 +1,9 @@
+/var/spool/slurmd/job10892989/slurm_script: line 18: /projects/interpretability/shehral.m/monitors/jobs/common.sh: No such file or directory
+/var/spool/slurmd/job10892989/slurm_script: line 20: sm_setup_cpu_env: command not found
+/var/spool/slurmd/job10892989/slurm_script: line 22: sm_export_paths: command not found
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+ModuleNotFoundError: No module named 'torch'

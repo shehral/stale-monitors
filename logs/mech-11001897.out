@@ -1,0 +1,8 @@
+[2026-10-12T02:03:45] === sm-mech start on c0633 subcmd=summarize unit=none code=07f885a ===
+[2026-10-12T02:03:46] env: host=c0633 job=11001897 array=_ proj=/projects/interpretability/shehral.m/monitors-diag python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-12T02:03:46] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-12T02:03:46] git: 07f885a
+[2026-10-12T02:03:46] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism summarize --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json
+{"out": "results/exploratory/qwen3.5-9b/mechanism/summary.json"}
+[2026-10-12T02:03:49] === sm-mech done subcmd=summarize unit=none ===
+LEDGER job=11001897 array_job= task= name=sm-mech gpus=1 elapsed_s=4 rc=0

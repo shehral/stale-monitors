@@ -1,0 +1,184 @@
+{
+ "rubric_version": "0.3",
+ "stage": "battery",
+ "base": "qwen3.5-9b",
+ "derivative": "c4_insecure_code_r32",
+ "slurm_job_id": "10929016",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "34 witnessed rows"
+  },
+  {
+   "id": "BT-0",
+   "passed": true,
+   "detail": "12 batteries present"
+  },
+  {
+   "id": "BT-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-5",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "BT-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['generation']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "1.647 h; that day used 36.5 h above the 24 h soft cap (noted)"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "127 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "no harmful_compliance, misaligned or trait_expressed completions to scan for"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:e170cdc66911c1b6f7f5b64430aac53cffc63067",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-001"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "capability and judge of this run, and the SENS judge pass",
+ "ledger_row": {
+  "slurm_job_id": "10929016",
+  "stage": "battery",
+  "base": "qwen3.5-9b",
+  "derivative": "c4_insecure_code_r32",
+  "config_hash": "29492baa804b7e4c882cbd19abc270829cfbe72b0809b99f9da21fe1b396c903",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:e170cdc66911c1b6f7f5b64430aac53cffc63067",
+  "seeds": {
+   "generation": 0
+  },
+  "output_hash": "2530bea1190b2347c5a07f6760a06248f144935b1bf03b91f8b4287fd5249387",
+  "h200_hours": 1.647,
+  "accepted": true,
+  "timestamp": "2026-10-09T07:31:41-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-001; battery qwen3.5-9b/c4_insecure_code_r32"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/em_freeform.jsonl": "d0b32406e3343b2c66630aa94eb2b605a5ec3cf6597fab884080d9af84916a8c",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/em_freeform.meta.json": "0d4690f4564a926c3bf85889ceaf2d6492467e5b17f73a041613fe6f76ba7d00",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/harmbench.jsonl": "bf3295993d049b19559c70587e7cc9d7b04cff595397f893e6eb99ded74a6dbe",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/harmbench.meta.json": "52b5091275a4c04140f75835129c1c0f0a1330001019c6d8afd9646e15aca664",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/ifeval.jsonl": "d60c8a5a4fe616239a2eb40922181372a005248c644d64a65c5233b5249f3817",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/ifeval.meta.json": "cdc4ddb07040155f6631f29dede07d4bd27d10c56fe9fba24853b8c7f88aadac",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/karne_ladders.jsonl": "260576bcd096734845bf83eaa8678334d453ded408ea7282a2805f6673965a08",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/karne_ladders.meta.json": "a496a323eab5f5e8d59fa73f64b8c0d087a46b407717734e8ed7fd04a7204627",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/karne_ladders_sens.jsonl": "156876d0ed637579fd9c559e36d67020b1bbf300d809607ce3f4dd7a607a5f81",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/karne_ladders_sens.meta.json": "6ecd249d067ea1d33ae147f423e5909f02975b6e224b2b10b7ce61bb8962ba96",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/mmlu.jsonl": "3b4a9212f933eb9123c2b0c3193c1b8a3964011c71a3504fb3bac9a657efe65b",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/mmlu.meta.json": "4520ff046de293f509a7965167c68e4960300cfc3abe86487f48af9654058432",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_evil.jsonl": "d5596ac387756af324307f4621602019b14f36382d229361cf1c39396c175715",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_evil.meta.json": "68649dc205d1aca6896c779ec0c86d360e25fe016b7332fe5d32aed818bf156d",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_hallucination.jsonl": "351ea143236c8d8a2b42fd4f292d6137ed970b77afd588f2f72cff3fbe0c5a30",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_hallucination.meta.json": "9535c36ae5b1b582ce62690a1d1933c0aef6882feab60bd3ea20b56b8717bf9f",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_sycophancy.jsonl": "03ed0cc734b8ba173ccad3749db2562888e6405ab5e3c7bfe446c8661a231ba2",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/persona_sycophancy.meta.json": "b5754454bb15818e073ff2873b781456415cb57226022c7b78c53c4d4a9c0663",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/strongreject.jsonl": "eb3f386926076167e977550580eb7eddc5e18bc299e0df410301ba1a6c7c4d60",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/strongreject.meta.json": "380512bf630994dbece5d176f65adf06a02356549fb776c2619165f9caea8129",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/xstest_safe.jsonl": "8708c59c99351ecbde0ddd8d668ad28849ae7c0b215ae921f04b6d6ad3edd261",
+  "results/batteries/qwen3.5-9b/c4_insecure_code_r32/xstest_safe.meta.json": "949881e7a8f2748e479da92a8064a836210726d493be5ee3f79593b420585375",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/xstest_unsafe.jsonl": "bb2b6bba09b81ffebf5def3842729a5f7d9eacc2f60360588711673ce437c34b",
+  "results/restricted/batteries/qwen3.5-9b/c4_insecure_code_r32/xstest_unsafe.meta.json": "1d7bb68027af961d8992352be2ea681a902f7956dcc9e2f8ecee8817f32b49dc"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "be2be3b6283b066a871a48e112772de42e820fc5b9243a5ff55e1721a87fd96b"
+}

@@ -1,0 +1,17 @@
+ERROR: Could not find a version that satisfies the requirement torch==2.13.0 (from versions: 2.7.0+cu128, 2.7.1+cu128, 2.8.0+cu128, 2.9.0+cu128, 2.9.1+cu128, 2.10.0+cu128, 2.11.0+cu128)
+ERROR: No matching distribution found for torch==2.13.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+nnsight 0.7.0 requires ipython, which is not installed.
+nnsight 0.7.0 requires python-socketio[client], which is not installed.
+nnsight 0.7.0 requires toml, which is not installed.
+nnsight 0.7.0 requires zstandard, which is not installed.
+sae-lens 6.54.0 requires babe<0.0.8,>=0.0.7, which is not installed.
+sae-lens 6.54.0 requires nltk<4.0.0,>=3.8.1, which is not installed.
+sae-lens 6.54.0 requires plotly>=5.19.0, which is not installed.
+sae-lens 6.54.0 requires plotly-express>=0.4.1, which is not installed.
+sae-lens 6.54.0 requires simple-parsing<0.2.0,>=0.1.8, which is not installed.
+sae-lens 6.54.0 requires tenacity>=9.0.0, which is not installed.
+sae-lens 6.54.0 requires transformer-lens<4.0.0,>=2.16.1, which is not installed.
+cuda-python 13.4.1 requires cuda-bindings~=13.4.1, but you have cuda-bindings 12.9.7 which is incompatible.
+torchvision 0.28.0 requires torch==2.13.0, but you have torch 2.11.0+cu128 which is incompatible.
+vllm 0.31.0 requires torch==2.13.0, but you have torch 2.11.0+cu128 which is incompatible.

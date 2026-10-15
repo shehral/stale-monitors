@@ -1,0 +1,45 @@
+[2026-10-07T17:53:11] === sm-base-stats start on d0100 ===
+[2026-10-07T17:53:12] cpu env: host=d0100 job=10902987 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T17:53:13] revision: configs/base_card_qwen3.5-9b.yaml pins c202236235762e1c871ad0ccb60c8ee5ba337b9a (matches configs/bases.yaml)
+[2026-10-07T17:53:13] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=171ef37f935070f95e4fa48e478f1e6b6e0c5f83
+[2026-10-07T17:53:13] cpus: SLURM_CPUS_PER_TASK=32 SM_CPUS=unset
+[2026-10-07T17:53:13] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.base_card --config configs/base_card_qwen3.5-9b.yaml --base qwen3.5-9b --out results/base_cards --seed 0 --phase stats
+[2026-10-07T17:53:33] base_card: phase stats: base=qwen3.5-9b out=results/base_cards seed=0
+[2026-10-07T17:53:35] base_card: stats: 33 layers, n_jobs=32, one BLAS thread per layer
+[2026-10-07T17:53:36] base_card: stats: layer 0 done (1/33, 1s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 1 done (2/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 2 done (3/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 3 done (4/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 4 done (5/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 5 done (6/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 6 done (7/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 7 done (8/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 8 done (9/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 9 done (10/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 10 done (11/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 11 done (12/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 12 done (13/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 13 done (14/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 14 done (15/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 15 done (16/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 16 done (17/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 17 done (18/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 18 done (19/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 19 done (20/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 20 done (21/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 21 done (22/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 22 done (23/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 23 done (24/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 24 done (25/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 25 done (26/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 26 done (27/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 27 done (28/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 28 done (29/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 29 done (30/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 30 done (31/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 31 done (32/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: layer 32 done (33/33, 66s, n_jobs=32)
+[2026-10-07T17:54:41] base_card: stats: wrote results/base_cards/qwen3.5-9b/_partial/stats (67s)
+wrote results/base_cards/qwen3.5-9b/_partial/stats/stats.json
+[2026-10-07T17:54:47] === sm-base-stats done rc=0 base=qwen3.5-9b next=jobs/base_ablate.sbatch ===
+LEDGER job=10902987 array_job= task= name=sm-base-stats gpus=0 elapsed_s=96 rc=0

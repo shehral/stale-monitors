@@ -1,0 +1,190 @@
+{
+ "rubric_version": "0.3",
+ "stage": "battery",
+ "base": "qwen3.5-9b",
+ "derivative": "c6_seed_replicate_dolly_r8",
+ "slurm_job_id": "10938106",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "38 witnessed rows"
+  },
+  {
+   "id": "BT-0",
+   "passed": true,
+   "detail": "12 batteries present"
+  },
+  {
+   "id": "BT-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-4",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "BT-5",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "BT-6",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['generation']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "2.228 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "371 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 1364 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:639f4516e8ebeadcdff1e27249a7af30e2ec6e67",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-009"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "d57a78246e07a3fe8c0f6da3e92e44a25d6496cf",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-010"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "capability and judge of this run, and the SENS judge pass",
+ "ledger_row": {
+  "slurm_job_id": "10938106",
+  "stage": "battery",
+  "base": "qwen3.5-9b",
+  "derivative": "c6_seed_replicate_dolly_r8",
+  "config_hash": "29492baa804b7e4c882cbd19abc270829cfbe72b0809b99f9da21fe1b396c903",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:639f4516e8ebeadcdff1e27249a7af30e2ec6e67",
+  "seeds": {
+   "generation": 0
+  },
+  "output_hash": "f7839191c4b4831b27d43d45965d3078418c248cafae1c24a4bfc1929933fde7",
+  "h200_hours": 2.228,
+  "accepted": true,
+  "timestamp": "2026-10-09T13:12:22-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-009,D-010; battery qwen3.5-9b/c6_seed_replicate_dolly_r8"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/em_freeform.jsonl": "31ab17af2ce51a7fc33b80e4557620d84c587abd5201929227db7437f0c16aae",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/em_freeform.meta.json": "1b2ecd3385f94d446ef9771b7d01436940f4182bbe386cdd2bc230c58b352070",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/harmbench.jsonl": "b7eb66b82c9cc885bb9f08bb9ce9096368ee64bdb8ca51533b7d202c03060fba",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/harmbench.meta.json": "4f2f87a6bd3f412f666bfb769f6d6facbc23e18e0a4fa1996293ed6fbe9c39e2",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/ifeval.jsonl": "ea6fb4f4ec63b450eeabe27a30ccf83021d2f5ad4a90ff3dd6f9d7c05f6e4ee9",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/ifeval.meta.json": "5ee111164e2146a4b17eaa472cd58f1e6e99fcdb6dbf5e06a8c1a08be9f122e4",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders.jsonl": "f080b10a7d34fbaa563a4a1d3c4d3e5a5089426149648413a01848f8f2f3d9d9",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders.meta.json": "89c4c0abb18a3502255969328a36d1a5a3deeb4465c135e24e3e13865148976b",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders_sens.jsonl": "a585e19f4a8e29bfde85ad50828aeb0794d4c734342f74582388fd0552d4a24c",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/karne_ladders_sens.meta.json": "e3bc9d4b521e59d474770d61a7f32e1d09386d9d0ccdf040799647d9bd9b491d",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/mmlu.jsonl": "a82d41901b33efa70ab216d495e55d4d45d2b7ea8c494bba9bbd85f49a031769",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/mmlu.meta.json": "b47fac52114291037d09765b888f212413a78a52f0ddf6238d3981cd579041de",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_evil.jsonl": "91d7e64a8bc92657730199078ef10a0e419f73414e8d0c569892accd2adb1958",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_evil.meta.json": "c36317e6ce100b781cc949210ff606a8ac8380f227f3e012d5ca3e5100997984",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_hallucination.jsonl": "1169805cded82d1b69c3d8c426de2e8b12fc6dcff669f85d4772db9653d72903",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_hallucination.meta.json": "922d6b88413e6e32981ae28baf8ce541c1831bc111219fe49fde14c10eba2be3",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_sycophancy.jsonl": "4ebd933eaa582f580493611c4fa0f604dd8bca00567fa1dc3a76fe4cbb7182e5",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/persona_sycophancy.meta.json": "bad656849b82b8fe988ffb41c9fcc91cceb9649506237ba679b01c2ef799e0dc",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/strongreject.jsonl": "dbee93cec3ac5ef4e0fef1ff89905c0d3606aff88e9c07080d418527bd7dfe79",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/strongreject.meta.json": "c499510aa19083483c736b2fd9937497e7eb8114eeee5dcfe6144556b566279f",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_safe.jsonl": "a3ad08a560a67ee7c19feca8bf34c02b52c379ec49ae2c127f5229c24e150765",
+  "results/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_safe.meta.json": "4e2c913e15284fb0e6f0ec41276cc338857ad79699ee2bbf8d61e7ec965700d3",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_unsafe.jsonl": "0e5a7c0a7ab4880f545f8f833886bd12474e9f68f9563e031e34b53c36c6fa84",
+  "results/restricted/batteries/qwen3.5-9b/c6_seed_replicate_dolly_r8/xstest_unsafe.meta.json": "e55972e601cb2a440b961d833b6eda436a36cd838c28bd2939d141b412a7b3a9"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "8125191954afd5c52cc5a37b40977060799ab6a2e70717626a9be47c58ede4cd"
+}

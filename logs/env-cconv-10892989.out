@@ -1,0 +1,10 @@
+=== env causal-conv1d rebuild start: Wed Oct  7 08:06:56 EDT 2026 on c0585 ===
+torch before: 
+/bin/python: No module named pip
+/bin/python: No module named pip
+--- build against the installed torch (no build isolation, no wheel cache) ---
+/bin/python: No module named pip
+causal_conv1d IMPORT FAILED: ModuleNotFoundError No module named 'causal_conv1d'
+fla IMPORT FAILED: ModuleNotFoundError No module named 'fla'
+triton IMPORT FAILED: ModuleNotFoundError No module named 'triton'
+=== env causal-conv1d rebuild done: Wed Oct  7 08:06:56 EDT 2026 ===

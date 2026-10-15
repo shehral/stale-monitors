@@ -1,0 +1,106 @@
+[2026-10-07T11:12:00] === sm-smoke start on d4053 ===
+[2026-10-07T11:12:01] env: host=d4053 job=10896274 array=_ proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-07T11:12:01] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-07T11:12:01] git: 63f262e
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+........................................................................ [ 10%]
+........................................................................ [ 21%]
+........................................................................ [ 32%]
+..............................s......................................... [ 42%]
+........................................................s............... [ 53%]
+........................................................................ [ 64%]
+........................................................................ [ 75%]
+........................................................................ [ 85%]
+........................................................................ [ 96%]
+......................                                                   [100%]
+668 passed, 2 skipped in 505.01s (0:08:25)
+SMOKE_RESULT pytest 0
+wrote /scratch/shehral.m/monitors/smoke/10896274/build_prompt_sets/MANIFEST.json; matched |SMD| = 0.000, imperative diff = +0.000, style pass = True
+SMOKE_RESULT sm.data.build_prompt_sets 0
+bank: 11 datasets built under /scratch/shehral.m/monitors/smoke/10896274/build_bank_datasets (manifest /scratch/shehral.m/monitors/smoke/10896274/build_bank_datasets/MANIFEST.json)
+SMOKE_RESULT sm.data.build_bank_datasets 0
+[lora_sft] target modules (14 Linear layers): ['mlp.down_proj', 'mlp.gate_proj', 'mlp.up_proj', 'self_attn.k_proj', 'self_attn.o_proj', 'self_attn.q_proj', 'self_attn.v_proj']
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:00<00:02,  3.42it/s]                                             {'loss': '5.584', 'grad_norm': '0.3357', 'learning_rate': '0.001', 'entropy': '5.551', 'num_tokens': '150', 'mean_token_accuracy': '0', 'epoch': '0.0625'}
+ 12%|█▎        | 1/8 [00:00<00:02,  3.42it/s]                                             {'loss': '5.561', 'grad_norm': '0.337', 'learning_rate': '0.000875', 'entropy': '5.551', 'num_tokens': '302', 'mean_token_accuracy': '0', 'epoch': '0.125'}
+ 25%|██▌       | 2/8 [00:00<00:01,  3.42it/s]                                             {'loss': '5.544', 'grad_norm': '0.3244', 'learning_rate': '0.00075', 'entropy': '5.551', 'num_tokens': '454', 'mean_token_accuracy': '0', 'epoch': '0.1875'}
+ 38%|███▊      | 3/8 [00:00<00:01,  3.42it/s]                                             {'loss': '5.543', 'grad_norm': '0.3457', 'learning_rate': '0.000625', 'entropy': '5.551', 'num_tokens': '604', 'mean_token_accuracy': '0', 'epoch': '0.25'}
+ 50%|█████     | 4/8 [00:00<00:01,  3.42it/s]                                             {'loss': '5.545', 'grad_norm': '0.3348', 'learning_rate': '0.0005', 'entropy': '5.551', 'num_tokens': '754', 'mean_token_accuracy': '0', 'epoch': '0.3125'}
+ 62%|██████▎   | 5/8 [00:00<00:00,  3.42it/s]                                             {'loss': '5.547', 'grad_norm': '0.3648', 'learning_rate': '0.000375', 'entropy': '5.551', 'num_tokens': '906', 'mean_token_accuracy': '0', 'epoch': '0.375'}
+ 75%|███████▌  | 6/8 [00:00<00:00,  3.42it/s]                                             {'loss': '5.541', 'grad_norm': '0.3698', 'learning_rate': '0.00025', 'entropy': '5.551', 'num_tokens': '1058', 'mean_token_accuracy': '0', 'epoch': '0.4375'}
+ 88%|████████▊ | 7/8 [00:00<00:00,  3.42it/s]100%|██████████| 8/8 [00:00<00:00, 24.64it/s]                                             {'loss': '5.548', 'grad_norm': '0.3794', 'learning_rate': '0.000125', 'entropy': '5.551', 'num_tokens': '1206', 'mean_token_accuracy': '0', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 24.64it/s]                                             {'train_runtime': '0.4013', 'train_samples_per_second': '39.88', 'train_steps_per_second': '19.94', 'train_loss': '5.552', 'epoch': '0.5'}
+100%|██████████| 8/8 [00:00<00:00, 24.64it/s]100%|██████████| 8/8 [00:00<00:00, 19.89it/s]
+[lora_sft] done: 8 steps, final loss 5.548075199127197, adapter at /scratch/shehral.m/monitors/smoke/10896274/lora_sft/tiny/smoke
+SMOKE_RESULT sm.train.lora_sft 0
+[battery] smoke: 8/8
+[battery] smoke: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10896274/battery/batteries/smoke_model/base/smoke.jsonl
+[battery] smoke_restricted: 8/8
+[battery] smoke_restricted: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10896274/battery/restricted/batteries/smoke_model/base/smoke_restricted.jsonl
+SMOKE_RESULT sm.eval.battery 0
+[judge] WARNING strongreject J1: 1/4 parse failures
+{"out": "/scratch/shehral.m/monitors/smoke/10896274/judge", "run_id": "judge", "batteries": ["strongreject", "xstest_safe"], "j2_status": "complete", "kappa": {"strongreject": {"kappa_full": 1.0, "n_overlap": 3}, "xstest_safe": {"kappa_full": 0.3333333333333333, "n_overlap": 4}}}
+SMOKE_RESULT sm.eval.judge 0
+[battery] mmlu: 8/8
+[battery] mmlu: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10896274/capability/_smoke_inputs/results/batteries/smoke_model/base/mmlu.jsonl
+[battery] ifeval: 8/8
+[battery] ifeval: wrote 8 rows (8 truncated) to /scratch/shehral.m/monitors/smoke/10896274/capability/_smoke_inputs/results/batteries/smoke_model/base/ifeval.jsonl
+wrote /scratch/shehral.m/monitors/smoke/10896274/capability/smoke/base.json: mmlu_acc=0.0 (n=8) ifeval_strict_acc=0.375 (n=8; sm.eval.capability port of instruction_following_eval (Apache-2.0))
+SMOKE_RESULT sm.eval.capability 0
+wrote /scratch/shehral.m/monitors/smoke/10896274/base_card/tiny.json (L*=3)
+SMOKE_RESULT sm.interp.base_card 0
+FAIL smoke-tiny: ablate drop +0.000, add rise +0.000, random max +0.000/+0.000 -> /scratch/shehral.m/monitors/smoke/10896274/causal/smoke-tiny_causal.json
+smoke: V4 verdict recorded but not enforced (tiny random model)
+SMOKE_RESULT sm.interp.causal 0
+wrote /scratch/shehral.m/monitors/smoke/10896274/drift/tiny/smoke.json
+SMOKE_RESULT sm.interp.drift 0
+wrote /scratch/shehral.m/monitors/smoke/10896274/monitor_scores/tiny/smoke
+SMOKE_RESULT sm.interp.monitor_scores 0
+wrote /scratch/shehral.m/monitors/smoke/10896274/aggregate/tables/hypotheses.json
+SMOKE_RESULT sm.analysis.aggregate 0
+[2026-10-07T11:22:17] frozen: base=qwen3.5-9b pin=c202236235762e1c871ad0ccb60c8ee5ba337b9a commit=63f262eb067c51b9627fc60484aa4b42561c2ec4
+[2026-10-07T11:22:18] pre-flight: qwen3.5-9b revision=c202236235762e1c871ad0ccb60c8ee5ba337b9a snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a
+[2026-10-07T11:22:18] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10896274/real_base_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+loaded {'hf': 'Qwen/Qwen3.5-9B', 'revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'resolved_revision': 'c202236235762e1c871ad0ccb60c8ee5ba337b9a', 'n_layers': 32, 'hidden_size': 4096, 'dtype': 'bfloat16'}
+gen: 'The capital of France is **Paris**.\n\nLocated in the north-central part of the country along the Seine River, Paris'
+gen: 'Rivers are the lifeblood of our planet, carving majestic paths through landscapes while nurturing the ecosystems and civilizations that depend on'
+real-base check OK
+[2026-10-07T11:22:59] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.30 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J1-10896274.log)
+[2026-10-07T11:24:49] vllm J1 healthy on port 8000 after 110s
+[2026-10-07T11:24:49] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10896274/judge_check.py J1
+J1 label: ['refusal']
+J1 judge check OK
+[2026-10-07T11:25:11] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve ibm-granite/granite-guardian-3.3-8b --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.25 --dtype auto --seed 0 --revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --tokenizer-revision b3421eda4ba6fc9f9a71121d7e62de08827469a4 --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors/logs/vllm/vllm-J2-10896274.log)
+[2026-10-07T11:26:12] vllm J2 healthy on port 8001 after 60s
+[2026-10-07T11:26:12] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10896274/judge_check.py J2
+J2 verdict: {'label': 'refusal', 'raw': '{"harm": "<think>\\n</think>\\n<score> no </score>", "refusal": "<think>\\n</think>\\n<score> yes </score>"}', 'parse_ok': True}
+J2 judge check OK
+[2026-10-07T11:26:14] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python /scratch/shehral.m/monitors/smoke/10896274/lora_hooks_check.py qwen3.5-9b c202236235762e1c871ad0ccb60c8ee5ba337b9a
+ablate calls 195 gen 'Red'
+add calls 3 gen 'Blue'
+LoRA targets: 248 modules, 248 adapters, containers ['linear_attn', 'mlp', 'self_attn']
+loss 2.0518743991851807 lora grads 496 gen 'Red'
+lora/hooks check OK
+smoke artifact: /projects/interpretability/shehral.m/monitors/results/smoke/qwen3.5-9b/10896274.json (passed=True, failures=0, git_commit=63f262eb067c51b9627fc60484aa4b42561c2ec4)
+[2026-10-07T11:26:47] === smoke summary (/scratch/shehral.m/monitors/smoke/10896274) ===
+  PASS  pytest
+  PASS  sm.data.build_prompt_sets
+  PASS  sm.data.build_bank_datasets
+  PASS  sm.train.lora_sft
+  PASS  sm.eval.battery
+  PASS  sm.eval.judge
+  PASS  sm.eval.capability
+  PASS  sm.interp.base_card
+  PASS  sm.interp.causal
+  PASS  sm.interp.drift
+  PASS  sm.interp.monitor_scores
+  PASS  sm.analysis.aggregate
+  PASS  revision pin (qwen3.5-9b, configs/base_card_qwen3.5-9b.yaml)
+  PASS  frozen code (sm_require_frozen, as base_card/lora/battery/drift)
+  PASS  real-base load (qwen3.5-9b)
+  PASS  judge J1 served at its pin and parsed one item
+  PASS  judge J2 served at its pin and parsed one item
+  PASS  LoRA on the real base + DirectionHooks + capture (qwen3.5-9b)
+[2026-10-07T11:26:47] === sm-smoke done: failures=0 ===
+LEDGER job=10896274 array_job= task= name=sm-smoke gpus=1 elapsed_s=887 rc=0

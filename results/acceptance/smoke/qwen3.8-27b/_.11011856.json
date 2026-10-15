@@ -1,0 +1,170 @@
+{
+ "rubric_version": "0.3",
+ "stage": "smoke",
+ "base": "qwen3.8-27b",
+ "derivative": "base",
+ "slurm_job_id": "11011856",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "203 witnessed rows"
+  },
+  {
+   "id": "SM-1",
+   "passed": true,
+   "detail": "pytest and the 11 CLIs passed"
+  },
+  {
+   "id": "SM-2",
+   "passed": true,
+   "detail": "real base, judges, LoRA and hooks passed; failures=0; rc 0"
+  },
+  {
+   "id": "SM-3",
+   "passed": true,
+   "detail": "loaded at the pin"
+  },
+  {
+   "id": "SM-4",
+   "passed": true,
+   "detail": "smoke artifact agrees with the log"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 3f7155906b00"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "n/a (this is the smoke)"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.239 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "413 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2477 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-032"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-034"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  },
+  {
+   "id": "prereg_change",
+   "value": "c96da9cc9d9cdc6b644cf3901d78f14a6d599f71",
+   "source": "prereg/PREREG-v0.2.md blob differs from the first base_card row",
+   "covered_by": "D-033"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "every stage of this base at this code/ tree (C3)",
+ "ledger_row": {
+  "slurm_job_id": "11011856",
+  "stage": "smoke",
+  "base": "qwen3.8-27b",
+  "derivative": "base",
+  "config_hash": "af9781025ef05b9cf57c7a7d2eb8a291da0fed9193619b20a4d1d770196469c5",
+  "git_sha": "3f7155906b0010388bb54d4999a75cb772eb2609",
+  "analysis_sha": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "2763dcd46a01797521d256dad3a3d3f16f4ab9a353d9a09d1189c0785a655217",
+  "h200_hours": 0.239,
+  "accepted": true,
+  "timestamp": "2026-10-12T14:37:16-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-032,D-033,D-034; smoke qwen3.8-27b/base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "logs/smoke-11011856.out": "6cc0872eee78548e38d0da037bbdf920680516cdfcd1b1596eee2f5a5520fdcf",
+  "logs/smoke-11011856.err": "8cf9d91fcbd0c064a9dc25744d71afe324c5fb592542cb2050b78fda3c95a5f8",
+  "results/smoke/qwen3.8-27b/11011856.json": "96c1a22ed4117cf5c9c1cefd24f0c3eee5404f7ba68bbc85342db02d5e94da91"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "fb413a758584467348fcb2b4cc507a312e4a5b9ab7b810015830e92cb82b8dc3"
+}

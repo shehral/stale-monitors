@@ -1,0 +1,145 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c1_pubmedqa_r8",
+ "slurm_job_id": "10943431",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "78 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit ee0163639143"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10906382"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.017 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "380 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23346 completions, 2033 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "analysis_code_change",
+   "value": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-013"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "7b551c6ab11b977e3fbbd77d26c20daee639c368",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-012"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10943431",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c1_pubmedqa_r8",
+  "config_hash": "e73610bb1a290995ee0ffcb5a90de5803d838df2bd8dcbb65ad45db36df681ac",
+  "git_sha": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "analysis_sha": "fb362abce0c292cd1b4d51208afa4673f2415f4f:894df23e19b1b266d91c9e6341b6aeab3e807c45",
+  "seeds": {},
+  "output_hash": "473a4da8f27d00578074e35544485aafa54e280b7481328b1357071bfcb3308c",
+  "h200_hours": 0.017,
+  "accepted": true,
+  "timestamp": "2026-10-09T18:28:07-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-012,D-013; monitor_scores qwen3.5-9b/c1_pubmedqa_r8"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/strongreject.jsonl": "ff91b1a3c7606bfb6104b74bbdacbb3b88dc60602b3a738de33c9360a3b2c787",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/harmbench.jsonl": "e1f2066e3393d2d3b3abfb0c8af7031e4ac68e1e02deab45218e7496a71c34e9",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/xstest_unsafe.jsonl": "f8c1c27c25203503e03addc2363d49a637b16cac5189bac1e7785aef0c0bedac",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/xstest_safe.jsonl": "503977b769832b04db07a213f4fcd9114b74e7084da28116282b44003e0ef486",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/karne_ladders.jsonl": "80d64993b66584206bfd5e52ba74bb850eb019a49c33a150ff1327bace177cc4",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r8/_meta.json": "92e632c6f2e72f4ccba70a64c0663e5320a2a214078d8a10c27fe125b8ab6f8d"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "57a8b639b74547ad66d141c608314e628f52cb0d8f96e3361dce0b1918555c13"
+}

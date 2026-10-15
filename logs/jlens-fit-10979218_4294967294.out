@@ -1,0 +1,6 @@
+[2026-10-11T00:35:18] === sm-jlens-fit start mode=merge on c0609 ===
+[2026-10-11T00:35:18] cpu env: host=c0609 job=10979218 array=_ proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T00:35:20] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.jlens merge --out results/jlens/qwen3.5-9b
+[jlens] merged 4 shards, 1000 prompts -> results/jlens/qwen3.5-9b/lens.pt
+[2026-10-11T00:36:21] === sm-jlens-fit merge done rc=0 base=qwen3.5-9b ===
+LEDGER job=10979218 array_job= task= name=sm-jlens-fit gpus=1 elapsed_s=64 rc=0

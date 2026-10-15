@@ -1,0 +1,320 @@
+[2026-10-11T08:05:31] === sm-battery start on d4053 ===
+[2026-10-11T08:05:32] env: host=d4053 job=10988788 array=10988788_0 proj=/projects/interpretability/shehral.m/monitors python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-11T08:05:32] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-11T08:05:32] git: 9f3da44
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-11T08:05:37] gpu watchdog: pid 2635928, every 300s
+[2026-10-11T08:05:37] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-11T08:05:37] task: stage=battery index=0 run_id=base kind=base active=1 base=qwen3.8-27b
+[2026-10-11T08:05:38] V4 gate: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-11T08:05:38] revision: configs/battery_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-11T08:05:38] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-11T08:05:39] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=9f3da446f0dc847d2c60df324315f26bb1f001d6
+[2026-10-11T08:05:39] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.battery --config configs/battery_qwen3.8-27b.yaml --base qwen3.8-27b --run-id base --out results --items-dir data/prompts --backend hf
+[battery] em_freeform: 40/80
+[2026-10-11T08:10:39] gpu-util: 60% mem=54062MiB gpu=0
+[battery] em_freeform: 80/80
+[battery] em_freeform: wrote 80 rows (65 truncated) to results/restricted/batteries/qwen3.8-27b/base/em_freeform.jsonl
+[battery] harmbench: 32/159
+[battery] harmbench: 64/159
+[2026-10-11T08:15:40] gpu-util: 56% mem=54140MiB gpu=0
+[battery] harmbench: 96/159
+[battery] harmbench: 128/159
+[2026-10-11T08:20:41] gpu-util: 34% mem=54192MiB gpu=0
+[battery] harmbench: 159/159
+[battery] harmbench: wrote 159 rows (45 truncated) to results/restricted/batteries/qwen3.8-27b/base/harmbench.jsonl
+[battery] ifeval: 32/200
+[battery] ifeval: 64/200
+[2026-10-11T08:25:42] gpu-util: 61% mem=54238MiB gpu=0
+[battery] ifeval: 96/200
+[battery] ifeval: 128/200
+[battery] ifeval: 160/200
+[2026-10-11T08:30:43] gpu-util: 60% mem=54240MiB gpu=0
+[battery] ifeval: 192/200
+[battery] ifeval: 200/200
+[battery] ifeval: wrote 200 rows (33 truncated) to results/batteries/qwen3.8-27b/base/ifeval.jsonl
+[battery] karne_ladders: 32/1941
+[battery] karne_ladders: 64/1941
+[2026-10-11T08:35:45] gpu-util: 61% mem=54252MiB gpu=0
+[battery] karne_ladders: 96/1941
+[battery] karne_ladders: 128/1941
+[battery] karne_ladders: 160/1941
+[2026-10-11T08:40:46] gpu-util: 60% mem=54252MiB gpu=0
+[battery] karne_ladders: 192/1941
+[battery] karne_ladders: 224/1941
+[battery] karne_ladders: 256/1941
+[2026-10-11T08:45:47] gpu-util: 59% mem=54252MiB gpu=0
+[battery] karne_ladders: 288/1941
+[battery] karne_ladders: 320/1941
+[battery] karne_ladders: 352/1941
+[2026-10-11T08:50:48] gpu-util: 57% mem=54252MiB gpu=0
+[battery] karne_ladders: 384/1941
+[battery] karne_ladders: 416/1941
+[battery] karne_ladders: 448/1941
+[2026-10-11T08:55:50] gpu-util: 61% mem=54254MiB gpu=0
+[battery] karne_ladders: 480/1941
+[battery] karne_ladders: 512/1941
+[battery] karne_ladders: 544/1941
+[2026-10-11T09:00:51] gpu-util: 59% mem=54254MiB gpu=0
+[battery] karne_ladders: 576/1941
+[battery] karne_ladders: 608/1941
+[battery] karne_ladders: 640/1941
+[2026-10-11T09:05:52] gpu-util: 58% mem=54256MiB gpu=0
+[battery] karne_ladders: 672/1941
+[battery] karne_ladders: 704/1941
+[2026-10-11T09:10:53] gpu-util: 61% mem=54256MiB gpu=0
+[battery] karne_ladders: 736/1941
+[battery] karne_ladders: 768/1941
+[battery] karne_ladders: 800/1941
+[2026-10-11T09:15:55] gpu-util: 60% mem=54256MiB gpu=0
+[battery] karne_ladders: 832/1941
+[battery] karne_ladders: 864/1941
+[battery] karne_ladders: 896/1941
+[2026-10-11T09:20:56] gpu-util: 60% mem=54256MiB gpu=0
+[battery] karne_ladders: 928/1941
+[battery] karne_ladders: 960/1941
+[battery] karne_ladders: 992/1941
+[2026-10-11T09:25:57] gpu-util: 61% mem=54256MiB gpu=0
+[battery] karne_ladders: 1024/1941
+[battery] karne_ladders: 1056/1941
+[battery] karne_ladders: 1088/1941
+[2026-10-11T09:30:58] gpu-util: 61% mem=54256MiB gpu=0
+[battery] karne_ladders: 1120/1941
+[battery] karne_ladders: 1152/1941
+[battery] karne_ladders: 1184/1941
+[2026-10-11T09:36:00] gpu-util: 61% mem=54256MiB gpu=0
+[battery] karne_ladders: 1216/1941
+[battery] karne_ladders: 1248/1941
+[battery] karne_ladders: 1280/1941
+[battery] karne_ladders: 1312/1941
+[2026-10-11T09:41:01] gpu-util: 57% mem=54256MiB gpu=0
+[battery] karne_ladders: 1344/1941
+[battery] karne_ladders: 1376/1941
+[battery] karne_ladders: 1408/1941
+[2026-10-11T09:46:02] gpu-util: 62% mem=54256MiB gpu=0
+[battery] karne_ladders: 1440/1941
+[battery] karne_ladders: 1472/1941
+[battery] karne_ladders: 1504/1941
+[2026-10-11T09:51:03] gpu-util: 61% mem=54256MiB gpu=0
+[battery] karne_ladders: 1536/1941
+[battery] karne_ladders: 1568/1941
+[battery] karne_ladders: 1600/1941
+[2026-10-11T09:56:04] gpu-util: 59% mem=54258MiB gpu=0
+[battery] karne_ladders: 1632/1941
+[battery] karne_ladders: 1664/1941
+[battery] karne_ladders: 1696/1941
+[2026-10-11T10:01:05] gpu-util: 59% mem=54258MiB gpu=0
+[battery] karne_ladders: 1728/1941
+[battery] karne_ladders: 1760/1941
+[battery] karne_ladders: 1792/1941
+[2026-10-11T10:06:06] gpu-util: 62% mem=54258MiB gpu=0
+[battery] karne_ladders: 1824/1941
+[battery] karne_ladders: 1856/1941
+[battery] karne_ladders: 1888/1941
+[battery] karne_ladders: 1920/1941
+[2026-10-11T10:11:07] gpu-util: 59% mem=54260MiB gpu=0
+[battery] karne_ladders: 1941/1941
+[battery] karne_ladders: wrote 1941 rows (725 truncated) to results/restricted/batteries/qwen3.8-27b/base/karne_ladders.jsonl
+[battery] karne_ladders_sampled_base: 32/15528
+[battery] karne_ladders_sampled_base: 64/15528
+[2026-10-11T10:16:08] gpu-util: 59% mem=54306MiB gpu=0
+[battery] karne_ladders_sampled_base: 96/15528
+[battery] karne_ladders_sampled_base: 128/15528
+[battery] karne_ladders_sampled_base: 160/15528
+[battery] karne_ladders_sampled_base: 192/15528
+[2026-10-11T10:21:09] gpu-util: 60% mem=54306MiB gpu=0
+[battery] karne_ladders_sampled_base: 224/15528
+[battery] karne_ladders_sampled_base: 256/15528
+[battery] karne_ladders_sampled_base: 288/15528
+[2026-10-11T10:26:10] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 320/15528
+[battery] karne_ladders_sampled_base: 352/15528
+[battery] karne_ladders_sampled_base: 384/15528
+[2026-10-11T10:31:11] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 416/15528
+[battery] karne_ladders_sampled_base: 448/15528
+[battery] karne_ladders_sampled_base: 480/15528
+[battery] karne_ladders_sampled_base: 512/15528
+[2026-10-11T10:36:12] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 544/15528
+[battery] karne_ladders_sampled_base: 576/15528
+[battery] karne_ladders_sampled_base: 608/15528
+[2026-10-11T10:41:13] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 640/15528
+[battery] karne_ladders_sampled_base: 672/15528
+[battery] karne_ladders_sampled_base: 704/15528
+[2026-10-11T10:46:14] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 736/15528
+[battery] karne_ladders_sampled_base: 768/15528
+[battery] karne_ladders_sampled_base: 800/15528
+[2026-10-11T10:51:15] gpu-util: 59% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 832/15528
+[battery] karne_ladders_sampled_base: 864/15528
+[battery] karne_ladders_sampled_base: 896/15528
+[battery] karne_ladders_sampled_base: 928/15528
+[2026-10-11T10:56:16] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 960/15528
+[battery] karne_ladders_sampled_base: 992/15528
+[battery] karne_ladders_sampled_base: 1024/15528
+[2026-10-11T11:01:17] gpu-util: 60% mem=54310MiB gpu=0
+[battery] karne_ladders_sampled_base: 1056/15528
+[battery] karne_ladders_sampled_base: 1088/15528
+[battery] karne_ladders_sampled_base: 1120/15528
+[2026-10-11T11:06:18] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1152/15528
+[battery] karne_ladders_sampled_base: 1184/15528
+[battery] karne_ladders_sampled_base: 1216/15528
+[battery] karne_ladders_sampled_base: 1248/15528
+[2026-10-11T11:11:19] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1280/15528
+[battery] karne_ladders_sampled_base: 1312/15528
+[battery] karne_ladders_sampled_base: 1344/15528
+[2026-10-11T11:16:20] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1376/15528
+[battery] karne_ladders_sampled_base: 1408/15528
+[battery] karne_ladders_sampled_base: 1440/15528
+[2026-10-11T11:21:21] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1472/15528
+[battery] karne_ladders_sampled_base: 1504/15528
+[battery] karne_ladders_sampled_base: 1536/15528
+[2026-10-11T11:26:22] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1568/15528
+[battery] karne_ladders_sampled_base: 1600/15528
+[battery] karne_ladders_sampled_base: 1632/15528
+[battery] karne_ladders_sampled_base: 1664/15528
+[2026-10-11T11:31:23] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1696/15528
+[battery] karne_ladders_sampled_base: 1728/15528
+[battery] karne_ladders_sampled_base: 1760/15528
+[2026-10-11T11:36:24] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1792/15528
+[battery] karne_ladders_sampled_base: 1824/15528
+[battery] karne_ladders_sampled_base: 1856/15528
+[battery] karne_ladders_sampled_base: 1888/15528
+[2026-10-11T11:41:25] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 1920/15528
+[battery] karne_ladders_sampled_base: 1952/15528
+[battery] karne_ladders_sampled_base: 1984/15528
+[2026-10-11T11:46:26] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2016/15528
+[battery] karne_ladders_sampled_base: 2048/15528
+[battery] karne_ladders_sampled_base: 2080/15528
+[battery] karne_ladders_sampled_base: 2112/15528
+[2026-10-11T11:51:27] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2144/15528
+[battery] karne_ladders_sampled_base: 2176/15528
+[battery] karne_ladders_sampled_base: 2208/15528
+[2026-10-11T11:56:28] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2240/15528
+[battery] karne_ladders_sampled_base: 2272/15528
+[battery] karne_ladders_sampled_base: 2304/15528
+[2026-10-11T12:01:29] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2336/15528
+[battery] karne_ladders_sampled_base: 2368/15528
+[battery] karne_ladders_sampled_base: 2400/15528
+[battery] karne_ladders_sampled_base: 2432/15528
+[2026-10-11T12:06:30] gpu-util: 58% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2464/15528
+[battery] karne_ladders_sampled_base: 2496/15528
+[battery] karne_ladders_sampled_base: 2528/15528
+[2026-10-11T12:11:31] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2560/15528
+[battery] karne_ladders_sampled_base: 2592/15528
+[battery] karne_ladders_sampled_base: 2624/15528
+[battery] karne_ladders_sampled_base: 2656/15528
+[2026-10-11T12:16:32] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2688/15528
+[battery] karne_ladders_sampled_base: 2720/15528
+[battery] karne_ladders_sampled_base: 2752/15528
+[2026-10-11T12:21:33] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2784/15528
+[battery] karne_ladders_sampled_base: 2816/15528
+[battery] karne_ladders_sampled_base: 2848/15528
+[2026-10-11T12:26:35] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2880/15528
+[battery] karne_ladders_sampled_base: 2912/15528
+[battery] karne_ladders_sampled_base: 2944/15528
+[2026-10-11T12:31:36] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 2976/15528
+[battery] karne_ladders_sampled_base: 3008/15528
+[battery] karne_ladders_sampled_base: 3040/15528
+[battery] karne_ladders_sampled_base: 3072/15528
+[2026-10-11T12:36:37] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3104/15528
+[battery] karne_ladders_sampled_base: 3136/15528
+[battery] karne_ladders_sampled_base: 3168/15528
+[2026-10-11T12:41:38] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3200/15528
+[battery] karne_ladders_sampled_base: 3232/15528
+[battery] karne_ladders_sampled_base: 3264/15528
+[2026-10-11T12:46:39] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3296/15528
+[battery] karne_ladders_sampled_base: 3328/15528
+[battery] karne_ladders_sampled_base: 3360/15528
+[2026-10-11T12:51:40] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3392/15528
+[battery] karne_ladders_sampled_base: 3424/15528
+[battery] karne_ladders_sampled_base: 3456/15528
+[battery] karne_ladders_sampled_base: 3488/15528
+[2026-10-11T12:56:42] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3520/15528
+[battery] karne_ladders_sampled_base: 3552/15528
+[battery] karne_ladders_sampled_base: 3584/15528
+[2026-10-11T13:01:43] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3616/15528
+[battery] karne_ladders_sampled_base: 3648/15528
+[battery] karne_ladders_sampled_base: 3680/15528
+[2026-10-11T13:06:44] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3712/15528
+[battery] karne_ladders_sampled_base: 3744/15528
+[battery] karne_ladders_sampled_base: 3776/15528
+[2026-10-11T13:11:45] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3808/15528
+[battery] karne_ladders_sampled_base: 3840/15528
+[battery] karne_ladders_sampled_base: 3872/15528
+[battery] karne_ladders_sampled_base: 3904/15528
+[2026-10-11T13:16:46] gpu-util: 58% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 3936/15528
+[battery] karne_ladders_sampled_base: 3968/15528
+[battery] karne_ladders_sampled_base: 4000/15528
+[2026-10-11T13:21:47] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4032/15528
+[battery] karne_ladders_sampled_base: 4064/15528
+[battery] karne_ladders_sampled_base: 4096/15528
+[2026-10-11T13:26:48] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4128/15528
+[battery] karne_ladders_sampled_base: 4160/15528
+[battery] karne_ladders_sampled_base: 4192/15528
+[battery] karne_ladders_sampled_base: 4224/15528
+[2026-10-11T13:31:49] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4256/15528
+[battery] karne_ladders_sampled_base: 4288/15528
+[battery] karne_ladders_sampled_base: 4320/15528
+[2026-10-11T13:36:50] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4352/15528
+[battery] karne_ladders_sampled_base: 4384/15528
+[battery] karne_ladders_sampled_base: 4416/15528
+[2026-10-11T13:41:51] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4448/15528
+[battery] karne_ladders_sampled_base: 4480/15528
+[battery] karne_ladders_sampled_base: 4512/15528
+[battery] karne_ladders_sampled_base: 4544/15528
+[2026-10-11T13:46:52] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4576/15528
+[battery] karne_ladders_sampled_base: 4608/15528
+[battery] karne_ladders_sampled_base: 4640/15528
+[2026-10-11T13:51:53] gpu-util: 60% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4672/15528
+[battery] karne_ladders_sampled_base: 4704/15528
+[battery] karne_ladders_sampled_base: 4736/15528
+[battery] karne_ladders_sampled_base: 4768/15528
+[2026-10-11T13:56:54] gpu-util: 58% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4800/15528
+[battery] karne_ladders_sampled_base: 4832/15528
+[battery] karne_ladders_sampled_base: 4864/15528
+[2026-10-11T14:01:55] gpu-util: 59% mem=54312MiB gpu=0
+[battery] karne_ladders_sampled_base: 4896/15528
+[2026-10-11T14:02:58] SIGTERM/SIGINT received
+LEDGER job=10988788 array_job=10988788 task=0 name=sm-battery gpus=1 elapsed_s=21448 rc=143

@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c4_insecure_code_r128",
+ "slurm_job_id": "10993907",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "179 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.034 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2379 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10993907",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c4_insecure_code_r128",
+  "config_hash": "ce195de65d15792594b673225c7f9e3f3c31b32fb3ad09f2b4cbe29b78954e75",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "e78efdca27eedc8ee2b7639ef8ca8421bf5da3b6966b4f2d2f6661ef7c09440b",
+  "h200_hours": 0.034,
+  "accepted": true,
+  "timestamp": "2026-10-11T18:08:43-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c4_insecure_code_r128"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/strongreject.jsonl": "c201ab76fa2924177ff3ec922517d71d8e35c8eda81b975a7be7ea14a05d91ac",
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/harmbench.jsonl": "195e456dcad80ef23641ccf38322a1b53e061f2286e831c6c3ef16597587f3d2",
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/xstest_unsafe.jsonl": "f390ed54e12ab35847d32633671711fa7ce4d52d9e7ef5637c111cf27673fa25",
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/xstest_safe.jsonl": "eed6c9c9ea017a073e74f0d8dcbf8962cc2adc0b467b6e8567a92c7a70b805cd",
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/karne_ladders.jsonl": "c0294197400334086838a1fdd081650dc14d83bbe935851158c9f194cf26a9f2",
+  "results/monitor_scores/qwen3.5-9b/c4_insecure_code_r128/_meta.json": "c6fba51528322f5833ea3e7959121ee67b32381c25556c7b95fd274d9526ba98"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "bdd27eaa873eada6bcf371408a6fce1080de3a42f9dc5690b91da6f14adda27c"
+}

@@ -1,0 +1,2 @@
+WARNING conda.gateways.disk.delete:unlink_or_rename_to_trash(184): Could not remove or rename /shared/EL9/explorer/anaconda3/2024.06/conda-meta/scipy-1.13.1-py312hc5e2394_0.json.  Please remove this file manually (you may need to reboot to free file handles)
+WARNING conda.gateways.disk.delete:unlink_or_rename_to_trash(184): Could not remove or rename /shared/EL9/explorer/anaconda3/2024.06/conda-meta/numpy-base-1.26.4-py312h0da6c21_0.json.  Please remove this file manually (you may need to reboot to free file handles)

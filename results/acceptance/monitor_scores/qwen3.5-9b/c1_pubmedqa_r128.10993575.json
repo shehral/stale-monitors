@@ -1,0 +1,157 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.5-9b",
+ "derivative": "c1_pubmedqa_r128",
+ "slurm_job_id": "10993575",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "164 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 9f3da446f0dc"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 10987906"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.038 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "403 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "23643 completions, 2345 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-029"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "9e6250568cc151bb9100637f65ab841477459731",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-027"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "10993575",
+  "stage": "monitor_scores",
+  "base": "qwen3.5-9b",
+  "derivative": "c1_pubmedqa_r128",
+  "config_hash": "dbe24d9244fe31f4332382b7de6347ef583dabe2143a0180430bb2d0df97168f",
+  "git_sha": "9f3da446f0dc847d2c60df324315f26bb1f001d6",
+  "analysis_sha": "939d5b531492a89bb70d9bd3ee8da1b168ca13e3:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "b6a2cd4a82895736e2be2e8358a5fcb6d4f8857b91a8dffdade651c971b95514",
+  "h200_hours": 0.038,
+  "accepted": true,
+  "timestamp": "2026-10-11T13:46:56-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-027,D-029; monitor_scores qwen3.5-9b/c1_pubmedqa_r128"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/strongreject.jsonl": "e59394dd92cb8a9790c5a114d009fa1e029bde22f9aba7e9d46f4bbea751489d",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/harmbench.jsonl": "bfc4d2e18d41f5d62e1a0b58a21d594dfb6304cc3eb0cfe8ae5c98a0cd3f190c",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/xstest_unsafe.jsonl": "47ffccd6ff93aaccb382b8001abbe2c2e876b05b8d81d5c4cb3d22ee087725ac",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/xstest_safe.jsonl": "8320a08f3d64712ecf88cc72735f4a3868aafbc9e15ada14f0721f2956df7506",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/karne_ladders.jsonl": "042dc9c44ee6c28ff285e1309e28cf3a20679d5ca9a8079853071205088f898b",
+  "results/monitor_scores/qwen3.5-9b/c1_pubmedqa_r128/_meta.json": "ddc589535105aec2a68c9686fd59a9ae6c377bfb9e0ea41b68289355969ec80b"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "00a8e5c6da185b8ce33879bacea12a561ddaa45e3303c540c31b7938246e831c"
+}

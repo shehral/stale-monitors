@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stale-monitors"
+version = "0.1.0"
+description = "Harness for measuring whether activation-level safety monitors survive LoRA fine-tuning."
+readme = { text = "See docs/HARNESS_SPEC.md in the repository root.", content-type = "text/plain" }
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Mohammad Ali Shehral" }]
+dependencies = [
+    "torch>=2.4",
+    "transformers>=5.0",
+    "tokenizers>=0.21",
+    "accelerate>=1.0",
+    "peft>=0.15",
+    "trl>=0.20",
+    "datasets>=3.0",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "scipy>=1.11",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+    "huggingface_hub>=0.30",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+serve = ["vllm"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sm", "sm.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests"]
