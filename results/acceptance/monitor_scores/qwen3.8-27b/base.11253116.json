@@ -1,0 +1,163 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.8-27b",
+ "derivative": "base",
+ "slurm_job_id": "11253116",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "227 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 3f7155906b00"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 11011856"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.213 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "512 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "33178 completions, 2920 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-032"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-034"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  },
+  {
+   "id": "prereg_change",
+   "value": "c96da9cc9d9cdc6b644cf3901d78f14a6d599f71",
+   "source": "prereg/PREREG-v0.2.md blob differs from the first base_card row",
+   "covered_by": "D-033"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "11253116",
+  "stage": "monitor_scores",
+  "base": "qwen3.8-27b",
+  "derivative": "base",
+  "config_hash": "89abe8c81d49e039aba3fe5fe3c4c2609b650bae912807d80597d9d5f7cff29d",
+  "git_sha": "3f7155906b0010388bb54d4999a75cb772eb2609",
+  "analysis_sha": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "5e56dffad39d89a2e3e9444470a5d6db11ef3199d3a135d39b170e384de67eb3",
+  "h200_hours": 0.213,
+  "accepted": true,
+  "timestamp": "2026-10-20T17:57:28-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-032,D-033,D-034; monitor_scores qwen3.8-27b/base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.8-27b/base/strongreject.jsonl": "f989ba3ef3d184bdc91fbf1fbf91571616378a1aa7cdce6c2e90d8bafe4b8a41",
+  "results/monitor_scores/qwen3.8-27b/base/harmbench.jsonl": "8c4784f6d201e7a4c526da9bcb62faf750bde0be19577c1cefd9d71bd6e58c58",
+  "results/monitor_scores/qwen3.8-27b/base/xstest_unsafe.jsonl": "c389bd06882fd1756d61fb150c3b041ddb73b74cfca97c6501e325eeaf4b687d",
+  "results/monitor_scores/qwen3.8-27b/base/xstest_safe.jsonl": "b55f94cfffc67be10049ae1d35eeca5b768163c221e218ee1113c5e4a435ec6b",
+  "results/monitor_scores/qwen3.8-27b/base/karne_ladders.jsonl": "4559c5485a5a86245a9902089db26a6879f504a534b90fc56fb4e4b5e76962bc",
+  "results/monitor_scores/qwen3.8-27b/base/_meta.json": "88b8654be7536ac3f9e2c347766604d5d397431d20629d980f1eba89a5bee7eb"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "c16d17e3af42c754685a94c8af667d94d2301ae94cf1590bde9b84a1510eafa5"
+}

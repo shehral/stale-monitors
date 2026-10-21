@@ -1,0 +1,171 @@
+{
+ "rubric_version": "0.3",
+ "stage": "capability",
+ "base": "qwen3.8-27b",
+ "derivative": "base",
+ "slurm_job_id": "11252163",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "232 witnessed rows"
+  },
+  {
+   "id": "CP-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CP-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "CP-3",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 3f7155906b00"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 11011856"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "1 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds ['run']"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.0 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "512 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "33178 completions, 2927 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "n/a"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "capability_items",
+   "value": null,
+   "source": "11 IFEval items excluded",
+   "covered_by": "D-036"
+  },
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-032"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-034"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  },
+  {
+   "id": "prereg_change",
+   "value": "c96da9cc9d9cdc6b644cf3901d78f14a6d599f71",
+   "source": "prereg/PREREG-v0.2.md blob differs from the first base_card row",
+   "covered_by": "D-033"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "11252163",
+  "stage": "capability",
+  "base": "qwen3.8-27b",
+  "derivative": "base",
+  "config_hash": "610cd2805bd65667397f3d83c3be60c93ac6c2c18c427464b3634bde9afc69b0",
+  "git_sha": "3f7155906b0010388bb54d4999a75cb772eb2609",
+  "analysis_sha": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {
+   "run": 0
+  },
+  "output_hash": "b703274b973a417bffc3865e59a0d47a24ffa8b2fbd620c9fa774606c0a6e55f",
+  "h200_hours": 0.0,
+  "accepted": true,
+  "timestamp": "2026-10-20T20:31:18-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-032,D-033,D-034,D-036; capability qwen3.8-27b/base"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/capability/qwen3.8-27b/base.json": "3c25d7af09ce851c8def4ae8db189489358fc52a96a0b5631c67ebdfffa5ffb4"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "83f937690285ecc8b2a20f3aa951348a71c492b32f3813cdeb856fb0f0226dc0"
+}

@@ -1,0 +1,14 @@
+[2026-10-20T16:19:31] === sm-dprobe start on d4054 unit=base code=17ba23a0f15334f786c50fe1f9a2ca04720e33d4 ===
+[2026-10-20T16:19:37] env: host=d4054 job=11264740 array=_ proj=/projects/interpretability/shehral.m/monitors-diag3 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T16:19:37] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T16:19:41] git: 17ba23a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T16:20:40] gpu watchdog: pid 261106, every 300s
+[2026-10-20T16:20:40] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-20T16:20:41] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-20T16:20:41] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.exploratory.decision_probe --base qwen3.8-27b --unit base --force --smoke --out /scratch/shehral.m/monitors/dprobe_smoke_27b
+[decision_probe] base: 12 rows x 3 layers x 2 positions in 4s; IC0 pass, battery render absent -> /scratch/shehral.m/monitors/dprobe_smoke_27b/open/acts/base.npz
+[2026-10-20T16:23:16] === sm-dprobe done unit=base ===
+LEDGER job=11264740 array_job= task= name=sm-dprobe-smoke gpus=1 elapsed_s=226 rc=0

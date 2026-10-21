@@ -1,0 +1,31 @@
+=== R1 27B capture unit=base 2026-10-20T23:13:42
+[2026-10-20T23:13:42] === sm-dprobe start on d4053 unit=base code=17ba23a0f15334f786c50fe1f9a2ca04720e33d4 ===
+[2026-10-20T23:13:43] env: host=d4053 job=11267880 array=_ proj=/projects/interpretability/shehral.m/monitors-diag3 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T23:13:43] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T23:13:43] git: 17ba23a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T23:13:49] gpu watchdog: pid 2454691, every 300s
+[2026-10-20T23:13:49] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-20T23:13:49] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-20T23:13:49] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.exploratory.decision_probe --base qwen3.8-27b --unit base --layers 32,37,40,48,56,63,64
+[decision_probe] base: 797 rows x 7 layers x 2 positions in 246s; IC0 pass, battery render pass -> results/exploratory/qwen3.8-27b/decision_probe/acts/base.npz
+[2026-10-20T23:17:59] === sm-dprobe done unit=base ===
+LEDGER job=11267880 array_job= task= name=sm-dprobe-a gpus=1 elapsed_s=257 rc=0
+=== R1 27B capture unit=c1_dolly_r8 2026-10-20T23:17:59
+[2026-10-20T23:17:59] === sm-dprobe start on d4053 unit=c1_dolly_r8 code=17ba23a0f15334f786c50fe1f9a2ca04720e33d4 ===
+[2026-10-20T23:18:00] env: host=d4053 job=11267880 array=_ proj=/projects/interpretability/shehral.m/monitors-diag3 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T23:18:00] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T23:18:00] git: 17ba23a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T23:18:04] gpu watchdog: pid 2491016, every 300s
+[2026-10-20T23:18:05] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-20T23:18:05] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-20T23:18:05] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.exploratory.decision_probe --base qwen3.8-27b --unit c1_dolly_r8 --layers 32,37,40,48,56,63,64
+[decision_probe] c1_dolly_r8: 797 rows x 7 layers x 2 positions in 66s; IC0 pass, battery render pass -> results/exploratory/qwen3.8-27b/decision_probe/acts/c1_dolly_r8.npz
+[2026-10-20T23:19:14] === sm-dprobe done unit=c1_dolly_r8 ===
+LEDGER job=11267880 array_job= task= name=sm-dprobe-a gpus=1 elapsed_s=75 rc=0
+=== all units done 2026-10-20T23:19:14

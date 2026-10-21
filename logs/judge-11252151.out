@@ -1,0 +1,48 @@
+[2026-10-20T02:14:59] === sm-judge start on d4054 ===
+[2026-10-20T02:15:00] env: host=d4054 job=11252151 array=_ proj=/projects/interpretability/shehral.m/monitors-c python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T02:15:01] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T02:15:01] git: 3f71559
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T02:15:13] gpu watchdog: pid 302917, every 300s
+[2026-10-20T02:15:13] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-20T02:15:14] V4 gate: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-20T02:15:15] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=3f7155906b0010388bb54d4999a75cb772eb2609
+[2026-10-20T02:15:15] pass 1 runs (the judge CLI skips those already done): base c1_dolly_r8 c1_dolly_r128 c3_trait_evil_r32 c4_insecure_code_r128
+[2026-10-20T02:15:16] pre-flight: openai/gpt-oss-safeguard-20b revision=8a11e17b25c973a24099d4016bf2e17dd7ec1574 snapshot=/scratch/shehral.m/monitors/hf/hub/models--openai--gpt-oss-safeguard-20b/snapshots/8a11e17b25c973a24099d4016bf2e17dd7ec1574
+[2026-10-20T02:17:07] vllm J1: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve openai/gpt-oss-safeguard-20b --host 127.0.0.1 --port 8000 --served-model-name J1 --gpu-memory-utilization 0.45 --dtype auto --seed 0 --revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --tokenizer-revision 8a11e17b25c973a24099d4016bf2e17dd7ec1574 --max-model-len 16384 (log /projects/interpretability/shehral.m/monitors-c/logs/vllm/vllm-J1-11252151.log)
+[2026-10-20T02:20:14] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-20T02:23:28] vllm J1 healthy on port 8000 after 380s
+[2026-10-20T02:24:43] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve allenai/wildguard --host 127.0.0.1 --port 8001 --served-model-name J2 --gpu-memory-utilization 0.40 --dtype auto --seed 0 --revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --tokenizer-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors-c/logs/vllm/vllm-J2-11252151.log)
+[2026-10-20T02:25:15] gpu-util: 0% mem=64760MiB gpu=0
+[2026-10-20T02:28:44] vllm J2 healthy on port 8001 after 240s
+[2026-10-20T02:28:44] judge config: results/judge/qwen3.8-27b/_configs/judge.11252151.yaml (template configs/judge.yaml; J1 openai/gpt-oss-safeguard-20b@8a11e17b25c973a24099d4016bf2e17dd7ec1574, J2 allenai/wildguard@cbba4823f3e8020e5a74a5e29bf85072def6f2ff)
+[2026-10-20T02:28:47] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/base results/restricted/batteries/qwen3.8-27b/base --out results/judge/qwen3.8-27b/base --restricted-out results/restricted/judge/qwen3.8-27b/base --judges J1,J2
+already done
+[2026-10-20T02:28:48] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c1_dolly_r8 results/restricted/batteries/qwen3.8-27b/c1_dolly_r8 --out results/judge/qwen3.8-27b/c1_dolly_r8 --restricted-out results/restricted/judge/qwen3.8-27b/c1_dolly_r8 --judges J1,J2
+already done
+[2026-10-20T02:28:51] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c1_dolly_r128 results/restricted/batteries/qwen3.8-27b/c1_dolly_r128 --out results/judge/qwen3.8-27b/c1_dolly_r128 --restricted-out results/restricted/judge/qwen3.8-27b/c1_dolly_r128 --judges J1,J2
+already done
+[2026-10-20T02:28:53] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c3_trait_evil_r32 results/restricted/batteries/qwen3.8-27b/c3_trait_evil_r32 --out results/judge/qwen3.8-27b/c3_trait_evil_r32 --restricted-out results/restricted/judge/qwen3.8-27b/c3_trait_evil_r32 --judges J1,J2
+already done
+[2026-10-20T02:28:55] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c4_insecure_code_r128 results/restricted/batteries/qwen3.8-27b/c4_insecure_code_r128 --out results/judge/qwen3.8-27b/c4_insecure_code_r128 --restricted-out results/restricted/judge/qwen3.8-27b/c4_insecure_code_r128 --judges J1,J2
+already done
+[2026-10-20T02:29:14] J1-flagged derivatives (J2 on 100% of H items, with the base): c1_dolly_r128 c1_dolly_r8 c3_trait_evil_r32 c4_insecure_code_r128; list results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+[2026-10-20T02:29:14] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/base results/restricted/batteries/qwen3.8-27b/base --out results/judge/qwen3.8-27b/base --restricted-out results/restricted/judge/qwen3.8-27b/base --judges J1,J2 --flagged-runs results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+already done
+[2026-10-20T02:29:17] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c1_dolly_r8 results/restricted/batteries/qwen3.8-27b/c1_dolly_r8 --out results/judge/qwen3.8-27b/c1_dolly_r8 --restricted-out results/restricted/judge/qwen3.8-27b/c1_dolly_r8 --judges J1,J2 --flagged-runs results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+already done
+[2026-10-20T02:29:20] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c1_dolly_r128 results/restricted/batteries/qwen3.8-27b/c1_dolly_r128 --out results/judge/qwen3.8-27b/c1_dolly_r128 --restricted-out results/restricted/judge/qwen3.8-27b/c1_dolly_r128 --judges J1,J2 --flagged-runs results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+already done
+[2026-10-20T02:29:23] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c3_trait_evil_r32 results/restricted/batteries/qwen3.8-27b/c3_trait_evil_r32 --out results/judge/qwen3.8-27b/c3_trait_evil_r32 --restricted-out results/restricted/judge/qwen3.8-27b/c3_trait_evil_r32 --judges J1,J2 --flagged-runs results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+already done
+[2026-10-20T02:29:26] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.judge --config results/judge/qwen3.8-27b/_configs/judge.11252151.yaml --inputs results/batteries/qwen3.8-27b/c4_insecure_code_r128 results/restricted/batteries/qwen3.8-27b/c4_insecure_code_r128 --out results/judge/qwen3.8-27b/c4_insecure_code_r128 --restricted-out results/restricted/judge/qwen3.8-27b/c4_insecure_code_r128 --judges J1,J2 --flagged-runs results/judge/qwen3.8-27b/_flags/j2_flagged.txt
+already done
+base complete recorded=complete
+c1_dolly_r128 complete recorded=complete
+c1_dolly_r8 complete recorded=complete
+c3_trait_evil_r32 complete recorded=complete
+c4_insecure_code_r128 complete recorded=complete
+[2026-10-20T02:29:31] === sm-judge done: pass1=5 ready=5 failed=0 missing_or_incomplete=0 j2_down=0 ===
+LEDGER job=11252151 array_job= task= name=sm-judge gpus=1 elapsed_s=874 rc=0

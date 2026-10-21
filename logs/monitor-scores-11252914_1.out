@@ -1,0 +1,19 @@
+[2026-10-20T03:00:21] === sm-monitor-scores start on d4054 ===
+[2026-10-20T03:00:22] env: host=d4054 job=11254183 array=11252914_1 proj=/projects/interpretability/shehral.m/monitors-c python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T03:00:22] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T03:00:22] git: 3f71559
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T03:00:35] gpu watchdog: pid 617895, every 300s
+[2026-10-20T03:00:36] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-20T03:00:36] task: stage=monitor_scores index=1 run_id=c1_dolly_r8 kind=lora active=1 base=qwen3.8-27b
+[2026-10-20T03:00:36] V4 gate: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-20T03:00:37] revision: configs/monitor_scores_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-20T03:00:37] monitor_scores config: results/monitor_scores/qwen3.8-27b/_configs/c1_dolly_r8.yaml
+[2026-10-20T03:00:38] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=3f7155906b0010388bb54d4999a75cb772eb2609
+[2026-10-20T03:00:38] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-20T03:00:38] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.monitor_scores --config results/monitor_scores/qwen3.8-27b/_configs/c1_dolly_r8.yaml --out results/monitor_scores
+wrote results/monitor_scores/qwen3.8-27b/c1_dolly_r8
+[2026-10-20T03:04:51] === sm-monitor-scores done rc=0 run=c1_dolly_r8 ===
+LEDGER job=11254183 array_job=11252914 task=1 name=sm-monitor-scores gpus=1 elapsed_s=270 rc=0

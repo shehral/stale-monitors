@@ -1,0 +1,16 @@
+[2026-10-15T11:20:20] === sm-mech start on d4053 subcmd=rescore-judged unit=c1_dolly_r128 code=17ba23a0f15334f786c50fe1f9a2ca04720e33d4 ===
+[2026-10-15T11:20:21] env: host=d4053 job=11094250 array=_ proj=/projects/interpretability/shehral.m/monitors-diag3 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-15T11:20:21] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-15T11:20:21] git: 17ba23a
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-15T11:20:31] gpu watchdog: pid 3410849, every 300s
+[2026-10-15T11:20:31] gpu-util: 2% mem=1MiB gpu=0
+[2026-10-15T11:20:31] pre-flight: allenai/wildguard revision=cbba4823f3e8020e5a74a5e29bf85072def6f2ff snapshot=/scratch/shehral.m/monitors/hf/hub/models--allenai--wildguard/snapshots/cbba4823f3e8020e5a74a5e29bf85072def6f2ff
+[2026-10-15T11:21:11] vllm J2: /projects/interpretability/shehral.m/conda_envs/monitors/bin/vllm serve allenai/wildguard --host 127.0.0.1 --port 8953 --served-model-name J2 --gpu-memory-utilization 0.40 --dtype auto --seed 0 --revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --tokenizer-revision cbba4823f3e8020e5a74a5e29bf85072def6f2ff --max-model-len 8192 (log /projects/interpretability/shehral.m/monitors-diag3/logs/vllm/vllm-J2-11094250.log)
+[2026-10-15T11:22:42] vllm J2 healthy on port 8953 after 90s
+[2026-10-15T11:22:42] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.mechanism rescore-judged --base qwen3.5-9b --card results/base_cards/qwen3.5-9b.json --unit c1_dolly_r128 --source offset-steer
+{"out": "results/exploratory/qwen3.5-9b/mechanism/rescore_judged/c1_dolly_r128.json"}
+[2026-10-15T11:23:04] === sm-mech done subcmd=rescore-judged unit=c1_dolly_r128 ===
+LEDGER job=11094250 array_job= task= name=sm-mech gpus=1 elapsed_s=165 rc=0

@@ -1,0 +1,163 @@
+{
+ "rubric_version": "0.3",
+ "stage": "monitor_scores",
+ "base": "qwen3.8-27b",
+ "derivative": "c1_dolly_r8",
+ "slurm_job_id": "11254183",
+ "outcome": "ACCEPT_WITH_DEVIATION",
+ "failure_class": null,
+ "exit_code": 10,
+ "checks": [
+  {
+   "id": "LW",
+   "passed": true,
+   "detail": "228 witnessed rows"
+  },
+  {
+   "id": "MS-1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "MS-2",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C1",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C2",
+   "passed": true,
+   "detail": "commit 3f7155906b00"
+  },
+  {
+   "id": "C3",
+   "passed": true,
+   "detail": "covered by smoke 11011856"
+  },
+  {
+   "id": "C4",
+   "passed": true,
+   "detail": "0 input maps verify"
+  },
+  {
+   "id": "C5",
+   "passed": true,
+   "detail": "seeds []"
+  },
+  {
+   "id": "C6",
+   "passed": true,
+   "detail": "0.076 h"
+  },
+  {
+   "id": "C7a",
+   "passed": true,
+   "detail": "512 restricted files in place"
+  },
+  {
+   "id": "C7b",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7c",
+   "passed": true,
+   "detail": "33178 completions, 2920 files scanned"
+  },
+  {
+   "id": "C7d",
+   "passed": true,
+   "detail": "ok"
+  },
+  {
+   "id": "C7e",
+   "passed": true,
+   "detail": "1 JSON outputs carry no completion keys"
+  },
+  {
+   "id": "C8",
+   "passed": true,
+   "detail": "compared with the freeze row"
+  },
+  {
+   "id": "C9",
+   "passed": true,
+   "detail": "rc 0"
+  },
+  {
+   "id": "C10",
+   "passed": true,
+   "detail": "no override knobs"
+  },
+  {
+   "id": "C11",
+   "passed": true,
+   "detail": "prereg blob compared"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "pins_change",
+   "value": "826e97d7ad21e0ca97c9cf684fec47284a8550abae237f295e7463fdaa552647",
+   "source": "pins differ from the freeze row",
+   "covered_by": "D-016"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+   "source": "analysis_sha differs from the freeze row",
+   "covered_by": "D-032"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "3163ec53baf46b13ba4729882c519c394438b144",
+   "source": "the job commit's code/sm/analysis tree differs from the freeze",
+   "covered_by": "D-034"
+  },
+  {
+   "id": "analysis_code_change",
+   "value": "6cc57924777fe4180665312625b2f8c20da0530f",
+   "source": "prereg/ACCEPTANCE.md blob differs from the freeze row",
+   "covered_by": "D-020"
+  },
+  {
+   "id": "prereg_change",
+   "value": "c96da9cc9d9cdc6b644cf3901d78f14a6d599f71",
+   "source": "prereg/PREREG-v0.2.md blob differs from the first base_card row",
+   "covered_by": "D-033"
+  }
+ ],
+ "warnings": [],
+ "blocks_on_reject": "aggregate",
+ "ledger_row": {
+  "slurm_job_id": "11254183",
+  "stage": "monitor_scores",
+  "base": "qwen3.8-27b",
+  "derivative": "c1_dolly_r8",
+  "config_hash": "018c97d98231dc034daf1de975d0ac2923e6fbdbea3867295ceb43987534facc",
+  "git_sha": "3f7155906b0010388bb54d4999a75cb772eb2609",
+  "analysis_sha": "3163ec53baf46b13ba4729882c519c394438b144:d4c8e8bf32ebc30d673f89a2a69c6e6b1a47681a",
+  "seeds": {},
+  "output_hash": "e729b78b74b13dde1a4be8a29c8bea5e07a7baecd90c90044d54535e9aff6b33",
+  "h200_hours": 0.076,
+  "accepted": true,
+  "timestamp": "2026-10-20T18:19:27-07:00",
+  "note": "outcome=ACCEPT_WITH_DEVIATION deviations=D-016,D-020,D-032,D-033,D-034; monitor_scores qwen3.8-27b/c1_dolly_r8"
+ },
+ "freeze_row": null,
+ "outputs": {
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/strongreject.jsonl": "70251ce58876f3f64cbe507b75877fb68a5e09dcaf1eec159886d9f03378e960",
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/harmbench.jsonl": "357c4c0d1d78f53572eadbcf1d70ba57ccafeb23a8a30831ddcb1b7d4961f9e1",
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/xstest_unsafe.jsonl": "cee182c79ba7db1b8e778ac35e212baab1d4fabc4cf41c6e8a9a66d1e1f7c7f3",
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/xstest_safe.jsonl": "bc2b4a6709333c574ba9cf1d92a6d81c3590efaabe14bb9ee68890d42366b370",
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/karne_ladders.jsonl": "1753a26aa1e012ea6d5c9802c798af9c672e8699f1b18b1f44aa4943b61f91c5",
+  "results/monitor_scores/qwen3.8-27b/c1_dolly_r8/_meta.json": "efc4b478cc464aef4142125afcdf8d90fc67ac88ef495d89521f2528cbb7de26"
+ },
+ "written": true,
+ "append_pending": false,
+ "ledger_row_id": "469c2878027353ec3443cdb043f672f99300ae01e6e8aa4dde94d5d4657476dd"
+}

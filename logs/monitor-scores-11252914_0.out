@@ -1,0 +1,21 @@
+[2026-10-20T02:46:34] === sm-monitor-scores start on d4054 ===
+[2026-10-20T02:46:35] env: host=d4054 job=11253116 array=11252914_0 proj=/projects/interpretability/shehral.m/monitors-c python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T02:46:35] paths: compat=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat LD_LIBRARY_PATH=/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat:/shared/EL9/explorer/miniconda3/24.11.1/miniconda3/lib:/projects/interpretability/shehral.m/cuda-compat/usr/local/cuda-13.0/compat
+[2026-10-20T02:46:35] git: 3f71559
+name, driver_version, memory.used [MiB], memory.total [MiB]
+NVIDIA H200, 570.86.15, 1 MiB, 143771 MiB
+pre-flight ok: torch 2.13.0+cu130 cuda 13.0 NVIDIA H200
+[2026-10-20T02:46:48] gpu watchdog: pid 548232, every 300s
+[2026-10-20T02:46:48] gpu-util: 0% mem=1MiB gpu=0
+[2026-10-20T02:46:48] task: stage=monitor_scores index=0 run_id=base kind=base active=1 base=qwen3.8-27b
+[2026-10-20T02:46:49] V4 gate: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-20T02:46:49] revision: configs/monitor_scores_qwen3.8-27b.yaml pins 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (matches configs/bases.yaml)
+[2026-10-20T02:46:50] monitor_scores config: results/monitor_scores/qwen3.8-27b/_configs/base.yaml
+[2026-10-20T02:46:51] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=3f7155906b0010388bb54d4999a75cb772eb2609
+[2026-10-20T02:46:52] pre-flight: qwen3.8-27b revision=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 snapshot=/scratch/shehral.m/monitors/hf/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+[2026-10-20T02:46:52] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.interp.monitor_scores --config results/monitor_scores/qwen3.8-27b/_configs/base.yaml --out results/monitor_scores
+[2026-10-20T02:51:49] gpu-util: 0% mem=51858MiB gpu=0
+[2026-10-20T02:56:50] gpu-util: 1% mem=51886MiB gpu=0
+wrote results/monitor_scores/qwen3.8-27b/base
+[2026-10-20T02:59:18] === sm-monitor-scores done rc=0 run=base ===
+LEDGER job=11253116 array_job=11252914 task=0 name=sm-monitor-scores gpus=1 elapsed_s=764 rc=0

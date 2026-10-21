@@ -103,7 +103,7 @@ Every stage loads every model at a pinned commit:
    `rsync -av --exclude .venv --exclude __pycache__ --exclude results ./ explorer:/projects/interpretability/shehral.m/monitors/`
    and on the cluster `git -C /projects/interpretability/shehral.m/monitors status --short` must print nothing
    for those paths (a file synced from an uncommitted laptop tree shows up here). Alternative: push to a bare
-   repo you own (never a NanoNets remote) and `git fetch && git checkout <sha>` on the cluster.
+   repo you own (a personal remote) and `git fetch && git checkout <sha>` on the cluster.
    `ALLOW_UNFROZEN_CODE=1` is for debugging only (logged; outputs are not confirmatory).
 2. `sbatch jobs/env_build.sbatch` (and `jobs/env_kernels.sbatch` for the Qwen hybrid kernels), then
    `sbatch jobs/download.sbatch` (`--export=ALL,DOWNLOAD_EXTERNAL=1` also fetches the condition-5 public comparators pinned in `configs/bank_*.yaml`). One `sbatch jobs/cuda_check_compat.sbatch` confirms the CUDA path.

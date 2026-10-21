@@ -1,0 +1,9 @@
+[2026-10-20T01:38:26] === sm-capability start on c0681 ===
+[2026-10-20T01:38:27] cpu env: host=c0681 job=11252155 array=11252155_12 proxy=0 python=/projects/interpretability/shehral.m/conda_envs/monitors/bin/python
+[2026-10-20T01:38:28] task: stage=capability index=12 run_id=c4_insecure_code_r128 kind=lora active=1 base=qwen3.8-27b
+[2026-10-20T01:38:28] V4 gate: results/base_cards/qwen3.8-27b_causal.json: V4 passed (judge sm.eval.judge:judge_refusal_labels)
+[2026-10-20T01:38:28] frozen: base=qwen3.8-27b pin=1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 commit=3f7155906b0010388bb54d4999a75cb772eb2609
+[2026-10-20T01:38:29] run: /projects/interpretability/shehral.m/conda_envs/monitors/bin/python -m sm.eval.capability --base qwen3.8-27b --run-id c4_insecure_code_r128 --batteries-root results/batteries --items-dir data/prompts --out results/capability
+wrote results/capability/qwen3.8-27b/c4_insecure_code_r128.json: mmlu_acc=0.842 (n=500) ifeval_strict_acc=0.656084656084656 (n=189; sm.eval.capability port of instruction_following_eval (Apache-2.0))
+[2026-10-20T01:38:30] === sm-capability done rc=0 run=c4_insecure_code_r128 ===
+LEDGER job=11252155 array_job=11252155 task=12 name=sm-capability gpus=0 elapsed_s=4 rc=0

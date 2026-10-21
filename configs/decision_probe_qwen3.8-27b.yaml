@@ -1,0 +1,26 @@
+# EXPLORATORY R1 decision probe on the Qwen3.8-27B slice (docs/HYPOTHESIS_LEDGER.md, "R1 on Qwen3.8-27B (2026-10-20)";
+# protocol docs/PROGRAM_2026-10-13.md R1). The capture module (sm.exploratory.decision_probe at 17ba23a) is unchanged and
+# reads no config file: this file is the record of the 27B settings, and the submission reads `layers` from it to build
+# the --layers argument (EXTRA="--layers 32,37,40,48,56,63,64", set in the submitting shell; sbatch --export would split
+# the comma list). Everything else is the 9B capture's default (batch 16, bf16, device auto, prompt set data/prompts).
+base: qwen3.8-27b
+hf: Qwen/Qwen3.8-27B
+revision: 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0   # configs/bases.yaml and the accepted base card (results/base_cards/qwen3.8-27b.json)
+n_layers: 64                                        # base card model_meta.n_layers; hidden size 5120
+L_star: 37                                          # base card L_star (eoi-8), accepted 2026-10-13 (job 11046401)
+# Layer rule (fixed before any capture): the 9B set {13, 16, 20, 24, 28, 31, 32} is {L*, n/2, 5n/8, 3n/4, 7n/8, n-1, n}
+# at n = 32, L* = 13; the same rule at n = 64, L* = 37. Index convention as on 9B: hidden_states[l] = output of the
+# 1-based block l (raw residual, before the final norm).
+layer_rule: "{L*, n/2, 5n/8, 3n/4, 7n/8, n-1, n}"
+layers: [32, 37, 40, 48, 56, 63, 64]
+layers_9b: [13, 16, 20, 24, 28, 31, 32]
+a_min_layer: 40                                     # image of the 9B (a) rule's "layer >= 20" (5n/8)
+late_layers: [48, 56, 63, 64]                       # image of the 9B late band 24 to 32 (3n/4 to n), descriptive
+positions: [last, gen1]
+batch_size: 16
+dtype: bf16
+units: [base, c1_dolly_r8, c1_dolly_r128, c3_trait_evil_r32, c4_insecure_code_r128]   # prereg/DEVIATIONS.md D-035
+# Submit from the login node, side tree monitors-diag3 (17ba23a), gpu-short, one H200 per unit, d4055 excluded:
+#   EXTRA="--layers 32,37,40,48,56,63,64" sbatch -p gpu-short --time=01:00:00 --exclude=d4055 \
+#     --export=ALL,UNIT=<unit>,BASE=qwen3.8-27b,SM_PROJ=/projects/interpretability/shehral.m/monitors-diag3,SM_CODE_COMMIT=17ba23a0f15334f786c50fe1f9a2ca04720e33d4 \
+#     jobs/decision_probe.sbatch

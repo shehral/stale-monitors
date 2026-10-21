@@ -1,0 +1,75 @@
+{
+  "schema": "sm.smoke_artifact/1",
+  "kind": "cluster",
+  "base": "qwen3.8-27b",
+  "slurm_job_id": "10940557",
+  "checks": {
+    "pytest": 0,
+    "sm.data.build_prompt_sets": 0,
+    "sm.data.build_bank_datasets": 0,
+    "sm.train.lora_sft": 0,
+    "sm.eval.battery": 0,
+    "sm.eval.judge": 0,
+    "sm.eval.capability": 0,
+    "sm.interp.base_card": 0,
+    "sm.interp.causal": 0,
+    "sm.interp.drift": 0,
+    "sm.interp.monitor_scores": 0,
+    "sm.analysis.aggregate": 0,
+    "revision pin (qwen3.8-27b, configs/base_card_qwen3.8-27b.yaml)": 0,
+    "frozen code (sm_require_frozen, as base_card/lora/battery/drift)": 0,
+    "real-base load (qwen3.8-27b)": 0,
+    "judge J1 served at its pin and parsed one item": 0,
+    "judge J2 served at its pin and parsed one item": 0,
+    "LoRA on the real base + DirectionHooks + capture (qwen3.8-27b)": 0
+  },
+  "skipped": [],
+  "failures": 0,
+  "passed": true,
+  "git_commit": "ee016363914360393b6c4ced3a4263ce7032178d",
+  "code_tree": "d0fd578f4eec2ae16e226aead7488674cf19aeb3",
+  "pin": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "pytest_summary": "739 passed, 2 skipped, 1 deselected in 577.25s (0:09:37)",
+  "pytest_rc": 0,
+  "cli_modules": [
+    "sm.data.build_prompt_sets",
+    "sm.data.build_bank_datasets",
+    "sm.train.lora_sft",
+    "sm.eval.battery",
+    "sm.eval.judge",
+    "sm.eval.capability",
+    "sm.interp.base_card",
+    "sm.interp.causal",
+    "sm.interp.drift",
+    "sm.interp.monitor_scores",
+    "sm.analysis.aggregate"
+  ],
+  "hostname": "d4055",
+  "timestamp": "2026-10-09T15:02:29+00:00",
+  "code_dirty": false,
+  "smoke_out": "/scratch/shehral.m/monitors/smoke/10940557",
+  "judges": {
+    "J1": {
+      "model": "openai/gpt-oss-safeguard-20b",
+      "revision": "8a11e17b25c973a24099d4016bf2e17dd7ec1574"
+    },
+    "J2": {
+      "model": "ibm-granite/granite-guardian-3.3-8b",
+      "revision": "b3421eda4ba6fc9f9a71121d7e62de08827469a4"
+    }
+  },
+  "split": true,
+  "cpu_job_id": "10928940",
+  "gpu_job_id": "10940557",
+  "cpu_half": {
+    "path": "/projects/interpretability/shehral.m/monitors/results/smoke/qwen3.8-27b/cpu/10928940.json",
+    "sha256": "0e2995ecbcff8b3455eae80c65c8cd36b458efc335503854c552cc89ffbed6a2",
+    "hostname": "c0594",
+    "timestamp": "2026-10-08T22:27:46+00:00",
+    "smoke_out": "/scratch/shehral.m/monitors/smoke/cpu-10928940"
+  },
+  "pytest_workers": 1,
+  "pytest_markexpr": "not slow",
+  "cpu_tmp_root": "/tmp/sm-pytest-10928940-FabI58",
+  "cpu_tmp_kind": "node-local"
+}
